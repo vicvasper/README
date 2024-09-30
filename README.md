@@ -8,9 +8,15 @@
 - 🎮 Check out some of my recent projects below!
 
 ## 🚀 Projects
-- **[Physics Interactive Cube (UE 5.3)](https://github.com/vicvasper/Physics-Interactive-Cube-UE5.3):**: drag & rotate system I made a time ago with a cube to test physics and grab system.
-- **Cinematics with Level Sequencer**: Interactive sequences for storytelling and real-time gameplay transitions.
-- **Static Mesh Hover Detection**: A system that triggers events based on player interaction with the environment.
+
+- **[Optimized Grass System - UE5.3](https://github.com/vicvasper/Optimized-Grass-System-UE5.3)**:  
+  An optimized grass terrain generator that creates grass blades within a terrain tile. It features customizable parameters such as width, height, density, spacing, and tile size, allowing for dynamic terrain generation.
+
+- **[Side Camera System - UE5.3](https://github.com/vicvasper/Side-Camera-System-UE5.3)**:  
+  An adaptive side camera system inspired by *Little Nightmares*. Instead of following the player directly, it uses strategically placed pivot points and transitions smoothly between them. The system adjusts the camera angle, maintaining focus on the player without losing sight.
+
+- **[Physics Interactive Cube - UE5.3](https://github.com/vicvasper/Physics-Interactive-Cube-UE5.3)**:  
+  A physics-based system where you can rotate a cube by clicking and dragging with the mouse, allowing for interactive manipulation of the object.
 
 ---
 
