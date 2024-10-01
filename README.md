@@ -23,20 +23,20 @@
 ### Indie Collaborations
 
 - 2024 - **[57Knives](#)** - Frisant Games  
-  *description*  
-  [Trailer Link](#)
+  *Graphic adventure based on a real crime, developed by Frisant Games.*  
+  [Trailer Link](https://youtu.be/Top0ztbmG1s?si=44q_zBA-4BKJcoJX)
 
 - 2024 - **[The Noah Project](#)** - The Boltage Studio  
-  *A puzzle-platformer focusing on environmental storytelling and player choice. Developed within The Boltage Studio.*  
-  [Trailer Link](#)
+  *A cartoon space adventure platformer featuring quirky planets and unique creatures. I held the position of Game Programmer.*  
+  [Trailer Link](https://youtu.be/TQRwBpVLqfk)
 
 - 2023 - **[Amper](#)** - The Boltage Studio  
-  *Amper is a fast-paced action game that blends platforming with unique combat mechanics. Developed under my own studio, The Boltage Studio.*  
-  [Trailer Link](#)
+  *action-adventure game set in a tech-dominated future, where a cyborg fights enemies and uncovers secrets. I held the position of Game Programmer.*  
+  [Trailer Link](https://youtu.be/ekfCxEih8sc?si=XRIjyxu5oKX47rbn)
 
 - 2022 - **[Azra](#)** - Team Panda  
-  *A narrative-driven game with deep world-building and tactical combat. I contributed to the development of core gameplay mechanics.*  
-  [Trailer Link](#)
+  *pixel art action-platformer, Finalist in the PlayStation Talents awards. I have held the Game Programmer position.*  
+  [PressKit](https://www.teampandastudio.com/presskit/)
 
 ---
 
