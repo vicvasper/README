@@ -11,6 +11,9 @@
 
 ### Personal Projects
 
+- **[Subtitles System - UE5.3](https://github.com/vicvasper/SubtitlesSystem-UE5.3)**  
+  Subtitle system in UE5.3 using Level Sequencer, with language selection from a settings widget. Dynamic, adaptable, and easy to implement.
+
 - **[Optimized Grass System - UE5.3](https://github.com/vicvasper/Optimized-Grass-System-UE5.3)**  
   An optimized grass terrain generator that creates grass blades within a terrain tile. It features customizable parameters such as width, height, density, spacing, and tile size, allowing for dynamic terrain generation.
 
