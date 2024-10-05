@@ -11,6 +11,9 @@
 
 ### Personal Projects
 
+- **[Paint System - UE5.4](https://github.com/vicvasper/Paint-System-5.4)**  
+  C++ Paint System for Unreal Engine 5.4: dynamically paint materials on Static and Skeletal Meshes with RGB and alpha channel control, editable in Blueprints. (uploading code soon)
+
 - **[Subtitles System - UE5.3](https://github.com/vicvasper/SubtitlesSystem-UE5.3)**  
   Subtitle system in UE5.3 using Level Sequencer, with language selection from a settings widget. Dynamic, adaptable, and easy to implement.
 
