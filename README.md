@@ -11,6 +11,9 @@
 
 ### Personal Projects
 
+**[Grass Generator - UE5.4](https://github.com/vicvasper/Grass-Generator-V2-UE5.4)** 
+  Grass Generator for Unreal Engine 5: Easily paint and fill grass layers on landscapes for realistic environments. Perfect for game devs seeking dynamic foliage.
+
 - **[Paint System - UE5.4](https://github.com/vicvasper/Paint-System-5.4)**  
   C++ Paint System for Unreal Engine 5.4: dynamically paint materials on Static and Skeletal Meshes with RGB and alpha channel control, editable in Blueprints. (uploading code soon)
 
