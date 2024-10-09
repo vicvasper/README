@@ -47,6 +47,6 @@
   *pixel art action-platformer, Finalist in the PlayStation Talents awards. I have held the Game Programmer position.*  
   [PressKit](https://www.teampandastudio.com/presskit/)
 
----
+----
 
 Thanks for checking out my work! 😄 Feel free to explore my projects and reach out if you'd like to collaborate or discuss game mechanics.
