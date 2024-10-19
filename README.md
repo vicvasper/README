@@ -11,6 +11,9 @@
 
 ### Personal Projects
 
+- **[Individual Time Control - UE5.5](#)** 
+  Mechanic that allows the player to time-travel the objects, making them go in fast-forward, rewind or just making them stop in time.
+
 - **[Grass Generator - UE5.4](https://github.com/vicvasper/Grass-Generator-V2-UE5.4)** 
   Grass Generator for Unreal Engine 5: Easily paint and fill grass layers on landscapes for realistic environments. Perfect for game devs seeking dynamic foliage.
 
@@ -29,7 +32,11 @@
 - **[Physics Interactive Cube - UE5.3](https://github.com/vicvasper/Physics-Interactive-Cube-UE5.3)**  
   A physics-based system where you can rotate a cube by clicking and dragging with the mouse, allowing for interactive manipulation of the object.
 
-### Indie Collaborations
+### Indie Projects & Collaborations
+
+- 2024 - **"Border"** - Selene Games </br>
+  *3D game developed in Unreal Engine 5, now in development. I I held the position of Game Programmer.*  
+  [Trailer Link](#) (Soon available) 
 
 - 2024 - **57Knives** - Frisant Games  
   *Graphic adventure based on a real crime, developed by Frisant Games.*  
