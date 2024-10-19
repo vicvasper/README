@@ -11,7 +11,7 @@
 
 ### Personal Projects
 
-- **[Individual Time Control - UE5.5](#)** 
+- **[Individual Time Control - UE5.5](https://github.com/vicvasper/TIme-Control-Mechanic_UE5.5)** 
   Mechanic that allows the player to time-travel the objects, making them go in fast-forward, rewind or just making them stop in time.
 
 - **[Grass Generator - UE5.4](https://github.com/vicvasper/Grass-Generator-V2-UE5.4)** 
