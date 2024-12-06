@@ -11,13 +11,13 @@
 
 ### Personal Projects
 
-- **[Procedural Animated System - UE5.5](https://github.com/vicvasper/Procedural-Animated-System_UE5.5)** 
+- **[Procedural Animated System - UE5.5](https://github.com/vicvasper/Procedural-Animated-System_UE5.5)** </br>
   C++ procedural system for bridges, platforms, and obstacles. Auto-detects terrain, supports physics, real-time animations, and integration with Unreal Engine 5.5.
 
-- **[Individual Time Control - UE5.5](https://github.com/vicvasper/TIme-Control-Mechanic_UE5.5)** 
+- **[Individual Time Control - UE5.5](https://github.com/vicvasper/TIme-Control-Mechanic_UE5.5)** </br>
   Mechanic that allows the player to time-travel the objects, making them go in fast-forward, rewind or just making them stop in time.
 
-- **[Grass Generator - UE5.4](https://github.com/vicvasper/Grass-Generator-V2-UE5.4)** 
+- **[Grass Generator - UE5.4](https://github.com/vicvasper/Grass-Generator-V2-UE5.4)** </br>
   Grass Generator for Unreal Engine 5: Easily paint and fill grass layers on landscapes for realistic environments. Perfect for game devs seeking dynamic foliage.
 
 - **[Paint System - UE5.4](https://github.com/vicvasper/Paint-System-5.4)**  
@@ -37,9 +37,9 @@
 
 ### Indie Projects & Collaborations
 
-- 2024 - **"Border"** - Selene Games </br>
+- 2024 - **"FATAL"** - Selene Games </br>
   *3D game developed in Unreal Engine 5, now in development. I I held the position of Game Programmer.*  
-  [Trailer Link](#) (Soon available) 
+  [Trailer Link](https://www.youtube.com/watch?v=l22vlFQJBWU) (Soon available) 
 
 - 2024 - **57Knives** - Frisant Games  
   *Graphic adventure based on a real crime, developed by Frisant Games.*  
