@@ -11,6 +11,9 @@
 
 ### Personal Projects
 
+- **[Procedural Animated System - UE5.5](https://github.com/vicvasper/Procedural-Animated-System_UE5.5)** 
+  C++ procedural system for bridges, platforms, and obstacles. Auto-detects terrain, supports physics, real-time animations, and integration with Unreal Engine 5.5.
+
 - **[Individual Time Control - UE5.5](https://github.com/vicvasper/TIme-Control-Mechanic_UE5.5)** 
   Mechanic that allows the player to time-travel the objects, making them go in fast-forward, rewind or just making them stop in time.
 
