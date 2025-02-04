@@ -39,7 +39,7 @@
 
 - 2024 - **"FATAL"** - Selene Games </br>
   *3D game developed in Unreal Engine 5, now in development. I I held the position of Game Programmer.*  
-  [Trailer Link](https://www.youtube.com/watch?v=l22vlFQJBWU) (Soon available) 
+  [Trailer Link](https://www.youtube.com/watch?v=l22vlFQJBWU)
 
 - 2024 - **57Knives** - Frisant Games  
   *Graphic adventure based on a real crime, developed by Frisant Games.*  
