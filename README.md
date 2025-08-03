@@ -11,6 +11,9 @@
 
 ### Personal Projects
 
+- **[Optilogger Plugin - UE5.3](https://github.com/vicvasper/Optilogger_UE5.3)** </br>
+  Unreal Engine editor plugin for in-depth resource analysis in levels. It examines meshes, textures, materials, animations, audio, lighting, and post-process effects to help optimize performance and identify bottlenecks.
+
 - **[SmartFolders Plugin - UE5.6](https://github.com/vicvasper/SmartFoldersPlugin_UE5.6)** </br>
   A tool for streamlining Unreal Engine asset organization directly within the editor, eliminating Content Browser clutter.
 
