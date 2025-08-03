@@ -11,6 +11,9 @@
 
 ### Personal Projects
 
+- **[SmartFolders Plugin - UE5.6](https://github.com/vicvasper/SmartFoldersPlugin_UE5.6)** </br>
+  A tool for streamlining Unreal Engine asset organization directly within the editor, eliminating Content Browser clutter.
+
 - **[Procedural Animated System - UE5.5](https://github.com/vicvasper/Procedural-Animated-System_UE5.5)** </br>
   C++ procedural system for bridges, platforms, and obstacles. Auto-detects terrain, supports physics, real-time animations, and integration with Unreal Engine 5.5.
 
