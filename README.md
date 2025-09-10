@@ -46,7 +46,7 @@
 
 ### Indie Projects & Collaborations
 
-- 2024-TODAY - **The Noah Project** - The Boltage Studio (Soon on Steam) 
+- 2024 - **The Noah Project** - The Boltage Studio (Soon on Steam) 
   *A cartoon space adventure platformer featuring quirky planets and unique creatures. I held the position of Game Programmer.*  
   [Trailer Link](https://youtu.be/TQRwBpVLqfk) </br>
   [Steam Page](https://store.steampowered.com/app/3952590/Noah__The_Cosmic_Cleanup_Part_1/)
