@@ -43,21 +43,28 @@
 
 ### Indie Projects & Collaborations
 
+- 2024-TODAY - **The Noah Project** - The Boltage Studio (Soon on Steam) 
+  *A cartoon space adventure platformer featuring quirky planets and unique creatures. I held the position of Game Programmer.*  
+  [Trailer Link](https://youtu.be/TQRwBpVLqfk)
+  [Steam Page](https://store.steampowered.com/app/3952590/Noah__The_Cosmic_Cleanup_Part_1/)
+
 - 2024 - **"FATAL"** - Selene Games </br>
   *3D game developed in Unreal Engine 5, now in development. I I held the position of Game Programmer.*  
   [Trailer Link](https://www.youtube.com/watch?v=l22vlFQJBWU)
 
-- 2024 - **57Knives** - Frisant Games  
-  *Graphic adventure based on a real crime, developed by Frisant Games.*  
-  [Trailer Link](https://youtu.be/Top0ztbmG1s?si=44q_zBA-4BKJcoJX)
-
-- 2024 - **The Noah Project** - The Boltage Studio  
-  *A cartoon space adventure platformer featuring quirky planets and unique creatures. I held the position of Game Programmer.*  
-  [Trailer Link](https://youtu.be/TQRwBpVLqfk)
-
 - 2023 - **Amper** - The Boltage Studio  
   *action-adventure game set in a tech-dominated future, where a cyborg fights enemies and uncovers secrets. I held the position of Game Programmer.*  
   [Trailer Link](https://youtu.be/ekfCxEih8sc?si=XRIjyxu5oKX47rbn)
+  [Demo walkthrough gameplay](https://www.youtube.com/watch?v=uoC3SKzIAMk&t=341s)
+
+- 2023 - **About** - Hokuverse  
+  *“About” is the story of a boy who would later be given up for adoption. A story that starts from nothing without even a home, and after overcoming many obstacles finally finds one.*  
+  [Full walkthrough gameplay](https://www.youtube.com/watch?v=YY5GT5eBNZY&t=6s)
+  [Download link](https://hokuverse.itch.io/about)
+
+- 2023 - **57Knives** - Frisant Games  
+  *Graphic adventure based on a real crime, developed by Frisant Games.*  
+  [Trailer Link](https://youtu.be/Top0ztbmG1s?si=44q_zBA-4BKJcoJX)
 
 - 2022 - **Azra** - Team Panda  
   *pixel art action-platformer, Finalist in the PlayStation Talents awards. I have held the Game Programmer position.*  
