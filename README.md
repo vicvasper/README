@@ -11,7 +11,10 @@
 
 ### Personal Projects
 
-- **[Optilogger Plugin - UE5.3](https://github.com/vicvasper/Optilogger_UE5.3)** </br>
+- **[Kinemotion Plugin + Demo Project - UE5.3+](Soon available)** </br>
+  Real-time full-body motion capture for Unreal Engine 5.3+, mapping human poses to Skeletal Meshes using MediaPipe and Animation Blueprint techniques, available for standalone and multiplayer (demo soon).
+
+- **[Optilogger Plugin - UE5.3+](https://github.com/vicvasper/Optilogger_UE5.3)** </br>
   Unreal Engine editor plugin for in-depth resource analysis in levels. It examines meshes, textures, materials, animations, audio, lighting, and post-process effects to help optimize performance and identify bottlenecks.
 
 - **[SmartFolders Plugin - UE5.6](https://github.com/vicvasper/SmartFoldersPlugin_UE5.6)** </br>
