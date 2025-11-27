@@ -1,7 +1,7 @@
-# 👋 Hi, I’m @vicvasper!
+# 👋 Hi, my name is Victor!
 
-- 👀 I’m passionate about creating all kinds of game mechanics, from simple to complex, for both **AAA** and **indie** games.
-- 🌱 I’m constantly learning and experimenting with new mechanics to enhance gameplay experiences.
+- 👀 I’m passionate about creating all kinds of game mechanics, systems and solutions, from simple to complex, and from indie to **AAA** type games.
+- 🌱 I’m constantly learning and experimenting with new workflows to enhance gameplay experiences.
 - 💼 My focus is on developing versatile systems that can adapt to different game styles and genres.
 - 💞️ I’m looking to collaborate on projects where innovative mechanics take center stage.
 - 📫 How to reach me: [vic.rivasperez@gmail.com](mailto:vic.rivasperez@gmail.com)
@@ -75,4 +75,4 @@
 
 ----
 
-Thanks for checking out my work! 😄 Feel free to explore my projects and reach out if you'd like to collaborate or discuss game mechanics.
+Thanks for checking out my work! 💪 Feel free to explore my projects and reach out if you'd like to collaborate or discuss any of them!
