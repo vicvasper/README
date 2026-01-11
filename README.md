@@ -11,7 +11,7 @@
 
 ### Personal Projects
 
-- **[Kinemotion Plugin + Demo Project - UE5.3+](https://github.com/vicvasper/Kinemotion_UE5.5-/blob/main/README.md)** **(Soon available)**</br>
+- **[Kinemotion Plugin + Demo Project - UE5.3+](https://github.com/vicvasper/Kinemotion_UE5.5-/releases/tag/V0.1.0-alpha)**</br>
   Real-time full-body motion capture for Unreal Engine 5.3+, mapping human poses to Skeletal Meshes using MediaPipe and Animation Blueprint techniques, available for standalone and multiplayer (demo soon).
 
 - **[Optilogger Plugin - UE5.3+](https://github.com/vicvasper/Optilogger_UE5.3)** </br>
