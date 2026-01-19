@@ -5,7 +5,6 @@ on:
       - 'site/**'
       - '.github/workflows/generate-cv.yml'
 
-# Permisos necesarios para subir los PDFs generados
 permissions:
   contents: write
 
@@ -23,28 +22,44 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '18'
-          cache: 'npm' # Acelera futuras ejecuciones
+          cache: 'npm'
 
-      - name: Install dependencies
-        env:
-          PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: 'true' # Evita que npm install se cuelgue descargando el navegador
+      - name: Install apt dependencies and Chromium
+        run: |
+          sudo apt-get update -y
+          sudo apt-get install -y ca-certificates wget gnupg
+          # install Chromium and required libs for headless chrome
+          sudo apt-get install -y chromium-browser chromium
+
+      - name: Debug environment
+        run: |
+          which chromium || which chromium-browser || echo "chromium not found"
+          chromium --version || chromium-browser --version || echo "no chromium version"
+          node -v
+          npm -v
+          pwd
+          ls -la
+
+      - name: Install Node dependencies (safe)
         run: |
           if [ -f package-lock.json ]; then
+            echo "Using npm ci"
             npm ci --no-audit --no-fund
           else
+            echo "No lockfile, running npm install"
             npm install --no-audit --no-fund
           fi
-
-      - name: Install Chrome for Puppeteer
-        run: npx puppeteer browsers install chrome # Instala el navegador de forma limpia y explícita
 
       - name: Crop photo (if present)
         run: |
           npm run crop:photo || echo 'photo not present yet'
 
-      - name: Generate PDFs
+      - name: Generate PDFs (using system Chromium)
+        env:
+          CHROME_PATH: /usr/bin/chromium
         run: |
-          npm run generate:pdf || echo 'pdf generation failed'
+          node scripts/generate-pdf.js site/cv_en.html site/cv_en.pdf
+          node scripts/generate-pdf.js site/cv_es.html site/cv_es.pdf
 
       - name: Commit generated PDFs if any
         env:
@@ -54,9 +69,8 @@ jobs:
           git config user.name "${GIT_AUTHOR_NAME}"
           git config user.email "${GIT_AUTHOR_EMAIL}"
           git add site/*.pdf || true
-          # Solo hace commit si hay cambios detectados para evitar errores
-          if git diff --staged --quiet; then
-            echo "No hay cambios en los PDFs para hacer commit"
+          if git diff --cached --quiet; then
+            echo "No PDF changes to commit"
           else
             git commit -m "chore(ci): generate CV PDFs"
             git push
