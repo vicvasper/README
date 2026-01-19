@@ -1,0 +1,5 @@
+Place your high-resolution original photo in site/photo_original.jpg. The included script scripts/crop-photo.js will generate:
+- site/photo.jpg (resized color version, used by the HTML)
+- site/photo_cropped.jpg (tightly cropped headshot variant)
+
+If you prefer, you can upload both variants yourself.

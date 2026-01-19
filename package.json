@@ -1,0 +1,13 @@
+{
+  "name": "vicvasper-cv-site",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "generate:pdf": "node scripts/generate-pdf.js site/cv_en.html site/cv_en.pdf && node scripts/generate-pdf.js site/cv_es.html site/cv_es.pdf",
+    "crop:photo": "node scripts/crop-photo.js"
+  },
+  "dependencies": {
+    "puppeteer": "^20.0.0",
+    "sharp": "^0.32.0"
+  }
+}
