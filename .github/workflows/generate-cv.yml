@@ -5,7 +5,7 @@ on:
       - 'site/**'
       - '.github/workflows/generate-cv.yml'
 
-# Give the workflow permission to write files (so the step that commits PDFs can push)
+# Permisos necesarios para subir los PDFs generados
 permissions:
   contents: write
 
@@ -23,23 +23,20 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '18'
+          cache: 'npm' # Acelera futuras ejecuciones
 
-      - name: Debug versions
-        run: |
-          node -v
-          npm -v
-          pwd
-          ls -la
-
-      - name: Install dependencies (safe fallback)
+      - name: Install dependencies
+        env:
+          PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: 'true' # Evita que npm install se cuelgue descargando el navegador
         run: |
           if [ -f package-lock.json ]; then
-            echo "Using npm ci (lockfile present)"
             npm ci --no-audit --no-fund
           else
-            echo "No lockfile found, running npm install"
             npm install --no-audit --no-fund
           fi
+
+      - name: Install Chrome for Puppeteer
+        run: npx puppeteer browsers install chrome # Instala el navegador de forma limpia y explícita
 
       - name: Crop photo (if present)
         run: |
@@ -57,5 +54,10 @@ jobs:
           git config user.name "${GIT_AUTHOR_NAME}"
           git config user.email "${GIT_AUTHOR_EMAIL}"
           git add site/*.pdf || true
-          git commit -m "chore(ci): generate CV PDFs" || echo 'no pdfs to commit'
-          git push || echo 'push failed'
+          # Solo hace commit si hay cambios detectados para evitar errores
+          if git diff --staged --quiet; then
+            echo "No hay cambios en los PDFs para hacer commit"
+          else
+            git commit -m "chore(ci): generate CV PDFs"
+            git push
+          fi
