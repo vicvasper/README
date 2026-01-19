@@ -3,45 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Victor Rivas - Senior UE Developer</title>
+    <title>Victor Rivas - Unreal Engine Developer</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap');
         
         :root {
-            --bg-dark: #0a0e12;
-            --surface: #151a21;
-            --surface-elevated: #1e252e;
-            --accent: #00a8ff;
-            --accent-secondary: #667eea;
-            --accent-glow: rgba(0, 168, 255, 0.25);
-            --text-bright: #f1f5f9;
-            --text-mid: #cbd5e1;
+            --bg-dark: #0f1114;
+            --surface: #1a1f29;
+            --surface-elevated: #232933;
+            --accent: #f1f5f9e5;
+            --accent-secondary: #3c86d1;
+            --accent-glow: rgba(241, 245, 249, 0.15);
+            --text-bright: #f8fafc;
+            --text-mid: #e2e8f0;
             --text-dim: #94a3b8;
-            --border: #2d3748;
+            --border: #334155;
             --success: #10b981;
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+        @page {
+            size: A4;
+            margin: 0;
+        }
         
+        @media print {
+            body { 
+                margin: 0;
+                background: white;
+            }
+            .page { 
+                width: 210mm;
+                height: 297mm;
+                margin: 0 auto;
+                box-shadow: none;
+                overflow: hidden;
+                display: block;
+                page-break-after: always;
+                position: relative;
+            }
+            .content-section, .sidebar, .main { page-break-inside: avoid; }
+        }
+        
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
         body { 
             font-family: 'Inter', sans-serif; 
             line-height: 1.5; 
             color: var(--text-dim); 
-            background: #e5e7eb; 
+            background: #0f1114; 
         }
 
         .page { 
             background: var(--bg-dark); 
             width: 210mm; 
             min-height: 297mm; 
-            margin: 20px auto; 
+            margin: 0 auto; 
             display: grid; 
             grid-template-columns: 300px 1fr; 
-            box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+            box-shadow: none;
             position: relative;
-            overflow: hidden;
+            overflow: visible;
         }
-
         /* Decorative elements */
         .page::before {
             content: "";
@@ -65,7 +87,7 @@
         /* ===== SIDEBAR ===== */
         .sidebar { 
             background: var(--surface); 
-            padding: 45px 30px; 
+            padding: 30px 25px; 
             position: relative;
             z-index: 2;
         }
@@ -78,13 +100,13 @@
         }
         
         .profile-img { 
-            width: 160px; 
-            height: 160px; 
+            width: 140px; 
+            height: 140px; 
             border-radius: 16px;
             object-fit: cover; 
             border: 3px solid var(--accent);
-            box-shadow: 0 8px 24px var(--accent-glow), 0 0 0 8px rgba(0, 168, 255, 0.1);
-            margin: 0 auto 20px;
+            box-shadow: 0 8px 24px var(--accent-glow), 0 0 0 8px rgba(241, 245, 249, 0.1);
+            margin: 0 auto 15px;
             display: block;
         }
 
@@ -127,7 +149,20 @@
         .contact-item a { 
             color: var(--text-bright); 
             text-decoration: none;
-            transition: color 0.2s;
+        }
+        
+        .company-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .project-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .project-link:hover {
+            text-decoration: underline;
         }
         
         .contact-item a:hover { 
@@ -181,7 +216,7 @@
         
         .tag:hover { 
             border-color: var(--accent); 
-            background: rgba(0, 168, 255, 0.1);
+            background: rgba(241, 245, 249, 0.1);
             color: var(--accent);
             transform: translateY(-1px);
         }
@@ -213,7 +248,7 @@
 
         /* ===== MAIN CONTENT ===== */
         .main { 
-            padding: 45px 50px; 
+            padding: 35px 40px; 
             background: var(--bg-dark); 
             position: relative;
             z-index: 1;
@@ -240,13 +275,13 @@
             font-weight: 600;
         }
 
-        .content-section { margin-bottom: 40px; }
+        .content-section { margin-bottom: 30px; }
         
         .section-header { 
             display: flex; 
             align-items: center; 
             gap: 15px;
-            margin-bottom: 25px; 
+            margin-bottom: 20px; 
         }
         
         .section-header h2 { 
@@ -266,7 +301,7 @@
 
         /* Experience Entries */
         .experience-entry { 
-            margin-bottom: 28px; 
+            margin-bottom: 22px; 
             padding-left: 20px;
             border-left: 2px solid var(--border);
             position: relative;
@@ -356,7 +391,7 @@
         .project-card { 
             background: var(--surface); 
             border: 1px solid var(--border); 
-            padding: 18px 20px; 
+            padding: 14px 16px; 
             border-radius: 8px;
             transition: all 0.3s;
             position: relative;
@@ -461,12 +496,12 @@
 </head>
 <body>
     <div class="page">
-        <!-- SIDEBAR -->
-        <aside class="sidebar">
-            <div class="profile-section">
-                <img src="site/photo_original.jpg" alt="Victor Rivas" class="profile-img">
-                <h1>Victor Rivas</h1>
-                <div class="title">Senior UE Developer</div>
+        <div class="page">
+            <aside class="sidebar">
+                <div class="profile-section">
+                    <img src="photo_original.jpg" alt="Victor Rivas" class="profile-img">
+                    <h1>Victor Rivas</h1>
+                    <div class="title">Unreal Engine Developer</div>
             </div>
 
             <div class="contact-section">
@@ -489,7 +524,7 @@
                 </div>
                 <div class="contact-item">
                     <span class="label">LinkedIn</span>
-                    <a href="https://www.linkedin.com/in/victorrivasperez/">victorrivasperez</a>
+                    <a href="https://www.linkedin.com/in/victorrivasperez/">linkedin.com/in/victorrivasperez</a>
                 </div>
             </div>
 
@@ -566,7 +601,8 @@
         <!-- MAIN CONTENT -->
         <main class="main">
             <div class="summary-box">
-                <p><strong>Senior Unreal Engine Developer</strong> with <strong>5+ years</strong> architecting production-grade gameplay systems, editor tooling, and technical pipelines. Proven track record building <strong>C++ plugins</strong> that solve real production bottlenecks — from <strong>real-time motion capture integration</strong> to <strong>automated performance profiling</strong>. Specialized in bridging the gap between <strong>technical complexity</strong> and <strong>artist workflows</strong>, enabling teams to iterate faster and ship higher quality experiences.</p>
+                <p><strong>Unreal Engine Developer</strong> with <strong>5+ years</strong> building gameplay systems, editor tooling, and technical pipelines. Focused on <strong>C++</strong>, <strong>Blueprints</strong>, and <strong>editor plugins</strong> that unblock teams: real-time <strong>motion capture</strong> integration, <strong>profiling & optimization</strong>, and workflows that keep art/design iteration smooth.</p>
+                <p>Shipped indie titles and PlayStation Talents–nominated project. Build tools that make teams iterate faster.</p>
             </div>
 
             <div class="content-section">
@@ -577,16 +613,16 @@
 
                 <div class="experience-entry">
                     <div class="entry-header">
-                        <span class="role">Senior Unreal Engine Developer</span>
+                        <span class="role">Unreal Engine Developer</span>
                         <span class="duration">2024 — PRESENT</span>
                     </div>
-                    <div class="company">Salascala / TheWiseDreams — Gran Canaria (Remote)</div>
+                    <div class="company"><a href="https://salascala.com" target="_blank" class="company-link">Salascala</a> / <a href="https://thewisedreams.com" target="_blank" class="company-link">TheWiseDreams</a> — Gran Canaria (Hybrid)</div>
                     <div class="entry-description">
                         <ul>
-                            <li><strong>Architected end-to-end Motion Capture pipeline:</strong> Capture → Retarget → Real-time Editor integration, enabling non-technical artists to seamlessly integrate mocap data into gameplay systems</li>
-                            <li><strong>R&D Lead:</strong> Pioneered experimental surf capture systems under NDA, developing physics-based locomotion and high-fidelity movement mechanics for unannounced AAA project</li>
-                            <li><strong>Multiplayer Systems:</strong> Implemented robust client-server replication architecture for low-latency character interactions and synchronized physics objects</li>
-                            <li><strong>Cross-discipline Collaboration:</strong> Worked directly with animation, design, and QA teams to accelerate iteration cycles by 40% through custom editor tooling</li>
+                            <li><strong>Mocap pipeline:</strong> Built capture → retarget → real-time editor integration using Quest 3 and webcams for VR handtracking/full-body.</li>
+                            <li><strong>AI pose models:</strong> Integrated and tested multiple AI models in Unreal for reliable capture.</li>
+                            <li><strong>Multiplayer:</strong> Implemented client-server flows for character interactions and synced physics.</li>
+                            <li><strong>Editor tools:</strong> Delivered utilities cutting manual steps for animation, design, and QA.</li>
                         </ul>
                     </div>
                 </div>
@@ -594,29 +630,26 @@
                 <div class="experience-entry">
                     <div class="entry-header">
                         <span class="role">Gameplay Programmer</span>
-                        <span class="duration">2024 (6 months)</span>
+                        <span class="duration">2024</span>
                     </div>
-                    <div class="company">Selene Games — Madrid</div>
+                    <div class="company"><a href="https://selenegames.com" target="_blank" class="company-link">Selene Games</a> — Madrid</div>
                     <div class="entry-description">
                         <ul>
-                            <li><strong>Performance Optimization:</strong> Refactored level streaming logic and asset loading pipeline, stabilizing frame rates to consistent 60 FPS in dense urban environments (30% improvement)</li>
-                            <li><strong>Developer Tools:</strong> Built in-game debugging suite with real-time profiling overlays, reducing QA testing time by 25%</li>
-                            <li><strong>Gameplay Features:</strong> Implemented core movement mechanics and player interaction systems in C++/Blueprints</li>
+                            <li><strong>Vehicle system:</strong> Developed spline-based driving with tunable acceleration/braking for realistic drift.</li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="experience-entry">
                     <div class="entry-header">
-                        <span class="role">Lead Gameplay Programmer</span>
+                        <span class="role">Unreal Engine Developer</span>
                         <span class="duration">2021 — 2022</span>
                     </div>
-                    <div class="company">Team Panda — Vigo</div>
+                    <div class="company"><a href="https://teampanda.com" target="_blank" class="company-link">Team Panda</a> — Azra</div>
                     <div class="entry-description">
                         <ul>
-                            <li><strong>PlayStation Talents Finalist (Azra):</strong> Led technical development of physics-based platformer character controller and combat systems, earning Best Narrative nomination</li>
-                            <li><strong>Console Optimization:</strong> Managed full optimization pipeline for PlayStation hardware certification, achieving 30 FPS target on base PS4 hardware</li>
-                            <li><strong>Technical Leadership:</strong> Mentored junior programmers and established C++ coding standards and BP architecture guidelines for the team</li>
+                            <li><strong>Azra (UE build):</strong> Developed controller/combat systems; project nominated for PlayStation Talents 2021 Best Narrative.</li>
+                            <li><strong>Console:</strong> Executed performance passes for PS4 targets.</li>
                         </ul>
                     </div>
                 </div>
@@ -630,28 +663,34 @@
 
                 <div class="project-grid">
                     <div class="project-card">
-                        <h3>Optilogger Plugin <span class="tech-badge">C++ / SLATE</span></h3>
-                        <p><strong>Production-ready profiling tool</strong> for UE Editor. Performs deep scene analysis identifying overdraw hotspots, texture memory usage, shader complexity, and animation costs. Generates actionable optimization reports with one-click fixes. <strong>Used by multiple studios</strong> to reduce build times by up to 35%.</p>
-                    </div>
-
-                    <div class="project-card">
                         <h3>Kinemotion Mocap System <span class="tech-badge">C++ / MEDIAPIPE / BP</span></h3>
-                        <p><strong>Real-time full-body pose estimation</strong> integrated into UE5.3+. Maps webcam data to skeletal meshes via custom Animation Blueprint nodes. Includes multiplayer-ready replication and <strong>production-tested pipeline</strong> for rapid prototyping of mocap-driven gameplay mechanics.</p>
+                        <p>Real-time full-body pose from webcam → skeletal mesh via custom AnimBP nodes. Replication support for VR/remote review. <a href="https://github.com/vicvasper" target="_blank" class="project-link">GitHub</a>. Accelerates mocap prototyping.</p>
                     </div>
 
                     <div class="project-card">
-                        <h3>Procedural Bridges System <span class="tech-badge">C++ / PROCEDURAL MESH</span></h3>
-                        <p><strong>Dynamic generation system</strong> that adapts bridge structures to uneven terrain using raycasting and procedural mesh components. Features real-time physics integration, customizable materials, and <strong>performance-optimized</strong> LOD generation for open-world environments.</p>
+                        <h3>Optilogger Plugin <span class="tech-badge">C++ / SLATE</span></h3>
+                        <p>UE Editor profiling: overdraw, textures, shaders, animation. Generates optimization reports and one-click fixes. <a href="https://github.com/cbteeple/optilogger" target="_blank" class="project-link">GitHub</a>. Cuts iteration time on heavy scenes.</p>
                     </div>
 
                     <div class="project-card">
-                        <h3>SmartFolders Plugin <span class="tech-badge">C++ / EDITOR SCRIPTING</span></h3>
-                        <p><strong>Asset organization automation</strong> for Content Browser. Rule-based system for batch operations with undo support. Reduces manual organization time by <strong>70% in large-scale projects</strong>.</p>
+                        <h3>Amper <span class="tech-badge">UNREAL / INDIE</span></h3>
+                        <p>Shipped indie title (<a href="https://theboltagestudio.com" target="_blank" class="project-link">The Boltage Studio</a>). Lead programmer: core gameplay, tools, release pipeline on PC. <a href="https://theboltagestudio.com/presskit-amper/" target="_blank" class="project-link">Presskit</a>. Delivered end-to-end from prototype to launch.</p>
+                    </div>
+
+                    <div class="project-card">
+                        <h3>Noah and the Cosmic Cleanup <span class="tech-badge">UNREAL / IN PRODUCTION</span></h3>
+                        <p>Upcoming title (next 3 months). Gameplay and tooling lead for character systems and content iteration. <a href="https://store.steampowered.com/app/3952590/Noah__The_Cosmic_Cleanup/" target="_blank" class="project-link">Steam page</a>. Launching Q1.</p>
+                    </div>
+
+                    <div class="project-card">
+                        <h3>About <span class="tech-badge">UNREAL / SOLO</span></h3>
+                        <p>Solo narrative prototype (Itch). Procedural animation (Niagara tentacles, spider rig), basic AI, spline encounters. Demonstrates range in AI, Niagara, procedural systems. <a href="https://hokuverse.itch.io/about" target="_blank" class="project-link">View on Itch.io</a></p>
                     </div>
                 </div>
+                <div class="page-break"></div>
             </div>
 
-            <div class="content-section">
+            <div class="content-section education-section">
                 <div class="section-header">
                     <h2>Education & Training</h2>
                     <div class="line"></div>
