@@ -50,13 +50,24 @@
         }
 
         /* Header */
-        header {
-            padding: 28px 0;
+        header.site-header {
             background: var(--bg-primary);
             border-bottom: 1px solid var(--border);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            width: 100%;
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 18px 32px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: relative;
         }
 
         .logo {
@@ -73,6 +84,7 @@
         nav {
             display: flex;
             gap: 30px;
+            align-items: center;
         }
 
         nav a {
@@ -82,6 +94,60 @@
             font-weight: 500;
             transition: color 0.3s;
             position: relative;
+        }
+
+        /* Mobile menu */
+        .menu-toggle {
+            display: none;
+            width: 42px;
+            height: 42px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: var(--bg-secondary);
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .menu-toggle span,
+        .menu-toggle span::before,
+        .menu-toggle span::after {
+            display: block;
+            width: 18px;
+            height: 2px;
+            background: var(--text-primary);
+            position: relative;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .menu-toggle span::before,
+        .menu-toggle span::after {
+            content: '';
+            position: absolute;
+            left: 0;
+        }
+
+        .menu-toggle span::before { top: -6px; }
+        .menu-toggle span::after { top: 6px; }
+
+        #menu-checkbox { display: none; }
+
+        #menu-checkbox:checked + label .menu-toggle span {
+            transform: rotate(45deg);
+        }
+
+        #menu-checkbox:checked + label .menu-toggle span::before {
+            transform: rotate(90deg);
+            top: 0;
+        }
+
+        #menu-checkbox:checked + label .menu-toggle span::after {
+            opacity: 0;
+        }
+
+        #menu-checkbox:checked ~ nav {
+            display: flex;
         }
 
         nav a::after {
@@ -202,7 +268,7 @@
         /* Stats */
         .stats {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
             margin-top: 60px;
         }
@@ -424,13 +490,47 @@
 
         /* Responsive */
         @media (max-width: 968px) {
+            header {
+                position: sticky;
+                top: 0;
+                padding: 18px 0;
+            }
+
+            .logo {
+                font-size: 16px;
+            }
+
+            .menu-toggle {
+                display: inline-flex;
+            }
+
+            nav {
+                position: absolute;
+                top: 64px;
+                right: 16px;
+                left: 16px;
+                flex-direction: column;
+                gap: 16px;
+                background: var(--bg-secondary);
+                padding: 18px;
+                border: 1px solid var(--border);
+                border-radius: 10px;
+                display: none;
+                box-shadow: 0 12px 32px rgba(0,0,0,0.35);
+            }
+
+            nav a {
+                font-size: 15px;
+                text-align: center;
+            }
+
             .hero {
-                flex-direction: column-reverse;
+                flex-direction: column;
                 text-align: center;
             }
 
             .hero h1 {
-                font-size: 48px;
+                font-size: 42px;
             }
 
             .hero p {
@@ -446,15 +546,11 @@
             }
 
             .stats {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             }
 
             .projects-grid {
                 grid-template-columns: 1fr;
-            }
-
-            nav {
-                display: none;
             }
         }
 
@@ -476,27 +572,38 @@
 <body>
     <div class="bg-gradient"></div>
 
-    <div class="container">
-        <header>
+    <header class="site-header">
+        <div class="header-inner">
             <div class="logo">Victor Rivas</div>
+            <input type="checkbox" id="menu-checkbox" aria-label="Toggle navigation menu">
+            <label for="menu-checkbox">
+                <div class="menu-toggle" aria-hidden="true">
+                    <span></span>
+                </div>
+            </label>
             <nav>
                 <a href="#projects">Projects</a>
                 <a href="#contact">Contact</a>
                 <a href="CV_EN.html" target="_blank">CV (EN)</a>
             </nav>
-        </header>
+        </div>
+    </header>
 
+    <div class="container">
         <section class="hero">
             <div class="hero-content">
                 <div class="hero-label">// Unreal Engine Developer</div>
-                <h1>Unreal Engine solutions that ship fast and run flawlessly.</h1>
-                <p>Hands-on problem solver for complex C++ systems, optimization, and tooling. I take ownership end-to-end and deliver production-ready results without surprises.</p>
+                <h1>Seasoned Unreal Engine Developer excelling in performance optimization and innovative custom tooling.</h1>
+                <p>A dedicated problem-solver tackling intricate C++ systems, optimizations, and tools. I own the full process to deliver reliable, production-grade outcomes that exceed expectations.</p>
                 <div class="cta-buttons">
                     <a href="CV_EN.html" class="btn btn-primary" target="_blank">
                         View CV (EN)
                     </a>
-                    <a href="#projects" class="btn btn-secondary">
-                        View Projects
+                    <a href="#contact" class="btn btn-secondary">
+                        Contact Me
+                    </a>
+                    <a href="https://github.com/vicvasper" class="btn btn-secondary" target="_blank">
+                        GitHub Portfolio
                     </a>
                 </div>
             </div>
@@ -508,15 +615,11 @@
         <div class="stats">
             <div class="stat-card">
                 <div class="stat-number">5+</div>
-                <div class="stat-label">Years UE Development</div>
+                <div class="stat-label">Years in UE Development</div>
             </div>
             <div class="stat-card">
                 <div class="stat-number">13</div>
-                <div class="stat-label">Open Source Projects</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">6</div>
-                <div class="stat-label">GitHub Stars</div>
+                <div class="stat-label">Open-Source Projects</div>
             </div>
         </div>
     </div>
@@ -524,25 +627,25 @@
     <section class="why-hire">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Why hire me</h2>
-                <p class="section-subtitle">Immediate impact for teams that need reliable Unreal Engine execution</p>
+                <h2 class="section-title">Why Hire Me</h2>
+                <p class="section-subtitle">Proven expertise delivering immediate value to teams requiring top-tier Unreal Engine implementation.</p>
             </div>
             <div class="why-grid">
                 <div class="why-card">
-                    <h3>Ships production-ready</h3>
-                    <p>Owner mindset: design, build, test, and deliver. I reduce risk by shipping increments that work on day one.</p>
+                    <h3>Production-Ready Delivery</h3>
+                    <p>Consistently ships high-quality code with an ownership approach, mitigating risks through iterative releases and thorough testing.</p>
                 </div>
                 <div class="why-card">
-                    <h3>Performance & tooling</h3>
-                    <p>Optimization, profiling, and editor tooling (Optilogger, SmartFolders) that speed teams and cut waste.</p>
+                    <h3>Optimization & Tooling Mastery</h3>
+                    <p>Develops advanced profiling tools and optimization solutions (e.g., Optilogger, SmartFolders) that streamline workflows and eliminate inefficiencies.</p>
                 </div>
                 <div class="why-card">
-                    <h3>End-to-end delivery</h3>
-                    <p>Released game (Amper) and multiple UE plugins prove I can take features from concept to shipped product.</p>
+                    <h3>Full-Cycle Expertise</h3>
+                    <p>Demonstrated success shipping titles like Amper and creating plugins from ideation to deployment.</p>
                 </div>
                 <div class="why-card">
-                    <h3>Cross-discipline fluency</h3>
-                    <p>Comfortable with animation, procedural systems, physics, and editor UX—collaborates smoothly with artists and engineers.</p>
+                    <h3>Collaborative Excellence</h3>
+                    <p>Fluent across disciplines, partnering effectively with artists and engineers on animation, physics, procedural systems, and UI challenges.</p>
                 </div>
             </div>
         </div>
@@ -552,7 +655,7 @@
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Technical Expertise</h2>
-                <p class="section-subtitle">Advanced systems development with proven results in production environments</p>
+                <p class="section-subtitle">Proven systems development yielding tangible results in demanding production settings.</p>
             </div>
 
             <div class="projects-grid">
@@ -569,7 +672,7 @@
                         <span class="tag">SLATE UI</span>
                         <span class="tag">PERFORMANCE</span>
                     </div>
-                    <p>Expert-level C++ development in UE5 with deep understanding of engine architecture. Specialized in performance optimization, memory management, and real-time systems programming.</p>
+                    <p>In-depth C++ proficiency in UE5, with comprehensive understanding of engine architecture. Specializing in performance tuning, memory optimization, and real-time system development.</p>
                 </div>
 
                 <div class="project-card">
@@ -587,7 +690,7 @@
                         <span class="tag">DEBUGGING</span>
                         <span class="tag">OPTIMIZATION</span>
                     </div>
-                    <p>Proven ability to tackle complex technical challenges and deliver exceptional solutions. Every project is completed to the highest standards with thorough testing and optimization.</p>
+                    <p>Track record of resolving sophisticated technical issues with innovative, high-standard solutions, backed by rigorous testing and optimization practices.</p>
                 </div>
 
                 <div class="project-card">
@@ -606,7 +709,7 @@
                         <span class="tag">TEAM LEAD</span>
                         <span class="tag">DELIVERY</span>
                     </div>
-                    <p>Founder of The Boltage Studio. I lead teams, define pipelines, and deliver production-ready outcomes with measurable performance gains.</p>
+                    <p>Founder of The Boltage Studio, where I guide teams, establish efficient pipelines, and achieve measurable performance improvements in delivered projects.</p>
                     <a href="https://theboltagestudio.com/" class="project-link" target="_blank">
                         Visit Studio →
                     </a>
@@ -619,7 +722,7 @@
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Professional Experience</h2>
-                <p class="section-subtitle">Industry roles and shipped work</p>
+                <p class="section-subtitle">Key roles and contributions in industry projects and releases.</p>
             </div>
 
             <div class="projects-grid">
@@ -630,13 +733,13 @@
                         <path d="M7 14h10l2 4H5z"></path>
                     </svg>
                     </div>
-                    <h3>Salascala / SPV Scala for The Wise Dreams (2024–2025)</h3>
+                    <h3>Salascala / SPV Scala for The Wise Dreams (2024–Present)</h3>
                     <div class="project-tags">
                         <span class="tag">UNREAL DEV</span>
                         <span class="tag">VR & HANDTRACKING</span>
                         <span class="tag">MOCAP PIPELINES</span>
                     </div>
-                    <p>Contracted by Salascala (SPV Scala) to build VR/handtracking and motion-capture pipelines for The Wise Dreams. Capture → retarget → editor workflows, gameplay systems, replication, and R&D under NDA.</p>
+                    <p>Contracted to develop sophisticated VR/hand-tracking and motion capture pipelines. Implemented complete capture-to-editor workflows, gameplay features, replication systems, and R&D initiatives under NDA.</p>
                 </div>
                 <div class="project-card">
                     <div class="project-icon">
@@ -652,7 +755,7 @@
                         <span class="tag">STREAMING</span>
                         <span class="tag">STABILITY</span>
                     </div>
-                    <p>Implemented gameplay features and improved level streaming and stability for production builds.</p>
+                    <p>Engineered core gameplay mechanics while enhancing level streaming performance and overall build stability for production environments.</p>
                 </div>
                 <div class="project-card">
                     <div class="project-icon">
@@ -668,7 +771,7 @@
                         <span class="tag">PLAYSTATION TALENTS FINALIST</span>
                         <span class="tag">OPTIMIZATION</span>
                     </div>
-                    <p>Lead programmer on Azra (PlayStation Talents finalist). Gameplay mechanics, console optimizations, and full technical support.</p>
+                    <p>Served as lead programmer for this PlayStation Talents finalist, developing gameplay mechanics, conducting console optimizations, and providing comprehensive technical leadership.</p>
                 </div>
             </div>
         </div>
@@ -678,7 +781,7 @@
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Featured Projects</h2>
-                <p class="section-subtitle">Open-source tools, systems, and shipped game work</p>
+                <p class="section-subtitle">Selected open-source tools, advanced systems, and released works demonstrating technical depth.</p>
             </div>
 
             <div class="projects-grid">
@@ -699,7 +802,7 @@
                         <span class="tag">INDIE GAME</span>
                         <span class="tag">DEVUEGO</span>
                     </div>
-                    <p>Lead programmer on Amper (The Boltage Studio). Featured in DeVuego. End-to-end delivery from concept to release in the indie market.</p>
+                    <p>Directed programming efforts for Amper at The Boltage Studio, featured in DeVuego. Oversaw full lifecycle from concept through successful indie market release.</p>
                     <a href="https://theboltagestudio.com/presskit-amper/" class="project-link" target="_blank">
                         View Game →
                     </a>
@@ -717,7 +820,7 @@
                         <span class="tag">SLATE UI</span>
                         <span class="tag">PROFILING</span>
                     </div>
-                    <p>Deep-analysis profiling tool for UE Editor with comprehensive resource scanning. Identifies performance bottlenecks, heavy textures, and shader complexity. <strong>6 GitHub stars</strong>.</p>
+                    <p>In-depth profiling solution for UE Editor, scanning resources to pinpoint bottlenecks, texture issues, and shader inefficiencies. Provides optimization reports and automated resolutions. 6 GitHub stars.</p>
                     <a href="https://github.com/vicvasper/Optilogger_UE5.3" class="project-link" target="_blank">
                         View on GitHub →
                     </a>
@@ -735,7 +838,7 @@
                         <span class="tag">MEDIAPIPE</span>
                         <span class="tag">ANIMATION</span>
                     </div>
-                    <p>Real-time full-body motion capture for UE5.3+. MediaPipe webcam-to-skeleton mapping with custom AnimBP nodes and multiplayer replication.</p>
+                    <p>Cutting-edge real-time motion capture system for UE5.3+, translating MediaPipe webcam data to skeleton animations with custom nodes and multiplayer support.</p>
                     <a href="https://github.com/vicvasper/Kinemotion_UE5.5-" class="project-link" target="_blank">
                         View on GitHub →
                     </a>
@@ -753,7 +856,7 @@
                         <span class="tag">PROCEDURAL</span>
                         <span class="tag">PHYSICS</span>
                     </div>
-                    <p>Dynamic bridge generation adapting to terrain. Raycasting, procedural meshes, physics integration, and optimized LOD generation.</p>
+                    <p>Intelligent bridge generation system that dynamically adapts to terrain using raycasting, procedural meshing, physics integration, and optimized LODs.</p>
                     <a href="https://github.com/vicvasper/Procedural-Animated-System_UE5.5" class="project-link" target="_blank">
                         View on GitHub →
                     </a>
@@ -771,7 +874,7 @@
                         <span class="tag">EDITOR</span>
                         <span class="tag">AUTOMATION</span>
                     </div>
-                    <p>Rule-based asset organization for Content Browser. Batch ops, undo support, and automation to cut manual time by up to 70%.</p>
+                    <p>Rule-driven asset organization tool for UE Content Browser, featuring batch operations, undo functionality, and automation that reduces manual organization time by up to 70%.</p>
                     <a href="https://github.com/vicvasper/SmartFoldersPlugin_UE5.6" class="project-link" target="_blank">
                         View on GitHub →
                     </a>
@@ -790,7 +893,7 @@
                         <span class="tag">GAMEPLAY</span>
                         <span class="tag">PHYSICS</span>
                     </div>
-                    <p>Per-object time manipulation: fast-forward, rewind, and freeze with full physics state management and visual feedback.</p>
+                    <p>Granular per-object time manipulation mechanics including fast-forward, rewind, and freeze functions with complete physics state handling and intuitive visual cues.</p>
                     <a href="https://github.com/vicvasper/TIme-Control-Mechanic_UE5.5" class="project-link" target="_blank">
                         View on GitHub →
                     </a>
@@ -808,9 +911,28 @@
                         <span class="tag">MATERIALS</span>
                         <span class="tag">RENDERING</span>
                     </div>
-                    <p>Runtime material painting for Static/Skeletal Meshes with precise RGB/alpha control. Blueprint-friendly for rapid iteration.</p>
+                    <p>Runtime material painting tool for Static and Skeletal Meshes with precise control over RGB and alpha channels, designed for Blueprint integration and quick prototyping.</p>
                     <a href="https://github.com/vicvasper/Paint-System-5.4" class="project-link" target="_blank">
                         View on GitHub →
+                    </a>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 6h16v4H4z"></path>
+                        <path d="M4 12h10v6H4z"></path>
+                        <path d="M16 12h4v6h-4z"></path>
+                    </svg>
+                    </div>
+                    <h3>Noah and the Cosmic Cleanup</h3>
+                    <div class="project-tags">
+                        <span class="tag">UNREAL ENGINE</span>
+                        <span class="tag">IN PRODUCTION</span>
+                    </div>
+                    <p>Gameplay and tooling lead for character systems and content pipelines in this upcoming title. Focused on efficient iteration for Q1 release.</p>
+                    <a href="https://store.steampowered.com/app/3952590/Noah__The_Cosmic_Cleanup/" class="project-link" target="_blank">
+                        Steam Page →
                     </a>
                 </div>
             </div>
@@ -820,8 +942,8 @@
     <section id="contact" class="contact-section">
         <div class="container">
             <div class="contact-box">
-                <h2>Let's Build Something Exceptional</h2>
-                <p>Driven by technical excellence and commitment to delivering outstanding results. Open to challenging opportunities where I can apply my expertise to solve complex problems and contribute to ambitious projects.</p>
+                <h2>Let's Create Impactful Solutions</h2>
+                <p>Committed to technical excellence and delivering exceptional results. Eager to engage in challenging projects where my skills can address complex challenges and drive innovative outcomes.</p>
                 <div class="contact-links">
                     <a href="mailto:vic.rivasperez@gmail.com" class="btn btn-primary">
                         Email Me
@@ -839,8 +961,8 @@
 
     <footer>
         <div class="container">
-            <p>© 2025 Victor Rivas — Unreal Engine Developer</p>
-            <p style="margin-top: 8px; font-size: 12px;">Professional portfolio</p>
+            <p>© 2026 Victor Rivas — Unreal Engine Developer</p>
+            <p style="margin-top: 8px; font-size: 12px;">Professional Portfolio</p>
         </div>
     </footer>
 </body>
