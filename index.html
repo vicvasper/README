@@ -7,14 +7,14 @@
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-dark: #0a0e12;
-            --surface: #151a21;
-            --surface-elevated: #1e252e;
-            --accent: #00a8ff;
-            --accent-secondary: #667eea;
-            --text-bright: #f1f5f9;
-            --text-mid: #cbd5e1;
-            --text-dim: #94a3b8;
+            --bg-dark: #0d1117;
+            --surface: #161b22;
+            --surface-elevated: #21262d;
+            --accent: #0969da;
+            --accent-secondary: #1f6feb;
+            --text-bright: #f0f6fc;
+            --text-mid: #8b949e;
+            --text-dim: #6e7681;
         }
 
         * {
@@ -63,7 +63,7 @@
 
         .logo {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 700;
             color: var(--text-bright);
             letter-spacing: -0.5px;
@@ -121,21 +121,21 @@
 
         .hero-label {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 13px;
+            font-size: 12px;
             color: var(--accent);
             text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 20px;
+            letter-spacing: 1.5px;
+            margin-bottom: 24px;
             font-weight: 600;
         }
 
         .hero h1 {
-            font-size: 64px;
-            font-weight: 900;
+            font-size: 56px;
+            font-weight: 800;
             color: var(--text-bright);
             line-height: 1.1;
-            margin-bottom: 20px;
-            letter-spacing: -2px;
+            margin-bottom: 24px;
+            letter-spacing: -1px;
         }
 
         .hero h1 .gradient-text {
@@ -146,11 +146,12 @@
         }
 
         .hero p {
-            font-size: 20px;
-            line-height: 1.7;
+            font-size: 18px;
+            line-height: 1.6;
             color: var(--text-mid);
             margin-bottom: 40px;
-            max-width: 600px;
+            max-width: 580px;
+            font-weight: 400;
         }
 
         .cta-buttons {
@@ -160,38 +161,37 @@
         }
 
         .btn {
-            padding: 16px 32px;
-            border-radius: 8px;
+            padding: 14px 28px;
+            border-radius: 6px;
             font-weight: 600;
-            font-size: 15px;
+            font-size: 14px;
             text-decoration: none;
-            transition: all 0.3s;
+            transition: all 0.2s;
             display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
         }
 
         .btn-primary {
             background: var(--accent);
             color: white;
-            box-shadow: 0 4px 20px rgba(0, 168, 255, 0.3);
+            border: 1px solid var(--accent);
         }
 
         .btn-primary:hover {
-            background: #0096e6;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(0, 168, 255, 0.4);
+            background: var(--accent-secondary);
+            border-color: var(--accent-secondary);
         }
 
         .btn-secondary {
             background: transparent;
             color: var(--text-bright);
-            border: 2px solid var(--surface-elevated);
+            border: 1px solid var(--surface-elevated);
         }
 
         .btn-secondary:hover {
             border-color: var(--accent);
-            background: rgba(0, 168, 255, 0.1);
+            color: var(--accent);
         }
 
         .hero-image {
@@ -201,9 +201,8 @@
 
         .hero-image img {
             width: 100%;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-            border: 3px solid var(--accent);
+            border-radius: 8px;
+            border: 1px solid var(--surface-elevated);
         }
 
         /* Stats */
@@ -216,24 +215,23 @@
 
         .stat-card {
             background: var(--surface);
-            padding: 30px;
-            border-radius: 12px;
-            border: 1px solid rgba(255,255,255,0.05);
+            padding: 32px;
+            border-radius: 8px;
+            border: 1px solid var(--surface-elevated);
             text-align: center;
-            transition: transform 0.3s, border-color 0.3s;
+            transition: all 0.2s;
         }
 
         .stat-card:hover {
-            transform: translateY(-4px);
             border-color: var(--accent);
         }
 
         .stat-number {
-            font-size: 48px;
-            font-weight: 900;
+            font-size: 42px;
+            font-weight: 700;
             color: var(--accent);
             line-height: 1;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .stat-label {
@@ -275,45 +273,26 @@
 
         .project-card {
             background: var(--surface);
-            border: 1px solid rgba(255,255,255,0.05);
-            border-radius: 16px;
+            border: 1px solid var(--surface-elevated);
+            border-radius: 8px;
             padding: 32px;
-            transition: all 0.3s;
+            transition: all 0.2s;
             position: relative;
-            overflow: hidden;
-        }
-
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--accent) 0%, var(--accent-secondary) 100%);
-            opacity: 0;
-            transition: opacity 0.3s;
         }
 
         .project-card:hover {
             border-color: var(--accent);
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-        }
-
-        .project-card:hover::before {
-            opacity: 1;
         }
 
         .project-icon {
-            width: 60px;
-            height: 60px;
-            background: rgba(0, 168, 255, 0.1);
-            border-radius: 12px;
+            width: 48px;
+            height: 48px;
+            background: var(--surface-elevated);
+            border-radius: 6px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 28px;
+            font-size: 20px;
             margin-bottom: 20px;
             color: var(--accent);
         }
@@ -479,10 +458,10 @@
                 <p>Specialized in complex C++ plugin development, real-time systems, and performance optimization. Proven ability to solve technical challenges and deliver production-ready solutions with exceptional quality.</p>
                 <div class="cta-buttons">
                     <a href="cv_en.pdf" class="btn btn-primary" download>
-                        <span>📄</span> Download CV
+                        Download CV
                     </a>
                     <a href="#projects" class="btn btn-secondary">
-                        <span>🚀</span> View Projects
+                        View Projects
                     </a>
                 </div>
             </div>
@@ -653,13 +632,13 @@
                 <p>Driven by technical excellence and commitment to delivering outstanding results. Open to challenging opportunities where I can apply my expertise to solve complex problems and contribute to ambitious projects.</p>
                 <div class="contact-links">
                     <a href="mailto:vic.rivasperez@gmail.com" class="btn btn-primary">
-                        📧 Email Me
+                        Email Me
                     </a>
                     <a href="https://www.linkedin.com/in/victorrivasperez/" class="btn btn-secondary" target="_blank">
-                        💼 LinkedIn
+                        LinkedIn
                     </a>
                     <a href="https://github.com/vicvasper" class="btn btn-secondary" target="_blank">
-                        💻 GitHub
+                        GitHub
                     </a>
                 </div>
             </div>
@@ -669,7 +648,7 @@
     <footer>
         <div class="container">
             <p>© 2025 Victor Rivas — Unreal Engine Developer</p>
-            <p style="margin-top: 8px; font-size: 12px;">Built with passion for game development 🎮</p>
+            <p style="margin-top: 8px; font-size: 12px;">Professional portfolio</p>
         </div>
     </footer>
 </body>
