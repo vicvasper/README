@@ -1,0 +1,31 @@
+name: Generate CV PDFs
+on:
+  push:
+    paths:
+      - 'site/**'
+      - '.github/workflows/generate-cv.yml'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      - name: Install dependencies
+        run: npm ci || npm install
+      - name: Crop photo (if present)
+        run: |
+          npm run crop:photo || echo 'photo not present yet'
+      - name: Generate PDFs
+        run: |
+          npm run generate:pdf || echo 'pdf generation failed'
+      - name: Commit generated PDFs if any
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "actions@github.com"
+          git add site/*.pdf || true
+          git commit -m "chore(ci): generate CV PDFs" || echo 'no pdfs to commit'
+          git push || echo 'push failed'
