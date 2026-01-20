@@ -28,18 +28,29 @@
             body { 
                 margin: 0;
                 background: white;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
             }
             .page { 
                 width: 210mm;
                 height: 297mm;
-                margin: 0 auto;
+                margin: 0;
                 box-shadow: none;
-                overflow: hidden;
-                display: block;
                 page-break-after: always;
-                position: relative;
+                page-break-inside: avoid;
+                overflow: hidden;
             }
-            .content-section, .sidebar, .main { page-break-inside: avoid; }
+            .page:last-child {
+                page-break-after: avoid;
+            }
+            .page::before, .page::after { 
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            * { 
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
         }
         
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -54,14 +65,15 @@
         .page { 
             background: var(--bg-dark); 
             width: 210mm; 
-            min-height: 297mm; 
-            margin: 0 auto; 
+            height: 297mm; 
+            margin: 0 auto 20px; 
             display: grid; 
             grid-template-columns: 300px 1fr; 
-            box-shadow: none;
+            box-shadow: 0 0 20px rgba(0,0,0,0.3);
             position: relative;
-            overflow: visible;
+            overflow: hidden;
         }
+        
         /* Decorative elements */
         .page::before {
             content: "";
@@ -92,8 +104,8 @@
 
         .profile-section { 
             text-align: center; 
-            margin-bottom: 40px; 
-            padding-bottom: 30px;
+            margin-bottom: 30px; 
+            padding-bottom: 20px;
             border-bottom: 1px solid var(--border);
         }
         
@@ -125,7 +137,7 @@
             letter-spacing: 1px;
         }
         
-        .contact-section { margin-bottom: 35px; }
+        .contact-section { margin-bottom: 25px; }
         
         .contact-item { 
             margin-bottom: 16px; 
@@ -167,7 +179,7 @@
             color: var(--accent);
         }
 
-        .side-section { margin-bottom: 35px; }
+        .side-section { margin-bottom: 25px; }
         
         .section-title { 
             font-family: 'JetBrains Mono', monospace;
@@ -183,7 +195,7 @@
             letter-spacing: 1px;
         }
 
-        .skill-category { margin-bottom: 20px; }
+        .skill-category { margin-bottom: 15px; }
         
         .skill-category .category-name { 
             display: block; 
@@ -255,8 +267,8 @@
         .summary-box { 
             background: var(--surface);
             border-left: 4px solid var(--accent);
-            padding: 20px 24px; 
-            margin-bottom: 35px;
+            padding: 16px 20px; 
+            margin-bottom: 25px;
             border-radius: 0 8px 8px 0;
             box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
@@ -273,13 +285,13 @@
             font-weight: 600;
         }
 
-        .content-section { margin-bottom: 30px; }
+        .content-section { margin-bottom: 20px; }
         
         .section-header { 
             display: flex; 
             align-items: center; 
             gap: 15px;
-            margin-bottom: 20px; 
+            margin-bottom: 15px; 
         }
         
         .section-header h2 { 
@@ -383,13 +395,13 @@
         .project-grid { 
             display: grid; 
             grid-template-columns: 1fr; 
-            gap: 16px; 
+            gap: 12px; 
         }
         
         .project-card { 
             background: var(--surface); 
             border: 1px solid var(--border); 
-            padding: 14px 16px; 
+            padding: 12px 14px; 
             border-radius: 8px;
             transition: all 0.3s;
             position: relative;
@@ -448,8 +460,8 @@
 
         /* Education */
         .education-entry {
-            margin-bottom: 18px;
-            padding: 14px 18px;
+            margin-bottom: 12px;
+            padding: 12px 16px;
             background: var(--surface);
             border-radius: 6px;
             border-left: 3px solid var(--accent-secondary);
@@ -474,25 +486,17 @@
             margin-top: 4px;
         }
 
-        /* Print Styles */
-        @media print {
-            body { background: none; }
-            .page { 
-                margin: 0; 
-                box-shadow: none; 
-                width: 100%; 
-                height: 100%; 
-                page-break-after: avoid;
-            }
-            .page::before, .page::after { display: none; }
-            * { 
-                -webkit-print-color-adjust: exact !important;
-                print-color-adjust: exact !important;
-            }
+        /* Sidebar Page 2 */
+        .sidebar-page2 {
+            background: var(--surface);
+            padding: 30px 25px;
+            position: relative;
+            z-index: 2;
         }
     </style>
 </head>
 <body>
+    <!-- PÁGINA 1 -->
     <div class="page">
         <!-- SIDEBAR -->
         <aside class="sidebar">
@@ -574,29 +578,9 @@
                 </div>
             </div>
 
-            <div class="side-section">
-                <span class="section-title">Languages</span>
-                <div class="contact-item">
-                    <span class="label">Spanish</span>
-                    Native
-                </div>
-                <div class="contact-item">
-                    <span class="label">Galician</span>
-                    CELGA IV (Fluent)
-                </div>
-                <div class="contact-item">
-                    <span class="label">English</span>
-                    B1 (Technical Proficient)
-                </div>
-            </div>
-
-            <div class="highlight-box">
-                <span class="label">★ Achievement</span>
-                <span class="text">PlayStation Talents Finalist — Best Narrative (Azra, 2021)</span>
-            </div>
         </aside>
 
-        <!-- MAIN CONTENT -->
+        <!-- MAIN CONTENT PÁGINA 1 -->
         <main class="main">
             <div class="summary-box">
                 <p><strong>Unreal Engine Developer</strong> with <strong>5+ years</strong> building gameplay systems, editor tooling, and technical pipelines. Focused on <strong>C++</strong>, <strong>Blueprints</strong>, and <strong>editor plugins</strong> that unblock teams: real-time <strong>motion capture</strong> integration, <strong>profiling &amp; optimization</strong>, and workflows that keep art/design iteration smooth.</p>
@@ -652,7 +636,37 @@
                     </div>
                 </div>
             </div>
+        </main>
+    </div>
 
+    <!-- PÁGINA 2 -->
+    <div class="page">
+        <!-- SIDEBAR VACÍO (mantiene diseño) -->
+        <aside class="sidebar-page2">
+            <div class="side-section">
+                <span class="section-title">Languages</span>
+                <div class="contact-item">
+                    <span class="label">Spanish</span>
+                    Native
+                </div>
+                <div class="contact-item">
+                    <span class="label">Galician</span>
+                    CELGA IV (Fluent)
+                </div>
+                <div class="contact-item">
+                    <span class="label">English</span>
+                    B1 (Technical Proficient)
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <span class="label">★ Achievement</span>
+                <span class="text">PlayStation Talents Finalist — Best Narrative (Azra, 2021)</span>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT PÁGINA 2 -->
+        <main class="main">
             <div class="content-section">
                 <div class="section-header">
                     <h2>Featured Projects &amp; Tools</h2>
@@ -685,7 +699,6 @@
                         <p>Solo narrative prototype (Itch). Procedural animation (Niagara tentacles, spider rig), basic AI, spline encounters. Demonstrates range in AI, Niagara, procedural systems. <a href="https://hokuverse.itch.io/about" target="_blank" class="project-link">View on Itch.io</a></p>
                     </div>
                 </div>
-                <div class="page-break"></div>
             </div>
 
             <div class="content-section education-section">
@@ -714,6 +727,4 @@
             </div>
         </main>
     </div>
-
-
 </body></html>
