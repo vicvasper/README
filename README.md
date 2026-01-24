@@ -57,6 +57,10 @@ Intelligent bridge generation system that dynamically adapts to terrain. Uses ra
 
 ---
 
+[CHECK MORE PROJECTS HERE](https://github.com/vicvasper?tab=repositories)
+
+---
+
 ## Professional Experience
 
 **Unreal Engine Developer** - Salascala / TheWiseDreams (2025)
