@@ -29,31 +29,31 @@ I'm an Unreal Engine developer focused on creating tools and systems that solve 
 Real-time motion capture plugin for Unreal Engine 5.3+. Translates MediaPipe webcam data into skeletal animations using custom Animation Blueprint nodes with multiplayer replication support.
 
 **Technologies:** C++, MediaPipe, Animation Blueprints  
-**Repository:** [github.com/vicvasper/Kinemotion](https://github.com/vicvasper/Kinemotion)
+**Repository:** [github.com/vicvasper/Kinemotion](https://github.com/vicvasper/Kinemotion_UE5.5-)
 
 ### Optilogger Plugin
 In-depth profiling solution for Unreal Editor. Scans project resources to identify performance bottlenecks, texture issues, and shader inefficiencies. Generates actionable optimization reports with automated resolution suggestions.
 
 **Technologies:** C++, Slate UI Framework, Performance Profiling  
-**Repository:** [github.com/vicvasper/Optilogger](https://github.com/vicvasper/Optilogger)
+**Repository:** [github.com/vicvasper/Optilogger](https://github.com/vicvasper/Optilogger_UE5.x)
 
 ### SmartFolders Plugin
 Rule-driven asset organization tool for Unreal Content Browser. Features batch operations, undo functionality, and automation that reduces manual organization time by up to 70%.
 
 **Technologies:** C++, Editor Tools, Automation  
-**Repository:** [github.com/vicvasper/SmartFolders](https://github.com/vicvasper/SmartFolders)
+**Repository:** [github.com/vicvasper/SmartFolders](https://github.com/vicvasper/SmartFoldersPlugin_UE5.6)
 
 ### Paint System
 Runtime material painting tool for Static and Skeletal Meshes. Provides precise control over RGB and alpha channels, designed for Blueprint integration and rapid prototyping workflows.
 
 **Technologies:** C++, Materials, Rendering  
-**Repository:** [github.com/vicvasper/PaintSystem](https://github.com/vicvasper/PaintSystem)
+**Repository:** [github.com/vicvasper/PaintSystem](https://github.com/vicvasper/Paint-System-5.4)
 
 ### Procedural Bridges
 Intelligent bridge generation system that dynamically adapts to terrain. Uses raycasting, procedural meshing, physics integration, and optimized Level of Detail systems.
 
 **Technologies:** C++, Procedural Generation, Physics  
-**Repository:** [github.com/vicvasper/ProceduralBridges](https://github.com/vicvasper/ProceduralBridges)
+**Repository:** [github.com/vicvasper/ProceduralBridges](https://github.com/vicvasper/Procedural-Animated-System_UE5.5)
 
 ---
 
