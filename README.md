@@ -56,7 +56,6 @@ Intelligent bridge generation system that dynamically adapts to terrain. Uses ra
 **Repository:** [github.com/vicvasper/ProceduralBridges](https://github.com/vicvasper/Procedural-Animated-System_UE5.5)
 
 <br></br>
-
 [CHECK MORE PROJECTS HERE](https://github.com/vicvasper?tab=repositories)
 
 ---
