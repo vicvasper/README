@@ -74,7 +74,6 @@
             overflow: hidden;
         }
         
-        /* Decorative elements */
         .page::before {
             content: "";
             position: absolute;
@@ -94,7 +93,6 @@
             pointer-events: none;
         }
 
-        /* ===== SIDEBAR ===== */
         .sidebar { 
             background: var(--surface); 
             padding: 28px 22px; 
@@ -104,55 +102,55 @@
 
         .profile-section { 
             text-align: center; 
-            margin-bottom: 24px; 
-            padding-bottom: 16px;
+            margin-bottom: 22px; 
+            padding-bottom: 14px;
             border-bottom: 1px solid var(--border);
         }
         
         .profile-img { 
-            width: 130px; 
-            height: 130px; 
+            width: 120px; 
+            height: 120px; 
             border-radius: 16px;
             object-fit: cover; 
             border: 3px solid var(--accent);
             box-shadow: 0 8px 24px var(--accent-glow), 0 0 0 8px rgba(241, 245, 249, 0.1);
-            margin: 0 auto 12px;
+            margin: 0 auto 10px;
             display: block;
         }
 
         .sidebar h1 { 
-            font-size: 24px; 
+            font-size: 22px; 
             font-weight: 800; 
             color: var(--text-bright); 
             letter-spacing: -0.5px;
-            margin-bottom: 6px;
+            margin-bottom: 5px;
         }
         
         .sidebar .title { 
             font-family: 'JetBrains Mono', monospace;
-            font-size: 12px; 
+            font-size: 11px; 
             color: var(--accent); 
             font-weight: 500;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
         
-        .contact-section { margin-bottom: 20px; }
+        .contact-section { margin-bottom: 18px; }
         
         .contact-item { 
-            margin-bottom: 12px; 
-            font-size: 12px;
-            line-height: 1.5;
+            margin-bottom: 10px; 
+            font-size: 11px;
+            line-height: 1.4;
         }
         
         .contact-item .label { 
             display: block; 
             color: var(--text-mid); 
             text-transform: uppercase; 
-            font-size: 9px; 
+            font-size: 8px; 
             font-weight: 700;
             letter-spacing: 1px;
-            margin-bottom: 3px;
+            margin-bottom: 2px;
             opacity: 0.7;
         }
         
@@ -179,15 +177,15 @@
             color: var(--accent);
         }
 
-        .side-section { margin-bottom: 20px; }
+        .side-section { margin-bottom: 16px; }
         
         .section-title { 
             font-family: 'JetBrains Mono', monospace;
-            font-size: 11px; 
+            font-size: 10px; 
             color: var(--text-bright); 
             background: var(--surface-elevated);
-            padding: 7px 11px; 
-            margin-bottom: 14px;
+            padding: 6px 10px; 
+            margin-bottom: 12px;
             display: inline-block;
             border-left: 3px solid var(--accent);
             font-weight: 600;
@@ -195,14 +193,14 @@
             letter-spacing: 1px;
         }
 
-        .skill-category { margin-bottom: 12px; }
+        .skill-category { margin-bottom: 10px; }
         
         .skill-category .category-name { 
             display: block; 
-            font-size: 10px; 
+            font-size: 9px; 
             font-weight: 700; 
             color: var(--accent-secondary); 
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
@@ -210,15 +208,15 @@
         .tags { 
             display: flex; 
             flex-wrap: wrap; 
-            gap: 5px; 
+            gap: 4px; 
         }
         
         .tag { 
-            font-size: 10px; 
+            font-size: 9px; 
             background: var(--surface-elevated); 
             color: var(--text-mid); 
-            padding: 5px 8px; 
-            border-radius: 6px; 
+            padding: 4px 7px; 
+            border-radius: 5px; 
             border: 1px solid var(--border);
             transition: all 0.2s;
             font-weight: 500;
@@ -235,30 +233,29 @@
             background: var(--surface-elevated);
             border: 1px solid var(--border);
             border-left: 3px solid var(--success);
-            padding: 10px;
+            padding: 9px;
             border-radius: 6px;
-            margin-top: 16px;
+            margin-top: 14px;
         }
 
         .highlight-box .label {
-            font-size: 9px;
+            font-size: 8px;
             color: var(--success);
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-bottom: 5px;
+            margin-bottom: 4px;
             display: block;
         }
 
         .highlight-box .text {
-            font-size: 11px;
+            font-size: 10px;
             color: var(--text-mid);
-            line-height: 1.5;
+            line-height: 1.4;
         }
 
-        /* ===== MAIN CONTENT ===== */
         .main { 
-            padding: 30px 35px; 
+            padding: 26px 32px; 
             background: var(--bg-dark); 
             position: relative;
             z-index: 1;
@@ -267,16 +264,16 @@
         .summary-box { 
             background: var(--surface);
             border-left: 4px solid var(--accent);
-            padding: 14px 18px; 
-            margin-bottom: 20px;
+            padding: 12px 16px; 
+            margin-bottom: 16px;
             border-radius: 0 8px 8px 0;
             box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
 
         .summary-box p {
-            font-size: 12.5px; 
+            font-size: 11.5px; 
             color: var(--text-mid); 
-            line-height: 1.65;
+            line-height: 1.6;
             margin: 0;
         }
 
@@ -285,17 +282,17 @@
             font-weight: 600;
         }
 
-        .content-section { margin-bottom: 16px; }
+        .content-section { margin-bottom: 14px; }
         
         .section-header { 
             display: flex; 
             align-items: center; 
-            gap: 15px;
-            margin-bottom: 12px; 
+            gap: 12px;
+            margin-bottom: 10px; 
         }
         
         .section-header h2 { 
-            font-size: 16px; 
+            font-size: 14px; 
             text-transform: uppercase; 
             letter-spacing: 2px; 
             color: var(--text-bright);
@@ -311,8 +308,8 @@
 
         /* Experience Entries */
         .experience-entry { 
-            margin-bottom: 16px; 
-            padding-left: 18px;
+            margin-bottom: 14px; 
+            padding-left: 16px;
             border-left: 2px solid var(--border);
             position: relative;
         }
@@ -320,13 +317,13 @@
         .experience-entry::before {
             content: "";
             position: absolute;
-            left: -6px;
-            top: 6px;
-            width: 10px;
-            height: 10px;
+            left: -5px;
+            top: 5px;
+            width: 8px;
+            height: 8px;
             background: var(--accent);
             border-radius: 50%;
-            box-shadow: 0 0 0 4px var(--bg-dark), 0 0 12px var(--accent-glow);
+            box-shadow: 0 0 0 3px var(--bg-dark), 0 0 10px var(--accent-glow);
         }
 
         .experience-entry:hover {
@@ -337,23 +334,23 @@
             display: flex; 
             justify-content: space-between; 
             align-items: flex-start;
-            margin-bottom: 4px;
-            gap: 12px;
+            margin-bottom: 3px;
+            gap: 10px;
         }
         
         .role { 
             font-weight: 700; 
             color: var(--accent); 
-            font-size: 14px;
+            font-size: 13px;
             line-height: 1.3;
         }
         
         .duration { 
             font-family: 'JetBrains Mono', monospace; 
-            font-size: 10px; 
+            font-size: 9px; 
             color: var(--text-dim);
             background: var(--surface);
-            padding: 3px 8px;
+            padding: 2px 7px;
             border-radius: 4px;
             white-space: nowrap;
             font-weight: 600;
@@ -362,23 +359,23 @@
         .company { 
             color: var(--text-bright); 
             font-weight: 600; 
-            font-size: 12.5px;
-            margin-bottom: 6px;
+            font-size: 11.5px;
+            margin-bottom: 5px;
         }
         
         .entry-description { 
-            font-size: 11.5px; 
+            font-size: 10.5px; 
             color: var(--text-dim); 
-            line-height: 1.6;
+            line-height: 1.55;
         }
         
         .entry-description ul { 
-            margin: 6px 0; 
-            padding-left: 18px; 
+            margin: 4px 0; 
+            padding-left: 16px; 
         }
         
         .entry-description li { 
-            margin-bottom: 5px;
+            margin-bottom: 4px;
             position: relative;
         }
 
@@ -395,13 +392,13 @@
         .project-grid { 
             display: grid; 
             grid-template-columns: 1fr; 
-            gap: 10px; 
+            gap: 8px; 
         }
         
         .project-card { 
             background: var(--surface); 
             border: 1px solid var(--border); 
-            padding: 10px 12px; 
+            padding: 9px 11px; 
             border-radius: 8px;
             transition: all 0.3s;
             position: relative;
@@ -431,21 +428,21 @@
         }
         
         .project-card h3 { 
-            margin: 0 0 6px 0; 
-            font-size: 13px; 
+            margin: 0 0 4px 0; 
+            font-size: 12px; 
             color: var(--text-bright);
             display: flex; 
             justify-content: space-between;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
         }
         
         .tech-badge { 
             font-family: 'JetBrains Mono', monospace; 
-            font-size: 9px; 
+            font-size: 8px; 
             color: var(--accent);
             background: rgba(0, 168, 255, 0.1);
-            padding: 3px 7px;
+            padding: 2px 6px;
             border-radius: 4px;
             font-weight: 600;
             white-space: nowrap;
@@ -453,15 +450,15 @@
         
         .project-card p { 
             margin: 0; 
-            font-size: 11px; 
-            line-height: 1.55;
+            font-size: 10px; 
+            line-height: 1.5;
             color: var(--text-dim);
         }
 
         /* Education */
         .education-entry {
-            margin-bottom: 10px;
-            padding: 10px 14px;
+            margin-bottom: 8px;
+            padding: 8px 12px;
             background: var(--surface);
             border-radius: 6px;
             border-left: 3px solid var(--accent-secondary);
@@ -470,23 +467,22 @@
         .education-entry .degree {
             font-weight: 600;
             color: var(--text-bright);
-            font-size: 12.5px;
-            margin-bottom: 3px;
+            font-size: 11.5px;
+            margin-bottom: 2px;
         }
 
         .education-entry .institution {
             color: var(--text-dim);
-            font-size: 11.5px;
+            font-size: 10.5px;
         }
 
         .education-entry .year {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 10px;
+            font-size: 9px;
             color: var(--accent-secondary);
-            margin-top: 3px;
+            margin-top: 2px;
         }
 
-        /* Sidebar Page 2 */
         .sidebar-page2 {
             background: var(--surface);
             padding: 28px 22px;
@@ -518,7 +514,7 @@
                 <div class="contact-item">
                     <span class="label">Location</span>
                     <span>Las Palmas, Spain</span>
-                    <span style="display:block;font-size:10px;color:var(--success);margin-top:2px;">Open to Remote &amp; Relocation</span>
+                    <span style="display:block;font-size:9px;color:var(--success);margin-top:1px;">Open to Remote &amp; Relocation</span>
                 </div>
                 <div class="contact-item">
                     <span class="label">Portfolio</span>
@@ -553,9 +549,10 @@
                     <div class="tags">
                         <span class="tag">Gameplay Systems</span>
                         <span class="tag">Multiplayer / Replication</span>
+                        <span class="tag">VR (Meta Quest 3)</span>
                         <span class="tag">Procedural Generation</span>
                         <span class="tag">Physics Simulation</span>
-                        <span class="tag">AI Integration (NNE)</span>
+                        <span class="tag">AI / ML Integration</span>
                     </div>
                 </div>
 
@@ -584,12 +581,17 @@
                     <div class="tags">
                         <span class="tag">Python</span>
                         <span class="tag">C#</span>
+                        <span class="tag">NNE / DirectML</span>
                         <span class="tag">MediaPipe</span>
-                        <span class="tag">DirectML</span>
                         <span class="tag">Blender</span>
                         <span class="tag">Maya</span>
                     </div>
                 </div>
+            </div>
+
+            <div class="highlight-box">
+                <span class="label">&#9733; Recognition</span>
+                <span class="text">PlayStation Talents Finalist, Best Narrative (Azra, 2021). VR project for Tourism of Gran Canaria featured in official press.</span>
             </div>
 
         </aside>
@@ -597,8 +599,8 @@
         <!-- MAIN CONTENT PAGE 1 -->
         <main class="main">
             <div class="summary-box">
-                <p><strong>Unreal Engine Developer</strong> with <strong>5+ years</strong> building gameplay systems, editor tooling, and technical pipelines in C++ and Blueprints. Specialized in <strong>editor plugins</strong> (Slate UI), real-time <strong>motion capture</strong> integration (Live Link, NNE), <strong>multiplayer replication</strong>, and <strong>performance optimization</strong> for PC and console targets.</p>
-                <p>Shipped indie titles, led engineering at my own studio, and delivered a <strong>PlayStation Talents</strong> finalist. I build the tools and systems that let teams iterate faster.</p>
+                <p><strong>Unreal Engine Developer</strong> with <strong>5+ years</strong> building gameplay systems, editor tooling, and technical pipelines in <strong>C++</strong> and Blueprints. Specialized in <strong>editor plugins</strong> (Slate UI), real-time <strong>motion capture</strong> integration (Live Link, NNE), <strong>VR development</strong> (Meta Quest, hand-tracking), <strong>multiplayer replication</strong>, and <strong>performance optimization</strong> for PC and console targets.</p>
+                <p>Shipped a <strong>VR product for a government tourism board</strong>, led engineering at my own studio with a title on <strong>Steam</strong>, and delivered a <strong>PlayStation Talents</strong> finalist. I build the tools and systems that let teams iterate faster.</p>
             </div>
 
             <div class="content-section">
@@ -616,8 +618,8 @@
                     <div class="entry-description">
                         <ul>
                             <li><strong>Amper (in production):</strong> Leading all gameplay programming for indie title featured in DeVuego; architecting core systems, content pipelines, and build automation.</li>
-                            <li><strong>Noah and the Cosmic Cleanup:</strong> Gameplay and tooling lead for character systems and iteration workflows. Title listed on <a href="https://store.steampowered.com/app/3952590/Noah__The_Cosmic_Cleanup/" target="_blank" class="project-link">Steam</a>.</li>
-                            <li><strong>Team leadership:</strong> Established CI/CD pipelines via GitHub Actions, code review processes, and sprint-based delivery for a distributed team.</li>
+                            <li><strong>Noah and the Cosmic Cleanup:</strong> Gameplay and tooling lead for character systems. Title listed on <a href="https://store.steampowered.com/app/3952590/Noah__The_Cosmic_Cleanup/" target="_blank" class="project-link">Steam</a>.</li>
+                            <li><strong>Team leadership:</strong> Established CI/CD via GitHub Actions, code review processes, and sprint-based delivery for a distributed team.</li>
                         </ul>
                     </div>
                 </div>
@@ -625,15 +627,15 @@
                 <div class="experience-entry">
                     <div class="entry-header">
                         <span class="role">Unreal Engine Developer</span>
-                        <span class="duration">2024 — 2025</span>
+                        <span class="duration">MAR 2025 — DEC 2025</span>
                     </div>
                     <div class="company"><a href="https://salascala.com" target="_blank" class="company-link">Salascala</a> / <a href="https://thewisedreams.com" target="_blank" class="company-link">TheWiseDreams</a> — Gran Canaria (Hybrid)</div>
                     <div class="entry-description">
                         <ul>
-                            <li><strong>Mocap pipeline (C++):</strong> Built end-to-end capture, retarget, and real-time editor integration using Quest 3 and webcam inputs for VR hand-tracking and full-body capture via Live Link.</li>
-                            <li><strong>AI pose inference:</strong> Integrated NNE (Neural Network Engine) with DirectML GPU backend to run pose-estimation models directly inside Unreal at runtime.</li>
+                            <li><strong>GastroGranca (VR, shipped):</strong> Developed 4 VR cooking games for Meta Quest with full hand-tracking interaction. Project commissioned by Tourism of Gran Canaria and <a href="https://www.grancanaria.com/turismo/area-profesional/noticias/noticia/?tx_ttnews%5Btt_news%5D=5472" target="_blank" class="project-link">featured in official press</a>. Focused on modularity and performance for immersive VR.</li>
+                            <li><strong>Mocap pipeline (C++):</strong> Built end-to-end capture and retarget integration using Quest 3 and webcam inputs via Live Link. Integrated NNE with DirectML GPU backend for runtime AI pose inference.</li>
                             <li><strong>Multiplayer:</strong> Implemented client-server replication flows for character interactions, synced physics, and networked animation state.</li>
-                            <li><strong>Editor tooling:</strong> Delivered Slate-based utilities that removed manual steps for animation, design, and QA workflows.</li>
+                            <li><strong>Editor tooling:</strong> Delivered Slate-based utilities that removed manual steps for animation and QA workflows.</li>
                         </ul>
                     </div>
                 </div>
@@ -643,11 +645,11 @@
                         <span class="role">Gameplay Programmer</span>
                         <span class="duration">2024</span>
                     </div>
-                    <div class="company"><a href="https://selenegames.com" target="_blank" class="company-link">Selene Games</a> — Madrid</div>
+                    <div class="company"><a href="https://selenegames.com" target="_blank" class="company-link">Selene Games</a> — Madrid (Remote)</div>
                     <div class="entry-description">
                         <ul>
-                            <li><strong>Vehicle system:</strong> Developed spline-based driving mechanics with tunable acceleration, braking curves, and realistic drift physics.</li>
-                            <li><strong>Streaming &amp; stability:</strong> Improved level streaming performance and resolved build-stability issues for production environments.</li>
+                            <li><strong>Vehicle system:</strong> Developed spline-based driving with tunable acceleration, braking curves, and realistic drift physics.</li>
+                            <li><strong>Streaming &amp; stability:</strong> Improved level streaming performance and resolved build-stability issues.</li>
                         </ul>
                     </div>
                 </div>
@@ -661,7 +663,7 @@
                     <div class="entry-description">
                         <ul>
                             <li><strong>Azra:</strong> Architected controller input, combat, and character systems for the UE4 build; project nominated <strong>PlayStation Talents 2021 Best Narrative</strong>.</li>
-                            <li><strong>Console optimization:</strong> Executed profiling and performance passes targeting PS4 hardware, reducing draw calls and memory footprint.</li>
+                            <li><strong>Console optimization:</strong> Profiling and performance passes targeting PS4, reducing draw calls and memory footprint.</li>
                         </ul>
                     </div>
                 </div>
@@ -670,15 +672,6 @@
             <div class="content-section">
 
                 <div class="project-grid">
-                    <div class="project-card">
-                        <h3>Kinemotion Mocap <span class="tech-badge">C++ / NNE / LIVE LINK</span></h3>
-                        <p>Real-time monocular motion capture plugin for UE5.3+. Runs AI pose inference via NNE (DirectML GPU), decodes 133 keypoints into a 19-bone UE mannequin skeleton, streams through a custom Live Link source with auto-calibration, anti-jitter filtering, and multiplayer support. <a href="https://github.com/vicvasper/Kinemotion_UE5.5-" target="_blank" class="project-link">GitHub</a></p>
-                    </div>
-
-                    <div class="project-card">
-                        <h3>Optilogger Plugin <span class="tech-badge">C++ / SLATE / PROFILING</span></h3>
-                        <p>Editor profiling plugin (1,100+ lines analysis, 865 lines Slate UI) that scans meshes, textures, materials, animations, audio, lighting, and post-process. Estimates memory, counts shader instructions, supports frustum culling, and exports JSON reports. &#9733; 6 GitHub stars. <a href="https://github.com/vicvasper/Optilogger_UE5.x" target="_blank" class="project-link">GitHub</a></p>
-                    </div>
                 </div>
             </div>
         </main>
@@ -704,26 +697,26 @@
                 </div>
             </div>
 
-            <div class="highlight-box">
-                <span class="label">&#9733; Achievements</span>
-                <span class="text">PlayStation Talents Finalist, Best Narrative (Azra, 2021)</span>
-            </div>
-
-            <div class="highlight-box" style="margin-top:12px;">
-                <span class="label">&#9733; Studio</span>
-                <span class="text">Founder, The Boltage Studio. Title on Steam (Noah and the Cosmic Cleanup). Amper featured in DeVuego.</span>
-            </div>
-
-            <div class="side-section" style="margin-top:20px;">
+            <div class="side-section" style="margin-top:16px;">
                 <span class="section-title">Key Strengths</span>
-                <div class="tags" style="gap:6px;">
+                <div class="tags" style="gap:5px;">
                     <span class="tag">Engine Source Reading</span>
-                    <span class="tag">Console Shipping</span>
+                    <span class="tag">Console Shipping (PS4)</span>
+                    <span class="tag">VR Development</span>
                     <span class="tag">Team Leadership</span>
                     <span class="tag">Cross-Discipline</span>
-                    <span class="tag">Test-Driven Dev</span>
                     <span class="tag">Agile / Scrum</span>
                 </div>
+            </div>
+
+            <div class="highlight-box" style="margin-top:16px;">
+                <span class="label">&#9733; Studio</span>
+                <span class="text">Founder, The Boltage Studio. Title on Steam (Noah and the Cosmic Cleanup). Amper in DeVuego.</span>
+            </div>
+
+            <div class="highlight-box" style="margin-top:10px;">
+                <span class="label">&#9733; Current R&amp;D</span>
+                <span class="text">Building FinePOSE-based real-time 3D pose estimation pipeline (PyTorch + MediaPipe + RTMPose + CLIP) with UE5 socket integration for next-gen motion capture.</span>
             </div>
         </aside>
 
@@ -736,23 +729,33 @@
                 </div>
                 <div class="project-grid">
                     <div class="project-card">
+                        <h3>Kinemotion Mocap <span class="tech-badge">C++ / NNE / LIVE LINK</span></h3>
+                        <p>Real-time monocular mocap plugin for UE5.3+. Runs AI pose inference via NNE (DirectML GPU), decodes 133 keypoints into a 19-bone skeleton, streams through a custom Live Link source with auto-calibration, anti-jitter filtering, and multiplayer support. <a href="https://github.com/vicvasper/Kinemotion_UE5.5-" target="_blank" class="project-link">GitHub</a></p>
+                    </div>
+
+                    <div class="project-card">
+                        <h3>Optilogger Plugin <span class="tech-badge">C++ / SLATE / PROFILING</span></h3>
+                        <p>Editor profiling plugin (1,100+ lines analysis, 865 lines Slate UI) scanning meshes, textures, materials, animations, audio, lighting, and post-process. Memory estimation, shader instruction counting, frustum culling, and JSON export. &#9733;6 stars. <a href="https://github.com/vicvasper/Optilogger_UE5.x" target="_blank" class="project-link">GitHub</a></p>
+                    </div>
+
+                    <div class="project-card">
                         <h3>SmartFolders Plugin <span class="tech-badge">PYTHON / C++ / EDITOR</span></h3>
-                        <p>Rule-driven asset organization tool for UE Content Browser with dual modes (type-based and intelligent name-grouping), Epic-recommended presets, full undo, and batch operations. Reduces manual organization time by up to 70%. &#9733; 4 GitHub stars. <a href="https://github.com/vicvasper/SmartFoldersPlugin_UE5.6" target="_blank" class="project-link">GitHub</a></p>
+                        <p>Rule-driven asset organizer for Content Browser. Dual modes (type-based + intelligent name-grouping), Epic-recommended presets, full undo, batch operations. Reduces manual organization by ~70%. &#9733;4 stars. <a href="https://github.com/vicvasper/SmartFoldersPlugin_UE5.6" target="_blank" class="project-link">GitHub</a></p>
                     </div>
 
                     <div class="project-card">
                         <h3>Paint System <span class="tech-badge">C++ / RENDER TARGET / MATERIALS</span></h3>
-                        <p>Runtime vertex-color painting component for Static and Skeletal Meshes with per-channel RGBA control, configurable fade with timestamps, GPU-batched updates, and a clean Blueprint API. &#9733; 5 GitHub stars. <a href="https://github.com/vicvasper/Paint-System-5.4" target="_blank" class="project-link">GitHub</a></p>
+                        <p>Runtime vertex-color painting for Static and Skeletal Meshes. Per-channel RGBA, configurable fade, GPU-batched updates, and Blueprint API. &#9733;5 stars. <a href="https://github.com/vicvasper/Paint-System-5.4" target="_blank" class="project-link">GitHub</a></p>
                     </div>
 
                     <div class="project-card">
                         <h3>Procedural Animated System <span class="tech-badge">C++ / SPLINE / PCG</span></h3>
-                        <p>Environment-aware procedural generation component. Line-traces terrain to spawn spline-based bridges across gaps, zigzag ladders on walls, or stepped ramps on slopes. Animation-ready data with runtime spawning. <a href="https://github.com/vicvasper/Procedural-Animated-System_UE5.5" target="_blank" class="project-link">GitHub</a></p>
+                        <p>Environment-aware procedural generator. Line-traces terrain to spawn spline bridges, zigzag wall ladders, or stepped ramps based on surface normals. Animation-ready with runtime spawning. <a href="https://github.com/vicvasper/Procedural-Animated-System_UE5.5" target="_blank" class="project-link">GitHub</a></p>
                     </div>
 
                     <div class="project-card">
                         <h3>Time Control Mechanic <span class="tech-badge">C++ / PHYSICS / GAMEPLAY</span></h3>
-                        <p>Per-object time manipulation system with fast-forward, rewind, and freeze functions. Captures and restores complete physics state per actor for granular temporal control. <a href="https://github.com/vicvasper/TIme-Control-Mechanic_UE5.5" target="_blank" class="project-link">GitHub</a></p>
+                        <p>Per-object time manipulation: fast-forward, rewind, and freeze. Captures and restores full physics state per actor for granular temporal control. <a href="https://github.com/vicvasper/TIme-Control-Mechanic_UE5.5" target="_blank" class="project-link">GitHub</a></p>
                     </div>
                 </div>
             </div>
@@ -764,21 +767,21 @@
                 </div>
 
                 <div class="education-entry">
-                    <div class="degree">Advanced Degree in Unreal Engine 5 (C++ &amp; Blueprints)</div>
+                    <div class="degree">Game Development Course, Unreal Engine 5 (C++ &amp; Blueprints)</div>
                     <div class="institution">EOI — Escuela de Organización Industrial</div>
-                    <div class="year">2024 — 2025</div>
-                </div>
-
-                <div class="education-entry">
-                    <div class="degree">Game Development Degree (UE5 Specialization)</div>
-                    <div class="institution">EOI — Escuela de Organización Industrial</div>
-                    <div class="year">2023 — 2024</div>
+                    <div class="year">SEP — OCT 2023</div>
                 </div>
 
                 <div class="education-entry">
                     <div class="degree">Master in Digital Animation &amp; VFX</div>
-                    <div class="institution">Voxel School</div>
-                    <div class="year">2021 — 2022</div>
+                    <div class="institution">Voxel School — Madrid</div>
+                    <div class="year">OCT 2021 — JUL 2022</div>
+                </div>
+
+                <div class="education-entry">
+                    <div class="degree">Advanced Vocational Degree: 3D Animation, Games &amp; Interactive Environments</div>
+                    <div class="institution">EISV — Escuela de Imagen y Sonido de Vigo</div>
+                    <div class="year">SEP 2019 — JUL 2021</div>
                 </div>
             </div>
         </main>
