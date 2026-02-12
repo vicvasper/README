@@ -58,9 +58,9 @@ Per-object time manipulation: fast-forward, rewind, and freeze. Captures and res
 
 ## Professional Experience
 
-**Founder & Lead Programmer** · [The Boltage Studio](https://theboltagestudio.com) · 2024 — Present
+**Founder & Lead Programmer** · [The Boltage Studio](https://theboltagestudio.com) · 2022 — Present
 - Leading all gameplay programming for [Amper](https://theboltagestudio.com/presskit-amper/) (featured in DeVuego)
-- Shipped [Noah and the Cosmic Cleanup](https://store.steampowered.com/app/3952590/Noah__The_Cosmic_Cleanup/) to Steam
+- [Noah and the Cosmic Cleanup](https://store.steampowered.com/app/3952590/Noah__The_Cosmic_Cleanup/) listed on Steam, releasing March 2026
 - Established CI/CD via GitHub Actions, code review processes, and sprint-based delivery
 
 **Unreal Engine Developer** · Salascala / TheWiseDreams · 2025
