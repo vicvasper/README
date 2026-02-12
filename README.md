@@ -1,112 +1,108 @@
 # Victor Rivas
 
-**Unreal Engine Developer**
+**Unreal Engine Developer | C++ | Editor Tooling | VR | Mocap Pipelines**
 
-Specialized in C++, Blueprints, and editor tooling for gameplay systems, motion capture integration, and performance optimization. 5+ years building technical pipelines and custom tools that accelerate team workflows.
+5+ years shipping gameplay systems, editor plugins, and technical pipelines in C++ and Blueprints. Founded my own studio with a title on Steam. Delivered a VR product for a government tourism board and a PlayStation Talents finalist optimized for PS4.
 
-[LinkedIn](https://www.linkedin.com/in/victorrivasperez/) • [Email](mailto:vic.rivasperez@gmail.com) • [Portfolio](https://vicvasper.github.io/README/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/victorrivasperez/)
+[![Portfolio](https://img.shields.io/badge/Portfolio-000?style=flat&logo=github&logoColor=white)](https://vicvasper.github.io/README/)
+[![Email](https://img.shields.io/badge/Email-EA4335?style=flat&logo=gmail&logoColor=white)](mailto:vic.rivasperez@gmail.com)
 
 ---
 
-## About
+## What I Do
 
-I'm an Unreal Engine developer focused on creating tools and systems that solve real production problems. My work spans gameplay programming, editor plugin development, and technical R&D for motion capture and animation pipelines.
+I build the tools and systems that let teams ship faster. My work covers gameplay programming, Slate editor plugins, real-time motion capture integration (NNE, DirectML, Live Link), VR development with hand-tracking on Meta Quest, multiplayer replication, and performance optimization for PC and console.
 
-**Current Focus:**
-- Motion capture integration with MediaPipe and VR devices
-- Performance profiling and optimization tools
-- Editor automation for content creation workflows
-- Multiplayer systems and networked gameplay
+I read engine source when docs fall short, and I actively look for the parts of a project that other developers avoid.
 
-**Notable Achievement:**
-- PlayStation Talents 2021 Finalist - Best Narrative (Azra)
+**Current R&D:** Building a FinePOSE-based real-time 3D pose estimation pipeline (PyTorch + MediaPipe + RTMPose + CLIP) with UE5 socket integration for next-gen motion capture.
 
 ---
 
 ## Featured Projects
 
-### Kinemotion Mocap System
-Real-time motion capture plugin for Unreal Engine 5.3+. Translates MediaPipe webcam data into skeletal animations using custom Animation Blueprint nodes with multiplayer replication support.
+### [Kinemotion Mocap](https://github.com/vicvasper/Kinemotion_UE5.5-)
+`C++` `NNE / DirectML` `Live Link` `Multiplayer`
 
-**Technologies:** C++, MediaPipe, Animation Blueprints  
-**Repository:** [github.com/vicvasper/Kinemotion](https://github.com/vicvasper/Kinemotion_UE5.5-)
+Real-time monocular mocap plugin for UE5.3+. Runs AI pose inference on GPU via NNE (DirectML), decodes 133 keypoints into a 19-bone skeleton, and streams through a custom Live Link source with auto-calibration, anti-jitter filtering, and multiplayer support. Every line is C++, from Live Link source registration to render-target preprocessing.
 
-### Optilogger Plugin
-In-depth profiling solution for Unreal Editor. Scans project resources to identify performance bottlenecks, texture issues, and shader inefficiencies. Generates actionable optimization reports with automated resolution suggestions.
+### [Optilogger](https://github.com/vicvasper/Optilogger_UE5.x)
+`C++` `Slate UI` `Profiling` ★6
 
-**Technologies:** C++, Slate UI Framework, Performance Profiling  
-**Repository:** [github.com/vicvasper/Optilogger](https://github.com/vicvasper/Optilogger_UE5.x)
+Editor profiling plugin (1,100+ lines analysis, 865 lines Slate UI) that scans meshes, textures, materials, animations, audio, lighting, and post-process. Memory estimation, shader instruction counting, frustum culling analysis, and JSON export. The first tool I reach for on every project.
 
-### SmartFolders Plugin
-Rule-driven asset organization tool for Unreal Content Browser. Features batch operations, undo functionality, and automation that reduces manual organization time by up to 70%.
+### [SmartFolders](https://github.com/vicvasper/SmartFoldersPlugin_UE5.6)
+`Python` `C++` `Editor` ★4
 
-**Technologies:** C++, Editor Tools, Automation  
-**Repository:** [github.com/vicvasper/SmartFolders](https://github.com/vicvasper/SmartFoldersPlugin_UE5.6)
+Rule-driven asset organizer for Content Browser. Dual modes (type-based + intelligent name-grouping), Epic-recommended presets, full undo, and batch operations. Teams report ~70% less time spent on manual asset organization.
 
-### Paint System
-Runtime material painting tool for Static and Skeletal Meshes. Provides precise control over RGB and alpha channels, designed for Blueprint integration and rapid prototyping workflows.
+### [Paint System](https://github.com/vicvasper/Paint-System-5.4)
+`C++` `Render Target` `Materials` ★5
 
-**Technologies:** C++, Materials, Rendering  
-**Repository:** [github.com/vicvasper/PaintSystem](https://github.com/vicvasper/Paint-System-5.4)
+Runtime vertex-color painting for Static and Skeletal Meshes. Per-channel RGBA, configurable fade, GPU-batched updates, and full Blueprint API.
 
-### Procedural Bridges
-Intelligent bridge generation system that dynamically adapts to terrain. Uses raycasting, procedural meshing, physics integration, and optimized Level of Detail systems.
+### [Procedural Animated System](https://github.com/vicvasper/Procedural-Animated-System_UE5.5)
+`C++` `Spline` `PCG`
 
-**Technologies:** C++, Procedural Generation, Physics  
-**Repository:** [github.com/vicvasper/ProceduralBridges](https://github.com/vicvasper/Procedural-Animated-System_UE5.5)
+Environment-aware procedural generator. Line-traces terrain to spawn spline bridges, zigzag wall ladders, or stepped ramps based on surface normals. Animation-ready with runtime spawning.
 
-<br></br>
-[CHECK MORE PROJECTS HERE](https://github.com/vicvasper?tab=repositories)
+### [Time Control Mechanic](https://github.com/vicvasper/TIme-Control-Mechanic_UE5.5)
+`C++` `Physics` `Gameplay`
+
+Per-object time manipulation: fast-forward, rewind, and freeze. Captures and restores full physics state per actor for granular temporal control.
+
+**[See all repositories →](https://github.com/vicvasper?tab=repositories)**
 
 ---
 
 ## Professional Experience
 
-**Unreal Engine Developer** - Salascala / TheWiseDreams (2025)
-- Built complete motion capture pipeline from capture to real-time editor integration
-- Integrated multiple AI pose estimation models for reliable motion capture
-- Implemented multiplayer networking with client-server replication
-- Delivered editor utilities reducing manual workflow steps for animation and design teams
+**Founder & Lead Programmer** · [The Boltage Studio](https://theboltagestudio.com) · 2024 — Present
+- Leading all gameplay programming for [Amper](https://theboltagestudio.com/presskit-amper/) (featured in DeVuego)
+- Shipped [Noah and the Cosmic Cleanup](https://store.steampowered.com/app/3952590/Noah__The_Cosmic_Cleanup/) to Steam
+- Established CI/CD via GitHub Actions, code review processes, and sprint-based delivery
 
-**Gameplay Programmer** - Selene Games (2024)
-- Developed spline-based vehicle system with tunable physics parameters
+**Unreal Engine Developer** · Salascala / TheWiseDreams · 2025
+- Developed VR products with full hand-tracking for Meta Quest
+- Built end-to-end mocap pipeline: Quest 3 + webcam inputs via Live Link, NNE with DirectML GPU backend
+- Implemented client-server replication for character interactions, synced physics, and networked animation
+- Delivered Slate-based editor utilities that removed manual steps for animation and QA workflows
 
-**Unreal Engine Developer** - Team Panda (2021-2022)
-- Developed combat systems and controller support for Azra (PlayStation Talents 2021 finalist)
-- Executed performance optimization passes for PlayStation 4 hardware
+**Gameplay Programmer** · Selene Games · 2024
+- Developed spline-based vehicle system with tunable acceleration, braking curves, and drift physics
+- Improved level streaming performance and resolved build-stability issues
+
+**Lead Programmer** · Team Panda · 2021 — 2022
+- Architected controller input, combat, and character systems for Azra (PlayStation Talents 2021 Best Narrative finalist)
+- Profiling and performance passes targeting PS4, reducing draw calls and memory footprint
 
 ---
 
-## Technical Skills
+## Tech Stack
 
-**Core Engine:** C++, Blueprints, Unreal Engine 5.x, Unreal Engine 4
-
-**Specializations:** Editor Plugins, Motion Capture Integration, Gameplay Systems, Multiplayer Networking, Performance Profiling, Optimization
-
-**Pipeline & Tools:** Git, GitHub Actions, Visual Studio, Blender, Maya, RenderDoc
-
-**Additional:** Python, C#, Slate UI Framework, MediaPipe
+| Category | Technologies |
+|---|---|
+| **Core Engine** | C++, Blueprints, UE5.x, UE4, Live Link |
+| **Systems** | Gameplay Systems, Multiplayer / Replication, VR (Meta Quest 3), Procedural Generation, Physics Simulation, AI / ML Integration |
+| **Tooling** | Editor Plugins, Slate UI, Profiling & Optimization, Mocap Pipelines |
+| **Pipeline** | Git, GitHub Actions / CI, Visual Studio, RenderDoc |
+| **Additional** | Python, C#, NNE / DirectML, MediaPipe, Blender, Maya |
 
 ---
 
 ## Education
 
-**Advanced Degree in Unreal Engine 5 (C++ & Blueprints)**  
-EOI - Escuela de Organización Industrial (2024-2025)
+**Game Development Course, Unreal Engine 5 (C++ & Blueprints)** · EOI — Escuela de Organización Industrial · 2023
 
-**Game Development Degree (UE5 Specialization)**  
-EOI - Escuela de Organización Industrial (2023-2024)
+**Master in Digital Animation & VFX** · Voxel School, Madrid · 2021 — 2022
 
-**Master in Digital Animation & VFX**  
-Voxel School (2021-2022)
+**Advanced Vocational Degree: 3D Animation, Games & Interactive Environments** · EISV, Vigo · 2019 — 2021
 
 ---
 
 ## Contact
 
-**Location:** Las Palmas, Spain (Remote Available)  
-**Email:** vic.rivasperez@gmail.com  
-**LinkedIn:** [linkedin.com/in/victorrivasperez](https://www.linkedin.com/in/victorrivasperez/)  
-**GitHub:** [github.com/vicvasper](https://github.com/vicvasper)
+📍 Las Palmas, Spain · Open to Remote & Relocation
 
-Open to opportunities in gameplay programming, technical art support, and tools development for game studios worldwide.
+📧 [vic.rivasperez@gmail.com](mailto:vic.rivasperez@gmail.com) · 💼 [LinkedIn](https://www.linkedin.com/in/victorrivasperez/) · 🌐 [Portfolio](https://vicvasper.github.io/README/)
