@@ -1,503 +1,383 @@
-<html lang="en"><head>
+
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Victor Rivas - Unreal Engine Developer</title>
+    <title>Victor Rivas — Unreal Engine Developer</title>
+    <script>
+        (function () {
+            try {
+                var t = localStorage.getItem('cv-theme');
+                if (t) document.documentElement.setAttribute('data-theme', t);
+            } catch (e) {}
+        })();
+    </script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap');
-        
+        @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&display=swap');
+
         :root {
-            --bg-dark: #0f1114;
-            --surface: #1a1f29;
-            --surface-elevated: #232933;
-            --accent: #f1f5f9e5;
-            --accent-secondary: #3c86d1;
-            --accent-glow: rgba(241, 245, 249, 0.15);
-            --text-bright: #f8fafc;
-            --text-mid: #e2e8f0;
-            --text-dim: #94a3b8;
-            --border: #334155;
-            --success: #10b981;
+            --paper: #ffffff;
+            --sidebar: #f4f1ec;
+            --surface: #faf8f4;
+            --ink: #20242a;
+            --ink-soft: #51565d;
+            --muted: #8a9098;
+            --line: #e4ded3;
+            --line-strong: #d8d1c4;
+            --accent: #2f5168;
+            --accent-soft: #5d7382;
+            --success: #3f7d56;
         }
 
-        @page {
-            size: A4;
-            margin: 0;
+        html[data-theme="dark"] {
+            --paper: #14171c;
+            --sidebar: #1a1e24;
+            --surface: #1f242b;
+            --ink: #e7e9ec;
+            --ink-soft: #aeb4bc;
+            --muted: #7f878f;
+            --line: #2b323b;
+            --line-strong: #39414b;
+            --accent: #82b1c9;
+            --accent-soft: #97a6b1;
+            --success: #6cbf94;
         }
-        
-        @media print {
-            body { 
-                margin: 0;
-                background: white;
-                -webkit-print-color-adjust: exact !important;
-                print-color-adjust: exact !important;
-            }
-            .page { 
-                width: 210mm;
-                height: 297mm;
-                margin: 0;
-                box-shadow: none;
-                page-break-after: always;
-                page-break-inside: avoid;
-                overflow: hidden;
-            }
-            .page:last-child {
-                page-break-after: avoid;
-            }
-            .page::before, .page::after { 
-                -webkit-print-color-adjust: exact !important;
-                print-color-adjust: exact !important;
-            }
-            * { 
-                -webkit-print-color-adjust: exact !important;
-                print-color-adjust: exact !important;
-            }
-        }
-        
+
+        @page { size: A4; margin: 0; }
+
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
-        body { 
-            font-family: 'Inter', sans-serif; 
-            line-height: 1.5; 
-            color: var(--text-dim); 
-            background: #0f1114; 
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.5;
+            color: var(--ink-soft);
+            background: var(--paper);
+            -webkit-font-smoothing: antialiased;
         }
 
-        .page { 
-            background: var(--bg-dark); 
-            width: 210mm; 
-            height: 297mm; 
-            margin: 0 auto 20px; 
-            display: grid; 
-            grid-template-columns: 300px 1fr; 
-            box-shadow: 0 0 20px rgba(0,0,0,0.3);
+        /* Selector de tema (solo pantalla) */
+        .theme-toggle {
+            position: fixed;
+            top: 16px;
+            right: 16px;
+            z-index: 50;
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            background: var(--surface);
+            color: var(--ink);
+            border: 1px solid var(--line-strong);
+            border-radius: 8px;
+            padding: 8px 13px;
+            font-family: 'Inter', sans-serif;
+            font-size: 12.5px;
+            font-weight: 500;
+            cursor: pointer;
+        }
+        .theme-toggle:hover { border-color: var(--accent); }
+
+        .page {
+            background: var(--paper);
+            width: 210mm;
+            height: 297mm;
+            margin: 0 auto 22px;
+            display: grid;
+            grid-template-columns: 290px 1fr;
             position: relative;
             overflow: hidden;
-        }
-        
-        .page::before {
-            content: "";
-            position: absolute;
-            top: 0; left: 299px;
-            width: 2px; height: 100%;
-            background: linear-gradient(180deg, var(--accent) 0%, transparent 100%);
-            opacity: 0.3;
+            box-shadow: 0 1px 14px rgba(40, 40, 50, 0.10);
         }
 
-        .page::after {
-            content: "";
-            position: absolute;
-            top: -50%; right: -10%;
-            width: 400px; height: 400px;
-            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+        .sidebar,
+        .sidebar-page2 {
+            background: var(--sidebar);
+            padding: 24px 22px;
+            border-right: 1px solid var(--line);
+        }
+
+        /* ---- Perfil ---- */
+        .profile-section {
+            text-align: center;
+            margin-bottom: 15px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .profile-img {
+            width: 102px;
+            height: 102px;
             border-radius: 50%;
-            pointer-events: none;
-        }
-
-        .sidebar { 
-            background: var(--surface); 
-            padding: 28px 22px; 
-            position: relative;
-            z-index: 2;
-        }
-
-        .profile-section { 
-            text-align: center; 
-            margin-bottom: 22px; 
-            padding-bottom: 14px;
-            border-bottom: 1px solid var(--border);
-        }
-        
-        .profile-img { 
-            width: 120px; 
-            height: 120px; 
-            border-radius: 16px;
-            object-fit: cover; 
-            border: 3px solid var(--accent);
-            box-shadow: 0 8px 24px var(--accent-glow), 0 0 0 8px rgba(241, 245, 249, 0.1);
+            object-fit: cover;
+            border: 1px solid var(--line-strong);
             margin: 0 auto 10px;
             display: block;
         }
 
-        .sidebar h1 { 
-            font-size: 22px; 
-            font-weight: 800; 
-            color: var(--text-bright); 
-            letter-spacing: -0.5px;
-            margin-bottom: 5px;
+        .sidebar h1 {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 25px;
+            font-weight: 600;
+            color: var(--ink);
+            letter-spacing: -0.2px;
+            margin-bottom: 4px;
         }
-        
-        .sidebar .title { 
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 11px; 
-            color: var(--accent); 
-            font-weight: 500;
+
+        .sidebar .title {
+            font-size: 10.5px;
+            color: var(--accent);
+            font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.4px;
         }
-        
-        .contact-section { margin-bottom: 18px; }
-        
-        .contact-item { 
-            margin-bottom: 10px; 
+
+        /* ---- Contacto ---- */
+        .contact-section { margin-bottom: 14px; }
+
+        .contact-item {
+            margin-bottom: 8px;
             font-size: 11px;
             line-height: 1.4;
         }
-        
-        .contact-item .label { 
-            display: block; 
-            color: var(--text-mid); 
-            text-transform: uppercase; 
-            font-size: 8px; 
-            font-weight: 700;
-            letter-spacing: 1px;
-            margin-bottom: 2px;
-            opacity: 0.7;
-        }
-        
-        .contact-item a { 
-            color: var(--text-bright); 
-            text-decoration: none;
-        }
-        
-        .company-link {
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 500;
-        }
-        .project-link {
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 500;
-        }
-        .project-link:hover {
-            text-decoration: underline;
-        }
-        
-        .contact-item a:hover { 
-            color: var(--accent);
-        }
 
-        .side-section { margin-bottom: 16px; }
-        
-        .section-title { 
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 10px; 
-            color: var(--text-bright); 
-            background: var(--surface-elevated);
-            padding: 6px 10px; 
-            margin-bottom: 12px;
-            display: inline-block;
-            border-left: 3px solid var(--accent);
-            font-weight: 600;
+        .contact-item .label {
+            display: block;
+            color: var(--muted);
             text-transform: uppercase;
-            letter-spacing: 1px;
+            font-size: 8px;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            margin-bottom: 2px;
         }
 
-        .skill-category { margin-bottom: 10px; }
-        
-        .skill-category .category-name { 
-            display: block; 
-            font-size: 9px; 
-            font-weight: 700; 
-            color: var(--accent-secondary); 
+        .contact-item a { color: var(--ink); text-decoration: none; }
+        .contact-item a:hover { color: var(--accent); text-decoration: underline; }
+
+        .company-link,
+        .project-link { color: var(--accent); text-decoration: none; font-weight: 500; }
+        .company-link:hover,
+        .project-link:hover { text-decoration: underline; }
+
+        /* ---- Secciones laterales ---- */
+        .side-section { margin-bottom: 14px; }
+
+        .section-title {
+            font-size: 10px;
+            color: var(--ink);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.4px;
+            padding-bottom: 5px;
+            margin-bottom: 9px;
+            border-bottom: 1.5px solid var(--accent);
+            display: block;
+        }
+
+        .skill-category { margin-bottom: 8px; }
+
+        .skill-category .category-name {
+            display: block;
+            font-size: 9px;
+            font-weight: 700;
+            color: var(--accent-soft);
             margin-bottom: 6px;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.6px;
         }
-        
-        .tags { 
-            display: flex; 
-            flex-wrap: wrap; 
-            gap: 4px; 
-        }
-        
-        .tag { 
-            font-size: 9px; 
-            background: var(--surface-elevated); 
-            color: var(--text-mid); 
-            padding: 4px 7px; 
-            border-radius: 5px; 
-            border: 1px solid var(--border);
-            transition: all 0.2s;
+
+        .tags { display: flex; flex-wrap: wrap; gap: 4px; }
+
+        .tag {
+            font-size: 9px;
+            background: var(--surface);
+            color: var(--ink-soft);
+            padding: 2px 7px;
+            border-radius: 4px;
+            border: 1px solid var(--line);
             font-weight: 500;
-        }
-        
-        .tag:hover { 
-            border-color: var(--accent); 
-            background: rgba(241, 245, 249, 0.1);
-            color: var(--accent);
-            transform: translateY(-1px);
         }
 
         .highlight-box {
-            background: var(--surface-elevated);
-            border: 1px solid var(--border);
-            border-left: 3px solid var(--success);
-            padding: 9px;
-            border-radius: 6px;
-            margin-top: 14px;
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-left: 2px solid var(--accent);
+            padding: 9px 11px;
+            border-radius: 4px;
+            margin-top: 12px;
         }
 
         .highlight-box .label {
             font-size: 8px;
-            color: var(--success);
+            color: var(--accent);
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 4px;
+            letter-spacing: 1.2px;
+            margin-bottom: 5px;
             display: block;
         }
 
-        .highlight-box .text {
-            font-size: 10px;
-            color: var(--text-mid);
-            line-height: 1.4;
+        .highlight-box .text { font-size: 10px; color: var(--ink-soft); line-height: 1.5; }
+
+        /* ---- Contenido principal ---- */
+        .main {
+            padding: 30px 34px;
+            background: var(--paper);
         }
 
-        .main { 
-            padding: 26px 32px; 
-            background: var(--bg-dark); 
-            position: relative;
-            z-index: 1;
-        }
-        
-        .summary-box { 
-            background: var(--surface);
-            border-left: 4px solid var(--accent);
-            padding: 12px 16px; 
-            margin-bottom: 16px;
-            border-radius: 0 8px 8px 0;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        .summary-box {
+            border-left: 3px solid var(--accent);
+            padding: 4px 0 4px 16px;
+            margin-bottom: 22px;
         }
 
         .summary-box p {
-            font-size: 11.5px; 
-            color: var(--text-mid); 
-            line-height: 1.6;
-            margin: 0;
+            font-size: 11.5px;
+            color: var(--ink-soft);
+            line-height: 1.65;
+        }
+        .summary-box p + p { margin-top: 8px; }
+        .summary-box strong { color: var(--ink); font-weight: 600; }
+
+        .content-section { margin-bottom: 20px; }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 14px;
         }
 
-        .summary-box strong {
-            color: var(--text-bright);
+        .section-header h2 {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 16px;
+            text-transform: none;
+            letter-spacing: 0;
+            color: var(--ink);
             font-weight: 600;
-        }
-
-        .content-section { margin-bottom: 14px; }
-        
-        .section-header { 
-            display: flex; 
-            align-items: center; 
-            gap: 12px;
-            margin-bottom: 10px; 
-        }
-        
-        .section-header h2 { 
-            font-size: 14px; 
-            text-transform: uppercase; 
-            letter-spacing: 2px; 
-            color: var(--text-bright);
-            font-weight: 800;
             white-space: nowrap;
         }
-        
-        .section-header .line { 
-            flex-grow: 1; 
-            height: 2px; 
-            background: linear-gradient(90deg, var(--border) 0%, transparent 100%);
-        }
 
-        /* Experience Entries */
-        .experience-entry { 
-            margin-bottom: 14px; 
-            padding-left: 16px;
-            border-left: 2px solid var(--border);
+        .section-header .line { flex-grow: 1; height: 1px; background: var(--line-strong); }
+
+        /* ---- Experiencia ---- */
+        .experience-entry {
+            margin-bottom: 16px;
+            padding-left: 18px;
+            border-left: 1px solid var(--line-strong);
             position: relative;
         }
 
         .experience-entry::before {
             content: "";
             position: absolute;
-            left: -5px;
+            left: -4px;
             top: 5px;
-            width: 8px;
-            height: 8px;
+            width: 7px;
+            height: 7px;
             background: var(--accent);
             border-radius: 50%;
-            box-shadow: 0 0 0 3px var(--bg-dark), 0 0 10px var(--accent-glow);
         }
 
-        .experience-entry:hover {
-            border-left-color: var(--accent);
-        }
-        
-        .entry-header { 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: flex-start;
-            margin-bottom: 3px;
+        .entry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 2px;
             gap: 10px;
         }
-        
-        .role { 
-            font-weight: 700; 
-            color: var(--accent); 
-            font-size: 13px;
-            line-height: 1.3;
-        }
-        
-        .duration { 
-            font-family: 'JetBrains Mono', monospace; 
-            font-size: 9px; 
-            color: var(--text-dim);
-            background: var(--surface);
-            padding: 2px 7px;
-            border-radius: 4px;
-            white-space: nowrap;
-            font-weight: 600;
-        }
-        
-        .company { 
-            color: var(--text-bright); 
-            font-weight: 600; 
-            font-size: 11.5px;
-            margin-bottom: 5px;
-        }
-        
-        .entry-description { 
-            font-size: 10.5px; 
-            color: var(--text-dim); 
-            line-height: 1.55;
-        }
-        
-        .entry-description ul { 
-            margin: 4px 0; 
-            padding-left: 16px; 
-        }
-        
-        .entry-description li { 
-            margin-bottom: 4px;
-            position: relative;
-        }
 
-        .entry-description li::marker {
-            color: var(--accent);
-        }
+        .role { font-weight: 600; color: var(--ink); font-size: 13px; line-height: 1.3; }
 
-        .entry-description strong {
-            color: var(--text-mid);
-            font-weight: 600;
-        }
-
-        /* Project Cards */
-        .project-grid { 
-            display: grid; 
-            grid-template-columns: 1fr; 
-            gap: 8px; 
-        }
-        
-        .project-card { 
-            background: var(--surface); 
-            border: 1px solid var(--border); 
-            padding: 9px 11px; 
-            border-radius: 8px;
-            transition: all 0.3s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .project-card::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 4px;
-            height: 100%;
-            background: var(--accent);
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .project-card:hover {
-            border-color: var(--accent);
-            transform: translateX(4px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
-        }
-
-        .project-card:hover::before {
-            opacity: 1;
-        }
-        
-        .project-card h3 { 
-            margin: 0 0 4px 0; 
-            font-size: 12px; 
-            color: var(--text-bright);
-            display: flex; 
-            justify-content: space-between;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .tech-badge { 
-            font-family: 'JetBrains Mono', monospace; 
-            font-size: 8px; 
-            color: var(--accent);
-            background: rgba(0, 168, 255, 0.1);
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-weight: 600;
-            white-space: nowrap;
-        }
-        
-        .project-card p { 
-            margin: 0; 
-            font-size: 10px; 
-            line-height: 1.5;
-            color: var(--text-dim);
-        }
-
-        /* Education */
-        .education-entry {
-            margin-bottom: 8px;
-            padding: 8px 12px;
-            background: var(--surface);
-            border-radius: 6px;
-            border-left: 3px solid var(--accent-secondary);
-        }
-
-        .education-entry .degree {
-            font-weight: 600;
-            color: var(--text-bright);
-            font-size: 11.5px;
-            margin-bottom: 2px;
-        }
-
-        .education-entry .institution {
-            color: var(--text-dim);
-            font-size: 10.5px;
-        }
-
-        .education-entry .year {
-            font-family: 'JetBrains Mono', monospace;
+        .duration {
             font-size: 9px;
-            color: var(--accent-secondary);
-            margin-top: 2px;
+            color: var(--muted);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            white-space: nowrap;
+            font-weight: 600;
         }
 
-        .sidebar-page2 {
+        .company { color: var(--accent); font-weight: 600; font-size: 11.5px; margin-bottom: 6px; }
+        .company .company-link { color: var(--accent); }
+
+        .entry-description { font-size: 10.5px; color: var(--ink-soft); line-height: 1.55; }
+        .entry-description ul { margin: 4px 0; padding-left: 16px; }
+        .entry-description li { margin-bottom: 4px; }
+        .entry-description li::marker { color: var(--accent-soft); }
+        .entry-description strong { color: var(--ink); font-weight: 600; }
+
+        /* ---- Proyectos ---- */
+        .project-grid { display: grid; grid-template-columns: 1fr; gap: 9px; }
+
+        .project-card {
             background: var(--surface);
-            padding: 28px 22px;
-            position: relative;
-            z-index: 2;
+            border: 1px solid var(--line);
+            padding: 10px 13px;
+            border-radius: 5px;
+        }
+
+        .project-card h3 {
+            margin: 0 0 5px 0;
+            font-size: 12px;
+            color: var(--ink);
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 10px;
+        }
+
+        .tech-badge {
+            font-size: 8px;
+            color: var(--accent-soft);
+            letter-spacing: 0.7px;
+            font-weight: 700;
+            white-space: nowrap;
+            text-transform: uppercase;
+        }
+
+        .project-card p { margin: 0; font-size: 10px; line-height: 1.5; color: var(--ink-soft); }
+
+        /* ---- Educación ---- */
+        .education-entry {
+            margin-bottom: 9px;
+            padding: 9px 13px;
+            background: var(--surface);
+            border-radius: 5px;
+            border-left: 2px solid var(--accent-soft);
+        }
+
+        .education-entry .degree { font-weight: 600; color: var(--ink); font-size: 11.5px; margin-bottom: 2px; }
+        .education-entry .institution { color: var(--ink-soft); font-size: 10.5px; }
+        .education-entry .year { font-size: 9px; color: var(--muted); margin-top: 3px; letter-spacing: 0.5px; }
+
+        @media print {
+            body { background: white; }
+            .theme-toggle { display: none !important; }
+            .page {
+                margin: 0;
+                box-shadow: none;
+                page-break-after: always;
+                page-break-inside: avoid;
+            }
+            .page:last-child { page-break-after: avoid; }
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
         }
     </style>
 </head>
 <body>
+    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Cambiar tema claro/oscuro">
+        <span id="themeIcon">&#9789;</span><span id="themeLabel">Modo oscuro</span>
+    </button>
+
     <!-- PAGE 1 -->
     <div class="page">
-        <!-- SIDEBAR -->
         <aside class="sidebar">
             <div class="profile-section">
-                <img src="photo_original.jpg" alt="Victor Rivas" class="profile-img">
+                <img src="photo_2026.jpg" alt="Victor Rivas" class="profile-img">
                 <h1>Victor Rivas</h1>
                 <div class="title">Unreal Engine Developer</div>
             </div>
@@ -514,7 +394,7 @@
                 <div class="contact-item">
                     <span class="label">Location</span>
                     <span>Las Palmas, Spain</span>
-                    <span style="display:block;font-size:9px;color:var(--success);margin-top:1px;">Open to Remote &amp; Relocation</span>
+                    <span style="display:block;font-size:9px;color:var(--success);margin-top:2px;font-weight:600;">Open to Remote &amp; Relocation</span>
                 </div>
                 <div class="contact-item">
                     <span class="label">Portfolio</span>
@@ -532,7 +412,7 @@
 
             <div class="side-section">
                 <span class="section-title">Tech Stack</span>
-                
+
                 <div class="skill-category">
                     <span class="category-name">Core Engine</span>
                     <div class="tags">
@@ -601,16 +481,15 @@
             </div>
 
             <div class="highlight-box">
-                <span class="label">&#9733; Recognition</span>
+                <span class="label">Recognition</span>
                 <span class="text">PlayStation Talents Finalist, Best Narrative (Azra, 2021). VR project for Tourism of Gran Canaria featured in official press.</span>
             </div>
 
         </aside>
 
-        <!-- MAIN CONTENT PAGE 1 -->
         <main class="main">
             <div class="summary-box">
-                <p><strong>Unreal Engine Developer</strong> with <strong>5+ years</strong> building gameplay systems, editor tooling, and technical pipelines in <strong>C++</strong> and Blueprints. Specialized in <strong>editor plugins</strong> (Slate UI), real-time <strong>motion capture</strong> integration (Live Link, NNE), <strong>VR development</strong> (Meta Quest, hand-tracking), <strong>multiplayer replication</strong>, <strong>iOS/Android publishing</strong> from UE5, and <strong>performance optimization</strong> for PC, console, and mobile targets.</p>
+                <p><strong>Unreal Engine Developer</strong> working in games <strong>since 2019</strong>, with <strong>6+ years</strong> building gameplay systems, editor tooling, and technical pipelines in <strong>C++</strong> and Blueprints. Specialized in <strong>editor plugins</strong> (Slate UI), real-time <strong>motion capture</strong> integration (Live Link, NNE), <strong>VR development</strong> (Meta Quest, hand-tracking), <strong>multiplayer replication</strong>, <strong>iOS/Android publishing</strong> from UE5, and <strong>performance optimization</strong> for PC, console, and mobile targets.</p>
                 <p>Shipped a <strong>VR product for a government tourism board</strong>, led engineering at my own studio with a title on <strong>Steam</strong>, and delivered a <strong>PlayStation Talents</strong> finalist. I build the tools and systems that let teams iterate faster.</p>
             </div>
 
@@ -623,7 +502,7 @@
                 <div class="experience-entry">
                     <div class="entry-header">
                         <span class="role">Founder &amp; Lead Programmer</span>
-                        <span class="duration">2022 — PRESENT</span>
+                        <span class="duration">2022 — Present</span>
                     </div>
                     <div class="company"><a href="https://theboltagestudio.com" target="_blank" class="company-link">The Boltage Studio</a> — Remote</div>
                     <div class="entry-description">
@@ -638,7 +517,7 @@
                 <div class="experience-entry">
                     <div class="entry-header">
                         <span class="role">Unreal Engine Developer</span>
-                        <span class="duration">MAR 2025 — DEC 2025</span>
+                        <span class="duration">Mar 2025 — Dec 2025</span>
                     </div>
                     <div class="company"><a href="https://salascala.com" target="_blank" class="company-link">Salascala</a> / <a href="https://thewisedreams.com" target="_blank" class="company-link">TheWiseDreams</a> — Gran Canaria (Hybrid)</div>
                     <div class="entry-description">
@@ -687,7 +566,7 @@
                 </div>
                 <div class="project-grid">
                     <div class="project-card">
-                        <h3>Kinemotion Mocap <span class="tech-badge">C++ / NNE / LIVE LINK</span></h3>
+                        <h3>Kinemotion Mocap <span class="tech-badge">C++ / NNE / Live Link</span></h3>
                         <p>Real-time monocular mocap plugin for UE5.3+. Runs AI pose inference via NNE (DirectML GPU), decodes 133 keypoints into a 19-bone skeleton, streams through a custom Live Link source with auto-calibration, anti-jitter filtering, and multiplayer support. <a href="https://github.com/vicvasper/Kinemotion_UE5.5-" target="_blank" class="project-link">GitHub</a></p>
                     </div>
                 </div>
@@ -697,7 +576,6 @@
 
     <!-- PAGE 2 -->
     <div class="page">
-        <!-- SIDEBAR PAGE 2 -->
         <aside class="sidebar-page2">
             <div class="side-section">
                 <span class="section-title">Languages</span>
@@ -715,7 +593,7 @@
                 </div>
             </div>
 
-            <div class="side-section" style="margin-top:16px;">
+            <div class="side-section" style="margin-top:20px;">
                 <span class="section-title">Key Strengths</span>
                 <div class="tags" style="gap:5px;">
                     <span class="tag">Engine Source Reading</span>
@@ -728,18 +606,17 @@
                 </div>
             </div>
 
-            <div class="highlight-box" style="margin-top:16px;">
-                <span class="label">&#9733; Studio</span>
+            <div class="highlight-box" style="margin-top:18px;">
+                <span class="label">Studio</span>
                 <span class="text">Founder, The Boltage Studio. Title on Steam (Noah and the Cosmic Cleanup). Amper in DeVuego.</span>
             </div>
 
             <div class="highlight-box" style="margin-top:10px;">
-                <span class="label">&#9733; Current R&amp;D</span>
+                <span class="label">Current R&amp;D</span>
                 <span class="text">Building FinePOSE-based real-time 3D pose estimation pipeline (PyTorch + MediaPipe + RTMPose + CLIP) with UE5 socket integration for next-gen motion capture.</span>
             </div>
         </aside>
 
-        <!-- MAIN CONTENT PAGE 2 -->
         <main class="main">
             <div class="content-section">
                 <div class="section-header">
@@ -748,27 +625,27 @@
                 </div>
                 <div class="project-grid">
                     <div class="project-card">
-                        <h3>Optilogger Plugin <span class="tech-badge">C++ / SLATE / PROFILING</span></h3>
-                        <p>Editor profiling plugin (1,100+ lines analysis, 865 lines Slate UI) scanning meshes, textures, materials, animations, audio, lighting, and post-process. Memory estimation, shader instruction counting, frustum culling, and JSON export. &#9733;6 stars. <a href="https://github.com/vicvasper/Optilogger_UE5.x" target="_blank" class="project-link">GitHub</a></p>
+                        <h3>Optilogger Plugin <span class="tech-badge">C++ / Slate / Profiling</span></h3>
+                        <p>Editor profiling plugin (1,100+ lines analysis, 865 lines Slate UI) scanning meshes, textures, materials, animations, audio, lighting, and post-process. Memory estimation, shader instruction counting, frustum culling, and JSON export. 6 stars. <a href="https://github.com/vicvasper/Optilogger_UE5.x" target="_blank" class="project-link">GitHub</a></p>
                     </div>
 
                     <div class="project-card">
-                        <h3>SmartFolders Plugin <span class="tech-badge">PYTHON / C++ / EDITOR</span></h3>
-                        <p>Rule-driven asset organizer for Content Browser. Dual modes (type-based + intelligent name-grouping), Epic-recommended presets, full undo, batch operations. Reduces manual organization by ~70%. &#9733;4 stars. <a href="https://github.com/vicvasper/SmartFoldersPlugin_UE5.6" target="_blank" class="project-link">GitHub</a></p>
+                        <h3>SmartFolders Plugin <span class="tech-badge">Python / C++ / Editor</span></h3>
+                        <p>Rule-driven asset organizer for Content Browser. Dual modes (type-based + intelligent name-grouping), Epic-recommended presets, full undo, batch operations. Reduces manual organization by ~70%. 4 stars. <a href="https://github.com/vicvasper/SmartFoldersPlugin_UE5.6" target="_blank" class="project-link">GitHub</a></p>
                     </div>
 
                     <div class="project-card">
-                        <h3>Paint System <span class="tech-badge">C++ / RENDER TARGET / MATERIALS</span></h3>
-                        <p>Runtime vertex-color painting for Static and Skeletal Meshes. Per-channel RGBA, configurable fade, GPU-batched updates, and Blueprint API. &#9733;5 stars. <a href="https://github.com/vicvasper/Paint-System-5.4" target="_blank" class="project-link">GitHub</a></p>
+                        <h3>Paint System <span class="tech-badge">C++ / Render Target / Materials</span></h3>
+                        <p>Runtime vertex-color painting for Static and Skeletal Meshes. Per-channel RGBA, configurable fade, GPU-batched updates, and Blueprint API. 5 stars. <a href="https://github.com/vicvasper/Paint-System-5.4" target="_blank" class="project-link">GitHub</a></p>
                     </div>
 
                     <div class="project-card">
-                        <h3>Procedural Animated System <span class="tech-badge">C++ / SPLINE / PCG</span></h3>
+                        <h3>Procedural Animated System <span class="tech-badge">C++ / Spline / PCG</span></h3>
                         <p>Environment-aware procedural generator. Line-traces terrain to spawn spline bridges, zigzag wall ladders, or stepped ramps based on surface normals. Animation-ready with runtime spawning. <a href="https://github.com/vicvasper/Procedural-Animated-System_UE5.5" target="_blank" class="project-link">GitHub</a></p>
                     </div>
 
                     <div class="project-card">
-                        <h3>Time Control Mechanic <span class="tech-badge">C++ / PHYSICS / GAMEPLAY</span></h3>
+                        <h3>Time Control Mechanic <span class="tech-badge">C++ / Physics / Gameplay</span></h3>
                         <p>Per-object time manipulation: fast-forward, rewind, and freeze. Captures and restores full physics state per actor for granular temporal control. <a href="https://github.com/vicvasper/TIme-Control-Mechanic_UE5.5" target="_blank" class="project-link">GitHub</a></p>
                     </div>
                 </div>
@@ -781,23 +658,52 @@
                 </div>
 
                 <div class="education-entry">
+                    <div class="degree">Technical Artist Course — Real-Time VFX</div>
+                    <div class="institution">Voxel School — Madrid</div>
+                    <div class="year">Mar 2026 — Present</div>
+                </div>
+
+                <div class="education-entry">
                     <div class="degree">Game Development Course, Unreal Engine 5 (C++ &amp; Blueprints)</div>
                     <div class="institution">EOI — Escuela de Organización Industrial</div>
-                    <div class="year">SEP — OCT 2023</div>
+                    <div class="year">Sep — Oct 2023</div>
                 </div>
 
                 <div class="education-entry">
                     <div class="degree">Master in Digital Animation &amp; VFX</div>
                     <div class="institution">Voxel School — Madrid</div>
-                    <div class="year">OCT 2021 — JUL 2022</div>
+                    <div class="year">Oct 2021 — Jul 2022</div>
                 </div>
 
                 <div class="education-entry">
                     <div class="degree">Advanced Vocational Degree: 3D Animation, Games &amp; Interactive Environments</div>
                     <div class="institution">EISV — Escuela de Imagen y Sonido de Vigo</div>
-                    <div class="year">SEP 2019 — JUL 2021</div>
+                    <div class="year">Sep 2019 — Jul 2021</div>
                 </div>
             </div>
         </main>
     </div>
-</body></html>
+
+    <script>
+        (function () {
+            var root = document.documentElement;
+            var btn = document.getElementById('themeToggle');
+            var icon = document.getElementById('themeIcon');
+            var label = document.getElementById('themeLabel');
+            function sync() {
+                var dark = root.getAttribute('data-theme') === 'dark';
+                icon.innerHTML = dark ? '&#9728;' : '&#9789;';
+                label.textContent = dark ? 'Modo claro' : 'Modo oscuro';
+            }
+            btn.addEventListener('click', function () {
+                var dark = root.getAttribute('data-theme') === 'dark';
+                var next = dark ? 'light' : 'dark';
+                root.setAttribute('data-theme', next);
+                try { localStorage.setItem('cv-theme', next); } catch (e) {}
+                sync();
+            });
+            sync();
+        })();
+    </script>
+</body>
+</html>
