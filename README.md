@@ -2,7 +2,7 @@
 
 **Unreal Engine Developer | C++ | Editor Tooling | VR | Mocap Pipelines**
 
-5+ years shipping gameplay systems, editor plugins, and technical pipelines in C++ and Blueprints. Founded my own studio with a title on Steam. Delivered a VR product for a government tourism board and a PlayStation Talents finalist optimized for PS4.
+6+ years shipping gameplay systems, editor plugins, and technical pipelines in C++ and Blueprints. Founded my own studio with a title on Steam. Delivered a VR product for a government tourism board and a PlayStation Talents finalist optimized for PS4.
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/victorrivasperez/)
 [![Portfolio](https://img.shields.io/badge/Portfolio-000?style=flat&logo=github&logoColor=white)](https://vicvasper.github.io/README/)
