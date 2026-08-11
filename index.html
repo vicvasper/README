@@ -1,646 +1,232 @@
-
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Victor Rivas — Unreal Engine Developer</title>
-    <script>
-        (function () {
-            try {
-                var t = localStorage.getItem('site-theme');
-                if (t) document.documentElement.setAttribute('data-theme', t);
-            } catch (e) {}
-        })();
-    </script>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --paper: #ffffff;
-            --surface: #faf8f4;
-            --panel: #f4f1ec;
-            --ink: #20242a;
-            --ink-soft: #51565d;
-            --muted: #8a9098;
-            --line: #e4ded3;
-            --line-strong: #d8d1c4;
-            --accent: #2f5168;
-            --accent-soft: #5d7382;
-            --accent-ink: #24414f;
-            --success: #3f7d56;
-        }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Victor Rivas · Unreal Engine Developer</title>
+<meta name="description" content="Unreal Engine developer. Gameplay systems, editor tooling and technical pipelines in C++ and Blueprints. Las Palmas, Spain.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#9679;</text></svg>">
+<style>
+  :root{
+    --bg:#fbfbfa; --panel:#fff; --line:#e4e2dd; --tx:#1a1a18; --tx2:#5c5a55; --tx3:#8a8781;
+    --accent:#1a1a18; --tag:#f1efea;
+  }
+  html[data-theme="dark"]{
+    --bg:#0f0f0e; --panel:#161615; --line:#2a2a28; --tx:#eceae6; --tx2:#a3a09a; --tx3:#6e6b66;
+    --accent:#eceae6; --tag:#1f1f1d;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--tx);
+    font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  .wrap{max-width:780px;margin:0 auto;padding:0 24px}
 
-        html[data-theme="dark"] {
-            --paper: #14171c;
-            --surface: #1b2026;
-            --panel: #1a1e24;
-            --ink: #e7e9ec;
-            --ink-soft: #aeb4bc;
-            --muted: #828a93;
-            --line: #2b323b;
-            --line-strong: #39414b;
-            --accent: #82b1c9;
-            --accent-soft: #97a6b1;
-            --accent-ink: #cfe0ea;
-            --success: #6cbf94;
-        }
+  nav{position:sticky;top:0;z-index:20;background:color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;gap:22px;height:56px}
+  nav a{text-decoration:none;color:var(--tx2);font-size:14px}
+  nav a:hover{color:var(--tx)}
+  nav .nm{font-weight:600;color:var(--tx);margin-right:auto;font-size:15px}
+  #theme{margin-left:4px;background:none;border:1px solid var(--line);color:var(--tx2);
+    border-radius:6px;padding:4px 9px;font-size:12px;cursor:pointer;font-family:inherit}
+  #theme:hover{color:var(--tx)}
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+  header{padding:64px 0 8px}
+  .top{display:flex;gap:26px;align-items:flex-start}
+  .top img{width:88px;height:88px;border-radius:50%;object-fit:cover;border:1px solid var(--line);flex:none}
+  h1{margin:0 0 4px;font-size:30px;letter-spacing:-.5px;font-weight:650}
+  .role{margin:0 0 10px;color:var(--tx2);font-size:16px}
+  .where{color:var(--tx3);font-size:14px;margin:0}
+  .links{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px}
+  .links a{text-decoration:none;font-size:13.5px;padding:6px 12px;border:1px solid var(--line);
+    border-radius:7px;color:var(--tx2);background:var(--panel);transition:.15s}
+  .links a:hover{color:var(--tx);border-color:var(--tx3)}
 
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--paper);
-            color: var(--ink-soft);
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-        }
+  .intro{margin:30px 0 0;font-size:16.5px;line-height:1.72;color:var(--tx)}
+  .intro p{margin:0 0 14px}
 
-        h1, h2, h3 { font-family: 'Source Serif 4', Georgia, serif; color: var(--ink); }
+  h2{font-size:12px;letter-spacing:1.3px;text-transform:uppercase;color:var(--tx3);
+    font-weight:600;margin:52px 0 18px;padding-bottom:8px;border-bottom:1px solid var(--line)}
 
-        .container {
-            max-width: 1120px;
-            margin: 0 auto;
-            padding: 0 32px;
-            position: relative;
-        }
+  .item{padding:18px 0;border-bottom:1px solid var(--line)}
+  .item:last-child{border-bottom:none}
+  .ih{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
+  .ih h3{margin:0;font-size:16.5px;font-weight:600;letter-spacing:-.2px}
+  .ih h3 a{text-decoration:none}
+  .ih h3 a:hover{text-decoration:underline}
+  .when{color:var(--tx3);font-size:13px;white-space:nowrap}
+  .org{color:var(--tx2);font-size:14px;margin:2px 0 8px}
+  .item p{margin:0;color:var(--tx2);font-size:15px;line-height:1.65}
+  .item ul{margin:6px 0 0;padding-left:18px;color:var(--tx2);font-size:15px;line-height:1.65}
+  .item li{margin-bottom:5px}
+  .tags{margin-top:9px;display:flex;flex-wrap:wrap;gap:5px}
+  .tags span{font-size:11.5px;padding:2px 8px;border-radius:5px;background:var(--tag);color:var(--tx3);
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
 
-        /* ---- Header ---- */
-        header.site-header {
-            background: var(--paper);
-            border-bottom: 1px solid var(--line);
-            position: sticky;
-            top: 0;
-            z-index: 20;
-            width: 100%;
-        }
+  .skills{display:grid;grid-template-columns:150px 1fr;gap:10px 20px;font-size:15px}
+  .skills dt{color:var(--tx3);font-size:13.5px;padding-top:1px}
+  .skills dd{margin:0;color:var(--tx2)}
 
-        .header-inner {
-            max-width: 1120px;
-            margin: 0 auto;
-            padding: 16px 32px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+  footer{margin:56px 0 64px;padding-top:22px;border-top:1px solid var(--line);
+    color:var(--tx3);font-size:13.5px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  footer a{color:var(--tx2)}
 
-        .logo {
-            font-family: 'Source Serif 4', Georgia, serif;
-            font-size: 19px;
-            font-weight: 600;
-            color: var(--ink);
-            letter-spacing: -0.2px;
-        }
-
-        nav { display: flex; gap: 28px; align-items: center; }
-
-        nav a {
-            color: var(--ink-soft);
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-        }
-        nav a:hover { color: var(--accent); }
-        nav a.nav-cv { color: var(--accent); font-weight: 600; }
-
-        .theme-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: var(--surface);
-            color: var(--ink);
-            border: 1px solid var(--line-strong);
-            border-radius: 8px;
-            padding: 7px 12px;
-            font-family: 'Inter', sans-serif;
-            font-size: 12.5px;
-            font-weight: 500;
-            cursor: pointer;
-        }
-        .theme-btn:hover { border-color: var(--accent); }
-
-        .menu-toggle {
-            display: none;
-            width: 40px; height: 40px;
-            border: 1px solid var(--line-strong);
-            border-radius: 8px;
-            background: var(--surface);
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-        }
-        .menu-toggle span,
-        .menu-toggle span::before,
-        .menu-toggle span::after {
-            display: block; width: 18px; height: 2px;
-            background: var(--ink); position: relative;
-            transition: transform 0.25s ease, opacity 0.25s ease;
-        }
-        .menu-toggle span::before,
-        .menu-toggle span::after { content: ''; position: absolute; left: 0; }
-        .menu-toggle span::before { top: -6px; }
-        .menu-toggle span::after { top: 6px; }
-        #menu-checkbox { display: none; }
-        #menu-checkbox:checked + label .menu-toggle span { transform: rotate(45deg); }
-        #menu-checkbox:checked + label .menu-toggle span::before { transform: rotate(90deg); top: 0; }
-        #menu-checkbox:checked + label .menu-toggle span::after { opacity: 0; }
-        #menu-checkbox:checked ~ nav { display: flex; }
-
-        /* ---- Hero ---- */
-        .hero {
-            display: flex;
-            align-items: center;
-            gap: 56px;
-            padding: 76px 0 56px;
-        }
-        .hero-content { flex: 1; }
-
-        .hero-label {
-            font-size: 12px;
-            color: var(--accent);
-            text-transform: uppercase;
-            letter-spacing: 1.6px;
-            margin-bottom: 20px;
-            font-weight: 600;
-        }
-
-        .hero h1 {
-            font-size: 44px;
-            font-weight: 600;
-            line-height: 1.15;
-            margin-bottom: 22px;
-            letter-spacing: -0.4px;
-        }
-
-        .hero p {
-            font-size: 16.5px;
-            color: var(--ink-soft);
-            max-width: 540px;
-            margin-bottom: 34px;
-            line-height: 1.7;
-        }
-
-        .cta-buttons { display: flex; gap: 14px; flex-wrap: wrap; }
-
-        .btn {
-            padding: 12px 22px;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 14px;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            border: 1px solid transparent;
-        }
-        .btn-primary { background: var(--accent); color: var(--paper); }
-        html[data-theme="dark"] .btn-primary { color: #11151a; }
-        .btn-primary:hover { background: var(--accent-ink); }
-        .btn-secondary { background: transparent; color: var(--ink); border-color: var(--line-strong); }
-        .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
-
-        .hero-image { flex: 0 0 320px; }
-        .hero-image img {
-            width: 100%;
-            border-radius: 12px;
-            border: 1px solid var(--line-strong);
-            display: block;
-        }
-
-        /* ---- Stats ---- */
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 18px;
-            padding-bottom: 16px;
-        }
-        .stat-card {
-            background: var(--surface);
-            border: 1px solid var(--line);
-            border-radius: 10px;
-            padding: 22px 20px;
-            text-align: center;
-        }
-        .stat-number {
-            font-family: 'Source Serif 4', Georgia, serif;
-            font-size: 36px;
-            font-weight: 600;
-            color: var(--accent);
-            line-height: 1;
-            margin-bottom: 6px;
-        }
-        .stat-label { font-size: 13.5px; color: var(--ink-soft); font-weight: 500; }
-
-        /* ---- Sections ---- */
-        section.block { padding: 64px 0; }
-        .panel-bg { background: var(--panel); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-
-        .section-header { text-align: center; margin-bottom: 40px; }
-        .section-title { font-size: 30px; font-weight: 600; margin-bottom: 10px; letter-spacing: -0.3px; }
-        .section-subtitle { font-size: 16px; color: var(--ink-soft); max-width: 620px; margin: 0 auto; }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
-            gap: 22px;
-        }
-
-        .card {
-            background: var(--paper);
-            border: 1px solid var(--line);
-            border-radius: 10px;
-            padding: 24px;
-        }
-        .panel-bg .card { background: var(--surface); }
-        .card:hover { border-color: var(--accent); }
-
-        .card-icon {
-            width: 40px; height: 40px;
-            background: var(--surface);
-            border: 1px solid var(--line);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 15px;
-            color: var(--accent);
-        }
-        .panel-bg .card-icon { background: var(--paper); }
-        .card-icon svg { width: 21px; height: 21px; }
-
-        .card h3 { font-size: 19px; margin-bottom: 11px; font-weight: 600; }
-
-        .tags { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 14px; }
-        .tag {
-            font-size: 10.5px;
-            background: var(--surface);
-            color: var(--accent-soft);
-            border: 1px solid var(--line);
-            padding: 4px 9px;
-            border-radius: 5px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.4px;
-        }
-        .panel-bg .tag { background: var(--panel); }
-
-        .card p { color: var(--ink-soft); line-height: 1.65; margin-bottom: 16px; font-size: 14.5px; }
-        .card p:last-child { margin-bottom: 0; }
-
-        .card-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 7px;
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 14px;
-        }
-        .card-link:hover { text-decoration: underline; }
-
-        /* ---- Why cards (lighter) ---- */
-        .why-card { padding: 22px; }
-        .why-card h3 { font-size: 17px; margin-bottom: 8px; }
-        .why-card p { font-size: 14px; margin-bottom: 0; }
-
-        /* ---- Contact ---- */
-        .contact-box {
-            background: var(--surface);
-            border: 1px solid var(--line);
-            border-radius: 12px;
-            padding: 52px 40px;
-            max-width: 680px;
-            margin: 0 auto;
-            text-align: center;
-        }
-        .contact-box h2 { font-size: 30px; margin-bottom: 14px; font-weight: 600; }
-        .contact-box p { font-size: 16px; color: var(--ink-soft); margin-bottom: 30px; line-height: 1.6; }
-        .contact-links { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
-
-        footer {
-            padding: 32px 0;
-            background: var(--paper);
-            border-top: 1px solid var(--line);
-            text-align: center;
-            color: var(--muted);
-            font-size: 13.5px;
-        }
-
-        @media (max-width: 968px) {
-            .menu-toggle { display: inline-flex; }
-            nav {
-                position: absolute;
-                top: 60px; right: 16px; left: 16px;
-                flex-direction: column;
-                gap: 14px;
-                background: var(--panel);
-                padding: 18px;
-                border: 1px solid var(--line);
-                border-radius: 10px;
-                display: none;
-            }
-            nav a { font-size: 15px; text-align: center; }
-            .hero { flex-direction: column; text-align: center; padding-top: 56px; }
-            .hero h1 { font-size: 36px; }
-            .hero p { margin: 0 auto 32px; }
-            .cta-buttons { justify-content: center; }
-            .hero-image { flex: 0 0 auto; max-width: 260px; }
-            .grid { grid-template-columns: 1fr; }
-        }
-
-        @media (max-width: 640px) {
-            .container, .header-inner { padding-left: 20px; padding-right: 20px; }
-            .hero h1 { font-size: 31px; }
-            .section-title { font-size: 26px; }
-        }
-    </style>
+  @media(max-width:620px){
+    .top{flex-direction:column;gap:16px}
+    .skills{grid-template-columns:1fr;gap:2px 0}
+    .skills dd{margin-bottom:10px}
+    nav .wrap{gap:14px}
+    nav a.hide-sm{display:none}
+  }
+</style>
 </head>
 <body>
-    <header class="site-header">
-        <div class="header-inner">
-            <div class="logo">Victor Rivas</div>
-            <input type="checkbox" id="menu-checkbox" aria-label="Toggle navigation menu">
-            <label for="menu-checkbox">
-                <div class="menu-toggle" aria-hidden="true"><span></span></div>
-            </label>
-            <nav>
-                <a href="#projects">Projects</a>
-                <a href="#experience">Experience</a>
-                <a href="#contact">Contact</a>
-                <a href="CV_EN.html" class="nav-cv" target="_blank">CV (EN)</a>
-                <button class="theme-btn" id="themeToggle" type="button" aria-label="Toggle dark mode">
-                    <span id="themeIcon">&#9789;</span><span id="themeLabel">Dark</span>
-                </button>
-            </nav>
-        </div>
-    </header>
 
-    <div class="container">
-        <section class="hero">
-            <div class="hero-content">
-                <div class="hero-label">Unreal Engine Developer</div>
-                <h1>Shipping gameplay systems, editor tools &amp; VR products in C++ and UE5</h1>
-                <p>I build the technical backbone that lets teams iterate faster: real-time mocap pipelines, Slate editor plugins, multiplayer replication, and console-optimized gameplay. Shipped a VR product for a government tourism board, a PlayStation Talents finalist, and a title listed on Steam.</p>
-                <div class="cta-buttons">
-                    <a href="CV_EN.html" class="btn btn-primary" target="_blank">View CV (EN)</a>
-                    <a href="#contact" class="btn btn-secondary">Contact Me</a>
-                    <a href="https://github.com/vicvasper" class="btn btn-secondary" target="_blank">GitHub Portfolio</a>
-                </div>
-            </div>
-            <div class="hero-image">
-                <img src="photo_2026.png" alt="Victor Rivas">
-            </div>
-        </section>
+<nav><div class="wrap">
+  <span class="nm">Victor Rivas</span>
+  <a href="#work">Work</a>
+  <a href="#experience">Experience</a>
+  <a href="#skills" class="hide-sm">Skills</a>
+  <a href="CV_EN.html">CV</a>
+  <button id="theme" type="button">Dark</button>
+</div></nav>
 
-        <div class="stats">
-            <div class="stat-card">
-                <div class="stat-number">6+</div>
-                <div class="stat-label">Years in UE Development</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">13</div>
-                <div class="stat-label">Open-Source Projects</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">4</div>
-                <div class="stat-label">Studios Shipped With</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">1</div>
-                <div class="stat-label">Studio Founded</div>
-            </div>
-        </div>
+<div class="wrap">
+
+<header>
+  <div class="top">
+    <img src="photo_2026.jpg" alt="Victor Rivas">
+    <div>
+      <h1>Victor Rivas</h1>
+      <p class="role">Unreal Engine Developer — gameplay systems, editor tooling and C++</p>
+      <p class="where">Las Palmas, Spain · Open to remote and relocation</p>
+      <div class="links">
+        <a href="mailto:vic.rivasperez@gmail.com">Email</a>
+        <a href="https://github.com/vicvasper">GitHub</a>
+        <a href="https://linkedin.com/in/victorrivasperez">LinkedIn</a>
+        <a href="CV_EN.html">CV (EN)</a>
+        <a href="CV_ES.html">CV (ES)</a>
+      </div>
     </div>
+  </div>
 
-    <section class="block panel-bg">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Why Work With Me</h2>
-                <p class="section-subtitle">I don't just write code. I ship products, build the tools that accelerate teams, and own problems end-to-end.</p>
-            </div>
-            <div class="grid">
-                <div class="card why-card">
-                    <h3>Shipped VR &amp; Console</h3>
-                    <p>Delivered a full VR product commissioned by a government tourism board and a PlayStation Talents finalist optimized for PS4. I know what it takes to ship to certification.</p>
-                </div>
-                <div class="card why-card">
-                    <h3>Deep C++ &amp; Engine Knowledge</h3>
-                    <p>I read engine source daily. From NNE/DirectML GPU inference to custom Live Link sources, I work at the layer where most developers stop and I build reusable systems there.</p>
-                </div>
-                <div class="card why-card">
-                    <h3>Tooling That Saves Hours</h3>
-                    <p>Optilogger, SmartFolders, custom Slate editors: I build the profiling and pipeline tools that eliminate manual work and let artists and designers ship without waiting on engineering.</p>
-                </div>
-                <div class="card why-card">
-                    <h3>Studio Founder &amp; Team Lead</h3>
-                    <p>Founded The Boltage Studio, established CI/CD pipelines with GitHub Actions, ran sprint-based delivery for distributed teams, and shipped a title to Steam. I understand the full picture.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+  <div class="intro">
+    <p>I have spent six years building games in Unreal Engine, mostly on the systems side: gameplay and character code, multiplayer replication, and the editor tools that sit underneath a production.</p>
+    <p>I shipped four VR titles for Meta Quest on a commission from the Gran Canaria Tourism Board, took a PS4 build through platform certification as lead programmer on a PlayStation Talents finalist, and run my own studio with a title heading to Steam. Most of my tooling work is open source.</p>
+  </div>
+</header>
 
-    <section class="block" id="projects">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Open Source &amp; Featured Projects</h2>
-                <p class="section-subtitle">Production-grade C++ plugins and systems, all open source, all battle-tested.</p>
-            </div>
+<h2 id="work">Selected work</h2>
 
-            <div class="grid">
-                <div class="card">
-                    <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
-                    <h3>Kinemotion Mocap</h3>
-                    <div class="tags">
-                        <span class="tag">C++</span>
-                        <span class="tag">NNE / DirectML</span>
-                        <span class="tag">Live Link</span>
-                    </div>
-                    <p>Real-time monocular mocap plugin for UE5.3+. Runs AI pose inference on GPU via NNE (DirectML), decodes 133 keypoints into a 19-bone skeleton, and streams through a custom Live Link source with auto-calibration, anti-jitter filtering, and multiplayer support.</p>
-                    <a href="https://github.com/vicvasper/Kinemotion_UE5.5-" class="card-link" target="_blank">View on GitHub →</a>
-                </div>
+<div class="item">
+  <div class="ih"><h3><a href="https://github.com/vicvasper/Kinemotion_UE5.5">Kinemotion</a></h3><span class="when">UE 5.5+</span></div>
+  <p>Markerless motion capture for Unreal. Runs pose inference on the GPU through NNE with a DirectML backend, decodes 133 keypoints into a 19-bone skeleton, and streams it into the engine over a custom Live Link source. Includes auto-calibration, anti-jitter filtering and multiplayer support.</p>
+  <div class="tags"><span>C++</span><span>NNE / DirectML</span><span>Live Link</span></div>
+</div>
 
-                <div class="card">
-                    <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
-                    <h3>Optilogger Plugin</h3>
-                    <div class="tags">
-                        <span class="tag">C++</span>
-                        <span class="tag">Slate UI</span>
-                        <span class="tag">Profiling</span>
-                    </div>
-                    <p>Editor profiling plugin (1,100+ lines analysis, 865 lines Slate UI) that scans meshes, textures, materials, animations, audio, lighting, and post-process. Memory estimation, shader instruction counting, frustum culling analysis, and JSON export. 6 stars.</p>
-                    <a href="https://github.com/vicvasper/Optilogger_UE5.x" class="card-link" target="_blank">View on GitHub →</a>
-                </div>
+<div class="item">
+  <div class="ih"><h3><a href="https://github.com/vicvasper/Optilogger_UE5.x">Optilogger</a></h3><span class="when">UE 5.3+</span></div>
+  <p>Editor plugin that audits an entire level in one pass: static and skeletal meshes, textures, materials, animations, audio, lighting and post-process. Estimates memory, counts shader instructions, narrows the scan with frustum culling and exports JSON reports. Built on Slate, with hotkeys for every category.</p>
+  <div class="tags"><span>C++</span><span>Slate</span><span>Profiling</span></div>
+</div>
 
-                <div class="card">
-                    <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div>
-                    <h3>SmartFolders Plugin</h3>
-                    <div class="tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">C++</span>
-                        <span class="tag">Editor</span>
-                    </div>
-                    <p>Rule-driven asset organizer for Content Browser. Dual modes (type-based + intelligent name-grouping), Epic-recommended presets, full undo, and batch operations. Reduces manual organization by ~70%. 4 stars.</p>
-                    <a href="https://github.com/vicvasper/SmartFoldersPlugin_UE5.6" class="card-link" target="_blank">View on GitHub →</a>
-                </div>
+<div class="item">
+  <div class="ih"><h3><a href="https://github.com/vicvasper/SmartFoldersPlugin_UE5.6">SmartFolders</a></h3><span class="when">UE 5.6</span></div>
+  <p>Content Browser organizer driven by rules. Two modes, type-based and name-grouping, with Epic-recommended presets, batch operations and full undo. Written because organizing assets by hand is the kind of work nobody should be doing twice.</p>
+  <div class="tags"><span>C++</span><span>Python</span><span>Editor</span></div>
+</div>
 
-                <div class="card">
-                    <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
-                    <h3>Paint System</h3>
-                    <div class="tags">
-                        <span class="tag">C++</span>
-                        <span class="tag">Render Target</span>
-                        <span class="tag">Materials</span>
-                    </div>
-                    <p>Runtime vertex-color painting for Static and Skeletal Meshes. Per-channel RGBA, configurable fade, GPU-batched updates, and full Blueprint API. 5 stars.</p>
-                    <a href="https://github.com/vicvasper/Paint-System-5.4" class="card-link" target="_blank">View on GitHub →</a>
-                </div>
+<div class="item">
+  <div class="ih"><h3><a href="https://github.com/vicvasper/Paint-System-5.4">Paint System</a></h3><span class="when">UE 5.4</span></div>
+  <p>Runtime vertex-colour painting for static and skeletal meshes, with per-channel RGBA control, configurable fade, GPU-batched updates and a Blueprint API.</p>
+  <div class="tags"><span>C++</span><span>Render targets</span><span>Materials</span></div>
+</div>
 
-                <div class="card">
-                    <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6l3 6h12l3-6M3 18h18v-6H3z"/></svg></div>
-                    <h3>Procedural Animated System</h3>
-                    <div class="tags">
-                        <span class="tag">C++</span>
-                        <span class="tag">Spline</span>
-                        <span class="tag">PCG</span>
-                    </div>
-                    <p>Environment-aware procedural generator. Line-traces terrain to spawn spline bridges, zigzag wall ladders, or stepped ramps based on surface normals. Animation-ready with runtime spawning.</p>
-                    <a href="https://github.com/vicvasper/Procedural-Animated-System_UE5.5" class="card-link" target="_blank">View on GitHub →</a>
-                </div>
+<div class="item">
+  <div class="ih"><h3><a href="https://github.com/vicvasper/Procedural-Animated-System_UE5.5">Procedural Animated System</a></h3><span class="when">UE 5.5</span></div>
+  <p>Generator that reads the environment before it builds. Line-traces the terrain and spawns spline bridges, wall ladders or stepped ramps depending on the surface normals it finds. Spawns at runtime and comes out animation-ready.</p>
+  <div class="tags"><span>C++</span><span>Splines</span><span>PCG</span></div>
+</div>
 
-                <div class="card">
-                    <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
-                    <h3>Time Control Mechanic</h3>
-                    <div class="tags">
-                        <span class="tag">C++</span>
-                        <span class="tag">Physics</span>
-                        <span class="tag">Gameplay</span>
-                    </div>
-                    <p>Per-object time manipulation: fast-forward, rewind, and freeze. Captures and restores full physics state per actor for granular temporal control.</p>
-                    <a href="https://github.com/vicvasper/TIme-Control-Mechanic_UE5.5" class="card-link" target="_blank">View on GitHub →</a>
-                </div>
-            </div>
-        </div>
-    </section>
+<div class="item">
+  <div class="ih"><h3><a href="https://github.com/vicvasper/Grass-Generator-V2-UE5.3">Grass Generator</a></h3><span class="when">UE 5.3</span></div>
+  <p>Landscape tool for filling and painting grass layers across large terrains, with control over distribution and density.</p>
+  <div class="tags"><span>C++</span><span>Landscape</span></div>
+</div>
 
-    <section class="block panel-bg" id="experience">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Professional Experience</h2>
-                <p class="section-subtitle">Shipped products across VR, console, PC, and multiplayer, from indie to government-commissioned.</p>
-            </div>
+<h2 id="experience">Experience</h2>
 
-            <div class="grid">
-                <div class="card">
-                    <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
-                    <h3>The Boltage Studio — Founder</h3>
-                    <div class="tags">
-                        <span class="tag">Founder</span>
-                        <span class="tag">Lead Programmer</span>
-                        <span class="tag">Steam</span>
-                    </div>
-                    <p>Founded my own studio. Leading all gameplay programming for Amper (featured in DeVuego). Noah and the Cosmic Cleanup listed on Steam, releasing March 2026. Established CI/CD via GitHub Actions and sprint-based delivery for a distributed team.</p>
-                    <a href="https://theboltagestudio.com/" class="card-link" target="_blank">Visit Studio →</a>
-                </div>
+<div class="item">
+  <div class="ih"><h3>Founder and Lead Programmer</h3><span class="when">2022 — present</span></div>
+  <p class="org">The Boltage Studio · Remote</p>
+  <ul>
+    <li>Lead all gameplay programming on <em>Amper</em>, an indie title featured in DeVuego. Replaced manual level setup with a data-driven content pipeline so designers can build without waiting on code.</li>
+    <li>Gameplay and tooling lead on <em>Noah and the Cosmic Cleanup</em>, listed on Steam with a playable demo due in October 2026. Own the modular character framework the whole cast is built on.</li>
+    <li>Set up CI/CD on GitHub Actions, code review and two-week sprints for a distributed team, and scripted the build automation for PC and mobile.</li>
+  </ul>
+</div>
 
-                <div class="card">
-                    <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4h18v6H3z"/><path d="M7 14h10l2 4H5z"/></svg></div>
-                    <h3>Salascala / TheWiseDreams</h3>
-                    <div class="tags">
-                        <span class="tag">Unreal Dev</span>
-                        <span class="tag">VR &amp; Hand-tracking</span>
-                        <span class="tag">Mocap Pipelines</span>
-                    </div>
-                    <p>Developed VR products with full hand-tracking for Meta Quest. Built end-to-end motion capture pipelines using NNE with DirectML GPU inference and custom Live Link sources. Implemented multiplayer replication and delivered Slate-based editor tools.</p>
-                </div>
+<div class="item">
+  <div class="ih"><h3>Unreal Engine Developer</h3><span class="when">Mar — Dec 2025</span></div>
+  <p class="org">Salascala / TheWiseDreams · Gran Canaria, hybrid</p>
+  <ul>
+    <li>Shipped <em>GastroGranca</em>, four VR cooking games for Meta Quest commissioned by the Gran Canaria Tourism Board. All four delivered on schedule and covered in the regional press.</li>
+    <li>Held the target framerate on Quest standalone hardware by rebuilding the interaction systems around hand-tracking-native components and gating merges on frame-budget checks.</li>
+    <li>Built the markerless mocap pipeline in C++ end to end, taking Quest 3 and webcam input through a custom Live Link source with GPU inference, which removed the need for suit-based capture sessions.</li>
+    <li>Implemented client-server replication for character interaction, physics state and networked animation.</li>
+    <li>Delivered Slate editor utilities that cut manual steps out of the animation and QA cycle for the whole team.</li>
+  </ul>
+</div>
 
-                <div class="card">
-                    <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v4H4z"/><path d="M4 10h10v10H4z"/><path d="M16 14h4v6h-4z"/></svg></div>
-                    <h3>Selene Games</h3>
-                    <div class="tags">
-                        <span class="tag">Gameplay</span>
-                        <span class="tag">Vehicle Systems</span>
-                        <span class="tag">Streaming</span>
-                    </div>
-                    <p>Developed spline-based vehicle driving systems with tunable acceleration, braking curves, and realistic drift physics. Improved level streaming performance and resolved build-stability issues for production.</p>
-                </div>
+<div class="item">
+  <div class="ih"><h3>Gameplay Programmer</h3><span class="when">2024</span></div>
+  <p class="org">Selene Games · Remote, contract</p>
+  <ul>
+    <li>Built a spline-based vehicle system with tunable acceleration, braking curves and drift physics, exposing the parameters so designers could tune the handling themselves.</li>
+    <li>Fixed reproducible build-stability failures and removed level-streaming hitches through targeted profiling.</li>
+  </ul>
+</div>
 
-                <div class="card">
-                    <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16v4H4z"/><path d="M4 12h10v6H4z"/><path d="M16 12h4v6h-4z"/></svg></div>
-                    <h3>Team Panda — Azra</h3>
-                    <div class="tags">
-                        <span class="tag">Lead Programmer</span>
-                        <span class="tag">PlayStation Talents Finalist</span>
-                        <span class="tag">PS4</span>
-                    </div>
-                    <p>Lead programmer for PlayStation Talents Best Narrative finalist. Architected controller input, combat, and character systems for UE4. Profiling and performance passes targeting PS4, reducing draw calls and memory footprint.</p>
-                </div>
+<div class="item">
+  <div class="ih"><h3>Lead Programmer</h3><span class="when">2021 — 2022</span></div>
+  <p class="org">Team Panda · <em>Azra</em></p>
+  <ul>
+    <li>Architected the controller input, combat and character systems in UE4. The game was nominated for Best Narrative at PlayStation Talents 2021.</li>
+    <li>Brought the PS4 build inside platform memory and performance certification budgets by cutting draw calls and memory footprint across systematic profiling passes.</li>
+  </ul>
+</div>
 
-                <div class="card">
-                    <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16v4H4z"/><path d="M4 12h10v6H4z"/><path d="M16 12h4v6h-4z"/></svg></div>
-                    <h3>Noah and the Cosmic Cleanup</h3>
-                    <div class="tags">
-                        <span class="tag">Unreal Engine</span>
-                        <span class="tag">On Steam</span>
-                    </div>
-                    <p>Gameplay and tooling lead for character systems and content pipelines. Listed on Steam, releasing March 2026.</p>
-                    <a href="https://store.steampowered.com/app/3952590/Noah__The_Cosmic_Cleanup/" class="card-link" target="_blank">Steam Page →</a>
-                </div>
+<h2 id="skills">Skills</h2>
 
-                <div class="card">
-                    <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
-                    <h3>Amper — In Production</h3>
-                    <div class="tags">
-                        <span class="tag">Programmer</span>
-                        <span class="tag">Unreal Engine</span>
-                        <span class="tag">DeVuego</span>
-                    </div>
-                    <p>Leading all gameplay programming for this indie title featured in DeVuego. Architecting core systems, content pipelines, and build automation. Currently in production.</p>
-                    <a href="https://theboltagestudio.com/presskit-amper/" class="card-link" target="_blank">View Details →</a>
-                </div>
-            </div>
-        </div>
-    </section>
+<dl class="skills">
+  <dt>Languages</dt><dd>C++, Blueprints, Python, C#</dd>
+  <dt>Engine</dt><dd>Unreal Engine 5.x and UE4, Gameplay Framework, replication, UMG, Slate, editor plugins, Live Link, NNE / DirectML</dd>
+  <dt>Areas</dt><dd>Gameplay and character systems, editor tooling, multiplayer, VR and hand tracking, motion capture, procedural generation, physics</dd>
+  <dt>Platforms</dt><dd>PC, PlayStation 4, Meta Quest, iOS and Android from UE5</dd>
+  <dt>Performance</dt><dd>RenderDoc, CPU / GPU / memory profiling, draw-call reduction, level streaming, frame budgets</dd>
+  <dt>Workflow</dt><dd>Git, GitHub Actions, Visual Studio, Blender, Maya, code review, Agile</dd>
+  <dt>Languages spoken</dt><dd>Spanish (native), Galician, English (professional working proficiency)</dd>
+</dl>
 
-    <section id="contact" class="block">
-        <div class="container">
-            <div class="contact-box">
-                <h2>Let's Build Something Together</h2>
-                <p>Looking for an Unreal Engine developer who ships? I bring deep C++ expertise, production experience across VR, console, and multiplayer, and the tools mindset that makes entire teams faster.</p>
-                <div class="contact-links">
-                    <a href="mailto:vic.rivasperez@gmail.com" class="btn btn-primary">Email Me</a>
-                    <a href="https://www.linkedin.com/in/victorrivasperez/" class="btn btn-secondary" target="_blank">LinkedIn</a>
-                    <a href="https://github.com/vicvasper" class="btn btn-secondary" target="_blank">GitHub</a>
-                </div>
-            </div>
-        </div>
-    </section>
+<footer>
+  <span>Victor Rivas · Las Palmas, Spain</span>
+  <span><a href="mailto:vic.rivasperez@gmail.com">vic.rivasperez@gmail.com</a></span>
+</footer>
 
-    <footer>
-        <div class="container">
-            <p>© 2026 Victor Rivas — Unreal Engine Developer</p>
-            <p style="margin-top: 8px; font-size: 12px;">Las Palmas, Spain. Open to Remote &amp; Relocation</p>
-        </div>
-    </footer>
+</div>
 
-    <script>
-        (function () {
-            var root = document.documentElement;
-            var btn = document.getElementById('themeToggle');
-            var icon = document.getElementById('themeIcon');
-            var label = document.getElementById('themeLabel');
-            function sync() {
-                var dark = root.getAttribute('data-theme') === 'dark';
-                icon.innerHTML = dark ? '&#9728;' : '&#9789;';
-                label.textContent = dark ? 'Light' : 'Dark';
-            }
-            btn.addEventListener('click', function () {
-                var dark = root.getAttribute('data-theme') === 'dark';
-                var next = dark ? 'light' : 'dark';
-                root.setAttribute('data-theme', next);
-                try { localStorage.setItem('site-theme', next); } catch (e) {}
-                sync();
-            });
-            sync();
-        })();
-    </script>
+<script>
+(function(){
+  var root=document.documentElement, btn=document.getElementById('theme');
+  function set(t){ root.setAttribute('data-theme',t); btn.textContent = t==='dark' ? 'Light' : 'Dark'; }
+  var start = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  set(start);
+  btn.addEventListener('click', function(){
+    set(root.getAttribute('data-theme')==='dark' ? 'light' : 'dark');
+  });
+})();
+</script>
 </body>
 </html>
