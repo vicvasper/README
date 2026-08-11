@@ -9,9 +9,9 @@ Las Palmas, Spain. Open to remote and relocation.
 
 Six years building games in Unreal, mostly on the systems side. Gameplay and character code, multiplayer replication, and the editor tools that sit underneath a production.
 
-I shipped four VR titles for Meta Quest commissioned by the Gran Canaria Tourism Board, took a PS4 build through platform certification as lead programmer on a PlayStation Talents finalist, and run my own studio with a title heading to Steam.
+I shipped a hand-tracking VR game for Meta Quest 3 commissioned by the Gran Canaria Tourism Board, took a PS4 build through platform certification as lead programmer on a PlayStation Talents finalist, and run my own studio with a title heading to Steam.
 
-Most of my tooling ends up here as a plugin. If a task has to be done twice by hand, it is usually worth a tool.
+Most of my tooling ends up here as a plugin. If a job has to be done twice by hand I usually end up writing the tool for it.
 
 ## Plugins and systems
 
@@ -26,16 +26,16 @@ Most of my tooling ends up here as a plugin. If a task has to be done twice by h
 
 ## Where I have worked
 
-**The Boltage Studio** — Founder and lead programmer, 2022 to now.
+**The Boltage Studio**, founder and lead programmer, 2022 to now.
 *Amper* (featured in DeVuego) and *Noah and the Cosmic Cleanup* (Steam, demo in October 2026).
 
-**Salascala / TheWiseDreams** — Unreal developer, 2025.
-*GastroGranca*, four VR titles for Meta Quest commissioned by the Gran Canaria Tourism Board.
+**Salascala / TheWiseDreams**, Unreal developer, 2025.
+*GastroGranca*, a hand-tracking VR cooking game for Meta Quest 3 commissioned by the Gran Canaria Tourism Board, plus three further VR client projects under NDA.
 
-**Selene Games** — Gameplay programmer, 2024.
+**Selene Games**, gameplay programmer, 2024.
 Spline-based vehicle systems and level streaming work.
 
-**Team Panda** — Lead programmer, 2021 to 2022.
+**Team Panda**, lead programmer, 2021 to 2022.
 *Azra*, nominated for Best Narrative at PlayStation Talents 2021. Shipped on PS4.
 
 ## Stack
