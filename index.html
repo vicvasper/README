@@ -5,20 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Victor Rivas · Unreal Engine Developer</title>
 <meta name="description" content="Unreal Engine developer. Gameplay systems, editor tooling and technical pipelines in C++ and Blueprints. Las Palmas, Spain.">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23c8551f'/><text x='16' y='23' font-size='19' font-family='Georgia,serif' fill='%23fff' text-anchor='middle'>V</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%2316161a'/><text x='16' y='23' font-size='18' font-family='Georgia,serif' fill='%23fff' text-anchor='middle'>V</text></svg>">
 <style>
   :root{
-    --bg:#faf8f5; --bg2:#f2eee8; --panel:#fff; --line:#e2dcd2; --line2:#d3cabc;
-    --tx:#1c1a17; --tx2:#57514a; --tx3:#8b8377;
-    --acc:#c8551f; --acc-soft:#f6e6dd;
+    --bg:#fcfcfb; --bg2:#f4f4f2; --panel:#fff; --line:#e6e5e2; --line2:#d2d1cd;
+    --tx:#16161a; --tx2:#54545a; --tx3:#8b8b91;
+    --acc:#16161a; --acc-soft:transparent;
     --serif:'Iowan Old Style','Palatino Linotype',Palatino,'Book Antiqua',Georgia,serif;
     --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Inter,Roboto,Helvetica,Arial,sans-serif;
     --mono:ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace;
   }
   html[data-theme="dark"]{
-    --bg:#100f0e; --bg2:#17151300; --panel:#191715; --line:#2c2823; --line2:#3a352e;
-    --tx:#efece7; --tx2:#a8a099; --tx3:#726b63;
-    --acc:#e87a45; --acc-soft:#2a1c14;
+    --bg:#0e0e10; --bg2:#161618; --panel:#141416; --line:#26262a; --line2:#35353a;
+    --tx:#eeeef0; --tx2:#a3a3aa; --tx3:#6e6e76;
+    --acc:#eeeef0; --acc-soft:transparent;
   }
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
@@ -31,25 +31,22 @@
     background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(10px)}
   nav .wrap{display:flex;align-items:center;gap:24px;height:58px}
   nav .nm{font-family:var(--serif);font-size:18px;font-weight:600;margin-right:auto;letter-spacing:-.2px}
-  nav .nm span{color:var(--acc)}
   nav a{text-decoration:none;color:var(--tx2);font-size:14px;position:relative;padding:2px 0}
-  nav a::after{content:'';position:absolute;left:0;right:100%;bottom:-2px;height:1.5px;background:var(--acc);transition:right .25s}
+  nav a::after{content:'';position:absolute;left:0;right:100%;bottom:-2px;height:1px;background:var(--tx3);transition:right .22s}
   nav a:hover{color:var(--tx)}
   nav a:hover::after{right:0}
   #theme{background:none;border:1px solid var(--line2);color:var(--tx2);border-radius:20px;
     padding:5px 13px;font-size:12px;cursor:pointer;font-family:inherit;transition:.18s}
-  #theme:hover{color:var(--acc);border-color:var(--acc)}
+  #theme:hover{color:var(--tx);border-color:var(--tx3)}
 
   /* header */
   header{position:relative;padding:78px 0 10px;overflow:hidden}
-  header::before{content:'';position:absolute;inset:0 0 auto;height:340px;z-index:-1;
-    background:radial-gradient(680px 240px at 12% 0%,var(--acc-soft),transparent 70%)}
+  header::before{display:none}
   .top{display:flex;gap:30px;align-items:flex-start}
   .pic{position:relative;flex:none}
   .pic img{width:104px;height:104px;border-radius:50%;object-fit:cover;
     border:1px solid var(--line2);display:block}
-  .pic::after{content:'';position:absolute;inset:-6px;border-radius:50%;
-    border:1px solid var(--acc);opacity:.28}
+  .pic::after{display:none}
   h1{font-family:var(--serif);margin:0 0 6px;font-size:44px;line-height:1.05;
     letter-spacing:-1px;font-weight:600}
   .role{margin:0 0 10px;color:var(--tx2);font-size:17px}
@@ -58,9 +55,9 @@
   .links{margin-top:20px;display:flex;flex-wrap:wrap;gap:9px}
   .links a{text-decoration:none;font-size:13.5px;padding:7px 15px;border:1px solid var(--line2);
     border-radius:22px;color:var(--tx2);background:var(--panel);transition:.18s}
-  .links a:hover{color:var(--acc);border-color:var(--acc);transform:translateY(-1px)}
-  .links a.pri{background:var(--acc);color:#fff;border-color:var(--acc)}
-  .links a.pri:hover{filter:brightness(1.08);color:#fff}
+  .links a:hover{color:var(--tx);border-color:var(--tx3)}
+  .links a.pri{background:var(--tx);color:var(--bg);border-color:var(--tx)}
+  .links a.pri:hover{color:var(--bg);opacity:.86}
 
   .intro{margin:36px 0 0;max-width:68ch}
   .intro p{margin:0 0 15px;font-size:17.5px;line-height:1.72;font-family:var(--serif)}
@@ -68,38 +65,35 @@
   .intro em{font-style:italic;color:var(--tx)}
 
   /* sections */
-  h2{font-family:var(--mono);font-size:12px;letter-spacing:1.6px;text-transform:uppercase;
-    color:var(--acc);font-weight:500;margin:64px 0 6px}
-  h2+.rule{height:1px;background:linear-gradient(90deg,var(--line2),transparent);margin-bottom:22px}
+  h2{font-family:var(--mono);font-size:11.5px;letter-spacing:1.7px;text-transform:uppercase;
+    color:var(--tx3);font-weight:500;margin:62px 0 6px}
+  h2+.rule{height:1px;background:var(--line);margin-bottom:10px}
 
   /* project cards */
-  .grid{display:grid;gap:12px}
-  .card{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:12px;
-    padding:20px 22px 18px;transition:.2s}
-  .card:hover{border-color:var(--line2);transform:translateY(-2px);
-    box-shadow:0 6px 22px -14px rgba(0,0,0,.35)}
-  .card .num{position:absolute;top:16px;right:20px;font-family:var(--mono);font-size:11px;color:var(--tx3)}
+  .grid{display:block}
+  .card{position:relative;padding:22px 0;border-bottom:1px solid var(--line)}
+  .card:last-child{border-bottom:none}
+  .card .num{display:none}
   .card h3{margin:0 0 3px;font-family:var(--serif);font-size:21px;font-weight:600;letter-spacing:-.3px}
   .card h3 a{text-decoration:none}
-  .card h3 a:hover{color:var(--acc)}
+  .card h3 a:hover{text-decoration:underline;text-underline-offset:3px}
   .card .ver{font-family:var(--mono);font-size:11.5px;color:var(--tx3);margin-bottom:9px}
   .card p{margin:0;color:var(--tx2);font-size:15.5px;line-height:1.62}
   .tags{margin-top:11px;display:flex;flex-wrap:wrap;gap:6px}
-  .tags span{font-family:var(--mono);font-size:11px;padding:3px 9px;border-radius:5px;
-    background:var(--bg2);color:var(--tx3);border:1px solid var(--line)}
-  html[data-theme="dark"] .tags span{background:#221f1c}
+  .tags span{font-family:var(--mono);font-size:11px;color:var(--tx3)}
+  .tags span+span::before{content:'/';margin-right:6px;color:var(--line2)}
 
   /* experience */
   .exp{position:relative;padding-left:26px}
   .exp::before{content:'';position:absolute;left:5px;top:8px;bottom:8px;width:1px;background:var(--line2)}
   .job{position:relative;padding:0 0 30px}
   .job:last-child{padding-bottom:4px}
-  .job::before{content:'';position:absolute;left:-25px;top:8px;width:9px;height:9px;border-radius:50%;
-    background:var(--bg);border:1.5px solid var(--acc)}
+  .job::before{content:'';position:absolute;left:-25px;top:9px;width:7px;height:7px;border-radius:50%;
+    background:var(--tx3)}
   .jh{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
   .jh h3{margin:0;font-size:17.5px;font-weight:650;letter-spacing:-.2px}
   .when{font-family:var(--mono);color:var(--tx3);font-size:12px;white-space:nowrap}
-  .org{color:var(--acc);font-size:14.5px;margin:3px 0 9px;font-weight:500}
+  .org{color:var(--tx2);font-size:14.5px;margin:3px 0 9px}
   .job ul{margin:0;padding-left:19px;color:var(--tx2);font-size:15.5px;line-height:1.66}
   .job li{margin-bottom:6px}
   .job li::marker{color:var(--tx3)}
@@ -114,7 +108,7 @@
   footer{margin:66px 0 70px;padding-top:24px;border-top:1px solid var(--line);
     color:var(--tx3);font-size:13.5px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   footer a{color:var(--tx2);text-decoration:none}
-  footer a:hover{color:var(--acc)}
+  footer a:hover{color:var(--tx)}
 
   @media(max-width:640px){
     .wrap{padding:0 20px}
@@ -129,7 +123,7 @@
 <body>
 
 <nav><div class="wrap">
-  <span class="nm">Victor <span>Rivas</span></span>
+  <span class="nm">Victor Rivas</span>
   <a href="#work">Work</a>
   <a href="#experience">Experience</a>
   <a href="#skills" class="hide-sm">Skills</a>
@@ -165,43 +159,37 @@
 <h2 id="work">Plugins and systems</h2><div class="rule"></div>
 <div class="grid">
 
-  <div class="card"><span class="num">01</span>
-    <h3><a href="https://github.com/vicvasper/Kinemotion_UE5.5">Kinemotion</a></h3>
+  <div class="card"><h3><a href="https://github.com/vicvasper/Kinemotion_UE5.5">Kinemotion</a></h3>
     <div class="ver">Unreal Engine 5.5+</div>
     <p>Markerless motion capture. Runs pose inference on the GPU through NNE with a DirectML backend, decodes 133 keypoints into a 19-bone skeleton, and streams it into the engine over a custom Live Link source. Auto-calibration, anti-jitter filtering and multiplayer support.</p>
     <div class="tags"><span>C++</span><span>NNE / DirectML</span><span>Live Link</span></div>
   </div>
 
-  <div class="card"><span class="num">02</span>
-    <h3><a href="https://github.com/vicvasper/Optilogger_UE5.x">Optilogger</a></h3>
+  <div class="card"><h3><a href="https://github.com/vicvasper/Optilogger_UE5.x">Optilogger</a></h3>
     <div class="ver">Unreal Engine 5.3+</div>
     <p>Editor plugin that audits an entire level in one pass: static and skeletal meshes, textures, materials, animations, audio, lighting and post-process. Estimates memory, counts shader instructions, narrows the scan with frustum culling and exports JSON reports. Built on Slate, hotkeys for every category.</p>
     <div class="tags"><span>C++</span><span>Slate</span><span>Profiling</span></div>
   </div>
 
-  <div class="card"><span class="num">03</span>
-    <h3><a href="https://github.com/vicvasper/SmartFoldersPlugin_UE5.6">SmartFolders</a></h3>
+  <div class="card"><h3><a href="https://github.com/vicvasper/SmartFoldersPlugin_UE5.6">SmartFolders</a></h3>
     <div class="ver">Unreal Engine 5.6</div>
     <p>Content Browser organizer driven by rules. Two modes, type-based and name-grouping, with Epic-recommended presets, batch operations and full undo. Written because organizing assets by hand is the kind of work nobody should be doing twice.</p>
     <div class="tags"><span>C++</span><span>Python</span><span>Editor</span></div>
   </div>
 
-  <div class="card"><span class="num">04</span>
-    <h3><a href="https://github.com/vicvasper/Paint-System-5.4">Paint System</a></h3>
+  <div class="card"><h3><a href="https://github.com/vicvasper/Paint-System-5.4">Paint System</a></h3>
     <div class="ver">Unreal Engine 5.4</div>
     <p>Runtime vertex-colour painting for static and skeletal meshes, with per-channel RGBA control, configurable fade, GPU-batched updates and a Blueprint API.</p>
     <div class="tags"><span>C++</span><span>Render targets</span><span>Materials</span></div>
   </div>
 
-  <div class="card"><span class="num">05</span>
-    <h3><a href="https://github.com/vicvasper/Procedural-Animated-System_UE5.5">Procedural Animated System</a></h3>
+  <div class="card"><h3><a href="https://github.com/vicvasper/Procedural-Animated-System_UE5.5">Procedural Animated System</a></h3>
     <div class="ver">Unreal Engine 5.5</div>
     <p>A generator that reads the environment before it builds. Line-traces the terrain and spawns spline bridges, wall ladders or stepped ramps depending on the surface normals it finds. Spawns at runtime and comes out animation-ready.</p>
     <div class="tags"><span>C++</span><span>Splines</span><span>PCG</span></div>
   </div>
 
-  <div class="card"><span class="num">06</span>
-    <h3><a href="https://github.com/vicvasper/Grass-Generator-V2-UE5.3">Grass Generator</a></h3>
+  <div class="card"><h3><a href="https://github.com/vicvasper/Grass-Generator-V2-UE5.3">Grass Generator</a></h3>
     <div class="ver">Unreal Engine 5.3</div>
     <p>Landscape tool for filling and painting grass layers across large terrains, with control over distribution, density and blending.</p>
     <div class="tags"><span>C++</span><span>Landscape</span></div>
