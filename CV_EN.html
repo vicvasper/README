@@ -1,709 +1,146 @@
-
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Victor Rivas — Unreal Engine Developer</title>
-    <script>
-        (function () {
-            try {
-                var t = localStorage.getItem('cv-theme');
-                if (t) document.documentElement.setAttribute('data-theme', t);
-            } catch (e) {}
-        })();
-    </script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&display=swap');
-
-        :root {
-            --paper: #ffffff;
-            --sidebar: #f4f1ec;
-            --surface: #faf8f4;
-            --ink: #20242a;
-            --ink-soft: #51565d;
-            --muted: #8a9098;
-            --line: #e4ded3;
-            --line-strong: #d8d1c4;
-            --accent: #2f5168;
-            --accent-soft: #5d7382;
-            --success: #3f7d56;
-        }
-
-        html[data-theme="dark"] {
-            --paper: #14171c;
-            --sidebar: #1a1e24;
-            --surface: #1f242b;
-            --ink: #e7e9ec;
-            --ink-soft: #aeb4bc;
-            --muted: #7f878f;
-            --line: #2b323b;
-            --line-strong: #39414b;
-            --accent: #82b1c9;
-            --accent-soft: #97a6b1;
-            --success: #6cbf94;
-        }
-
-        @page { size: A4; margin: 0; }
-
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            line-height: 1.5;
-            color: var(--ink-soft);
-            background: var(--paper);
-            -webkit-font-smoothing: antialiased;
-        }
-
-        /* Selector de tema (solo pantalla) */
-        .theme-toggle {
-            position: fixed;
-            top: 16px;
-            right: 16px;
-            z-index: 50;
-            display: inline-flex;
-            align-items: center;
-            gap: 7px;
-            background: var(--surface);
-            color: var(--ink);
-            border: 1px solid var(--line-strong);
-            border-radius: 8px;
-            padding: 8px 13px;
-            font-family: 'Inter', sans-serif;
-            font-size: 12.5px;
-            font-weight: 500;
-            cursor: pointer;
-        }
-        .theme-toggle:hover { border-color: var(--accent); }
-
-        .page {
-            background: var(--paper);
-            width: 210mm;
-            height: 297mm;
-            margin: 0 auto 22px;
-            display: grid;
-            grid-template-columns: 290px 1fr;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 1px 14px rgba(40, 40, 50, 0.10);
-        }
-
-        .sidebar,
-        .sidebar-page2 {
-            background: var(--sidebar);
-            padding: 24px 22px;
-            border-right: 1px solid var(--line);
-        }
-
-        /* ---- Perfil ---- */
-        .profile-section {
-            text-align: center;
-            margin-bottom: 15px;
-            padding-bottom: 12px;
-            border-bottom: 1px solid var(--line);
-        }
-
-        .profile-img {
-            width: 102px;
-            height: 102px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 1px solid var(--line-strong);
-            margin: 0 auto 10px;
-            display: block;
-        }
-
-        .sidebar h1 {
-            font-family: 'Source Serif 4', Georgia, serif;
-            font-size: 25px;
-            font-weight: 600;
-            color: var(--ink);
-            letter-spacing: -0.2px;
-            margin-bottom: 4px;
-        }
-
-        .sidebar .title {
-            font-size: 10.5px;
-            color: var(--accent);
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1.4px;
-        }
-
-        /* ---- Contacto ---- */
-        .contact-section { margin-bottom: 14px; }
-
-        .contact-item {
-            margin-bottom: 8px;
-            font-size: 11px;
-            line-height: 1.4;
-        }
-
-        .contact-item .label {
-            display: block;
-            color: var(--muted);
-            text-transform: uppercase;
-            font-size: 8px;
-            font-weight: 700;
-            letter-spacing: 1.2px;
-            margin-bottom: 2px;
-        }
-
-        .contact-item a { color: var(--ink); text-decoration: none; }
-        .contact-item a:hover { color: var(--accent); text-decoration: underline; }
-
-        .company-link,
-        .project-link { color: var(--accent); text-decoration: none; font-weight: 500; }
-        .company-link:hover,
-        .project-link:hover { text-decoration: underline; }
-
-        /* ---- Secciones laterales ---- */
-        .side-section { margin-bottom: 14px; }
-
-        .section-title {
-            font-size: 10px;
-            color: var(--ink);
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1.4px;
-            padding-bottom: 5px;
-            margin-bottom: 9px;
-            border-bottom: 1.5px solid var(--accent);
-            display: block;
-        }
-
-        .skill-category { margin-bottom: 8px; }
-
-        .skill-category .category-name {
-            display: block;
-            font-size: 9px;
-            font-weight: 700;
-            color: var(--accent-soft);
-            margin-bottom: 6px;
-            text-transform: uppercase;
-            letter-spacing: 0.6px;
-        }
-
-        .tags { display: flex; flex-wrap: wrap; gap: 4px; }
-
-        .tag {
-            font-size: 9px;
-            background: var(--surface);
-            color: var(--ink-soft);
-            padding: 2px 7px;
-            border-radius: 4px;
-            border: 1px solid var(--line);
-            font-weight: 500;
-        }
-
-        .highlight-box {
-            background: var(--surface);
-            border: 1px solid var(--line);
-            border-left: 2px solid var(--accent);
-            padding: 9px 11px;
-            border-radius: 4px;
-            margin-top: 12px;
-        }
-
-        .highlight-box .label {
-            font-size: 8px;
-            color: var(--accent);
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1.2px;
-            margin-bottom: 5px;
-            display: block;
-        }
-
-        .highlight-box .text { font-size: 10px; color: var(--ink-soft); line-height: 1.5; }
-
-        /* ---- Contenido principal ---- */
-        .main {
-            padding: 30px 34px;
-            background: var(--paper);
-        }
-
-        .summary-box {
-            border-left: 3px solid var(--accent);
-            padding: 4px 0 4px 16px;
-            margin-bottom: 22px;
-        }
-
-        .summary-box p {
-            font-size: 11.5px;
-            color: var(--ink-soft);
-            line-height: 1.65;
-        }
-        .summary-box p + p { margin-top: 8px; }
-        .summary-box strong { color: var(--ink); font-weight: 600; }
-
-        .content-section { margin-bottom: 20px; }
-
-        .section-header {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            margin-bottom: 14px;
-        }
-
-        .section-header h2 {
-            font-family: 'Source Serif 4', Georgia, serif;
-            font-size: 16px;
-            text-transform: none;
-            letter-spacing: 0;
-            color: var(--ink);
-            font-weight: 600;
-            white-space: nowrap;
-        }
-
-        .section-header .line { flex-grow: 1; height: 1px; background: var(--line-strong); }
-
-        /* ---- Experiencia ---- */
-        .experience-entry {
-            margin-bottom: 16px;
-            padding-left: 18px;
-            border-left: 1px solid var(--line-strong);
-            position: relative;
-        }
-
-        .experience-entry::before {
-            content: "";
-            position: absolute;
-            left: -4px;
-            top: 5px;
-            width: 7px;
-            height: 7px;
-            background: var(--accent);
-            border-radius: 50%;
-        }
-
-        .entry-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 2px;
-            gap: 10px;
-        }
-
-        .role { font-weight: 600; color: var(--ink); font-size: 13px; line-height: 1.3; }
-
-        .duration {
-            font-size: 9px;
-            color: var(--muted);
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            white-space: nowrap;
-            font-weight: 600;
-        }
-
-        .company { color: var(--accent); font-weight: 600; font-size: 11.5px; margin-bottom: 6px; }
-        .company .company-link { color: var(--accent); }
-
-        .entry-description { font-size: 10.5px; color: var(--ink-soft); line-height: 1.55; }
-        .entry-description ul { margin: 4px 0; padding-left: 16px; }
-        .entry-description li { margin-bottom: 4px; }
-        .entry-description li::marker { color: var(--accent-soft); }
-        .entry-description strong { color: var(--ink); font-weight: 600; }
-
-        /* ---- Proyectos ---- */
-        .project-grid { display: grid; grid-template-columns: 1fr; gap: 9px; }
-
-        .project-card {
-            background: var(--surface);
-            border: 1px solid var(--line);
-            padding: 10px 13px;
-            border-radius: 5px;
-        }
-
-        .project-card h3 {
-            margin: 0 0 5px 0;
-            font-size: 12px;
-            color: var(--ink);
-            font-weight: 600;
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            gap: 10px;
-        }
-
-        .tech-badge {
-            font-size: 8px;
-            color: var(--accent-soft);
-            letter-spacing: 0.7px;
-            font-weight: 700;
-            white-space: nowrap;
-            text-transform: uppercase;
-        }
-
-        .project-card p { margin: 0; font-size: 10px; line-height: 1.5; color: var(--ink-soft); }
-
-        /* ---- Educación ---- */
-        .education-entry {
-            margin-bottom: 9px;
-            padding: 9px 13px;
-            background: var(--surface);
-            border-radius: 5px;
-            border-left: 2px solid var(--accent-soft);
-        }
-
-        .education-entry .degree { font-weight: 600; color: var(--ink); font-size: 11.5px; margin-bottom: 2px; }
-        .education-entry .institution { color: var(--ink-soft); font-size: 10.5px; }
-        .education-entry .year { font-size: 9px; color: var(--muted); margin-top: 3px; letter-spacing: 0.5px; }
-
-        @media print {
-            body { background: white; }
-            .theme-toggle { display: none !important; }
-            .page {
-                margin: 0;
-                box-shadow: none;
-                page-break-after: always;
-                page-break-inside: avoid;
-            }
-            .page:last-child { page-break-after: avoid; }
-            * {
-                -webkit-print-color-adjust: exact !important;
-                print-color-adjust: exact !important;
-            }
-        }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Victor Rivas · CV</title>
+<meta name="description" content="Unreal Engine developer. Gameplay systems, editor tooling and C++.">
+<style>
+  :root{--bg:#fbfbfa;--panel:#fff;--line:#e4e2dd;--tx:#1a1a18;--tx2:#5c5a55;--tx3:#8a8781;--tag:#f1efea}
+  html[data-theme="dark"]{--bg:#0f0f0e;--panel:#161615;--line:#2a2a28;--tx:#eceae6;--tx2:#a3a09a;--tx3:#6e6b66;--tag:#1f1f1d}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--tx);font:15.5px/1.62 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px}
+  nav{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;gap:20px;height:54px}
+  nav a{text-decoration:none;color:var(--tx2);font-size:14px}
+  nav a:hover{color:var(--tx)}
+  nav .nm{font-weight:600;color:var(--tx);margin-right:auto;font-size:15px}
+  #theme{background:none;border:1px solid var(--line);color:var(--tx2);border-radius:6px;padding:4px 9px;font-size:12px;cursor:pointer;font-family:inherit}
+  header{padding:54px 0 6px}
+  h1{margin:0 0 4px;font-size:28px;letter-spacing:-.5px;font-weight:650}
+  .role{margin:0 0 8px;color:var(--tx2);font-size:15.5px}
+  .meta{color:var(--tx3);font-size:13.5px;margin:0}
+  .links{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px}
+  .links a{text-decoration:none;font-size:13px;padding:5px 11px;border:1px solid var(--line);border-radius:7px;color:var(--tx2);background:var(--panel)}
+  .links a:hover{color:var(--tx);border-color:var(--tx3)}
+  h2{font-size:11.5px;letter-spacing:1.3px;text-transform:uppercase;color:var(--tx3);font-weight:600;margin:44px 0 14px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+  .lead{margin:24px 0 0;font-size:15.5px;color:var(--tx)}
+  .item{padding:15px 0;border-bottom:1px solid var(--line)}
+  .item:last-child{border-bottom:none}
+  .ih{display:flex;justify-content:space-between;align-items:baseline;gap:14px;flex-wrap:wrap}
+  .ih h3{margin:0;font-size:16px;font-weight:600}
+  .when{color:var(--tx3);font-size:13px;white-space:nowrap}
+  .org{color:var(--tx2);font-size:13.5px;margin:2px 0 7px}
+  .item ul{margin:5px 0 0;padding-left:17px;color:var(--tx2);font-size:14.5px}
+  .item li{margin-bottom:4px}
+  .item p{margin:0;color:var(--tx2);font-size:14.5px}
+  .tags{margin-top:8px;display:flex;flex-wrap:wrap;gap:5px}
+  .tags span{font-size:11px;padding:2px 8px;border-radius:5px;background:var(--tag);color:var(--tx3);font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+  dl{display:grid;grid-template-columns:145px 1fr;gap:9px 18px;font-size:14.5px;margin:0}
+  dt{color:var(--tx3);font-size:13px}
+  dd{margin:0;color:var(--tx2)}
+  footer{margin:50px 0 60px;padding-top:20px;border-top:1px solid var(--line);color:var(--tx3);font-size:13px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+  @media(max-width:620px){dl{grid-template-columns:1fr;gap:2px 0}dd{margin-bottom:9px}}
+  @media print{nav,#theme{display:none}body{background:#fff;color:#000;font-size:11pt}.wrap{max-width:none;padding:0}}
+</style>
 </head>
 <body>
-    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Cambiar tema claro/oscuro">
-        <span id="themeIcon">&#9789;</span><span id="themeLabel">Modo oscuro</span>
-    </button>
-
-    <!-- PAGE 1 -->
-    <div class="page">
-        <aside class="sidebar">
-            <div class="profile-section">
-                <img src="photo_2026.png" alt="Victor Rivas" class="profile-img">
-                <h1>Victor Rivas</h1>
-                <div class="title">Unreal Engine Developer</div>
-            </div>
-
-            <div class="contact-section">
-                <div class="contact-item">
-                    <span class="label">Email</span>
-                    <a href="mailto:vic.rivasperez@gmail.com">vic.rivasperez@gmail.com</a>
-                </div>
-                <div class="contact-item">
-                    <span class="label">Phone</span>
-                    <span>+34 722 34 92 47</span>
-                </div>
-                <div class="contact-item">
-                    <span class="label">Location</span>
-                    <span>Las Palmas, Spain</span>
-                    <span style="display:block;font-size:9px;color:var(--success);margin-top:2px;font-weight:600;">Open to Remote &amp; Relocation</span>
-                </div>
-                <div class="contact-item">
-                    <span class="label">Portfolio</span>
-                    <a href="https://vicvasper.github.io/README/">vicvasper.github.io/README</a>
-                </div>
-                <div class="contact-item">
-                    <span class="label">GitHub</span>
-                    <a href="https://github.com/vicvasper">github.com/vicvasper</a>
-                </div>
-                <div class="contact-item">
-                    <span class="label">LinkedIn</span>
-                    <a href="https://www.linkedin.com/in/victorrivasperez/">linkedin.com/in/victorrivasperez</a>
-                </div>
-            </div>
-
-            <div class="side-section">
-                <span class="section-title">Tech Stack</span>
-
-                <div class="skill-category">
-                    <span class="category-name">Core Engine</span>
-                    <div class="tags">
-                        <span class="tag">C++</span>
-                        <span class="tag">Blueprints</span>
-                        <span class="tag">UE5.x</span>
-                        <span class="tag">UE4</span>
-                        <span class="tag">Live Link</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <span class="category-name">Systems &amp; Architecture</span>
-                    <div class="tags">
-                        <span class="tag">Gameplay Systems</span>
-                        <span class="tag">Multiplayer / Replication</span>
-                        <span class="tag">VR (Meta Quest 3)</span>
-                        <span class="tag">Procedural Generation</span>
-                        <span class="tag">Physics Simulation</span>
-                        <span class="tag">AI / ML Integration</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <span class="category-name">Editor &amp; Tooling</span>
-                    <div class="tags">
-                        <span class="tag">Editor Plugins</span>
-                        <span class="tag">Slate UI</span>
-                        <span class="tag">Profiling &amp; Optimization</span>
-                        <span class="tag">Mocap Pipelines</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <span class="category-name">Mobile Development</span>
-                    <div class="tags">
-                        <span class="tag">iOS (UE5)</span>
-                        <span class="tag">Android (UE5)</span>
-                        <span class="tag">Xcode</span>
-                        <span class="tag">Android Studio</span>
-                        <span class="tag">Mobile Optimization</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <span class="category-name">Pipeline &amp; DevOps</span>
-                    <div class="tags">
-                        <span class="tag">Git</span>
-                        <span class="tag">GitHub Actions / CI</span>
-                        <span class="tag">Visual Studio</span>
-                        <span class="tag">RenderDoc</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <span class="category-name">Additional</span>
-                    <div class="tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">C#</span>
-                        <span class="tag">NNE / DirectML</span>
-                        <span class="tag">MediaPipe</span>
-                        <span class="tag">Blender</span>
-                        <span class="tag">Maya</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="highlight-box">
-                <span class="label">Recognition</span>
-                <span class="text">PlayStation Talents Finalist, Best Narrative (Azra, 2021). VR project for Tourism of Gran Canaria featured in official press.</span>
-            </div>
-
-        </aside>
-
-        <main class="main">
-            <div class="summary-box">
-                <p><strong>Unreal Engine Developer</strong> working in games <strong>since 2019</strong>, with <strong>6+ years</strong> building gameplay systems, editor tooling, and technical pipelines in <strong>C++</strong> and Blueprints. Specialized in <strong>editor plugins</strong> (Slate UI), real-time <strong>motion capture</strong> integration (Live Link, NNE), <strong>VR development</strong> (Meta Quest, hand-tracking), <strong>multiplayer replication</strong>, <strong>iOS/Android publishing</strong> from UE5, and <strong>performance optimization</strong> for PC, console, and mobile targets.</p>
-                <p>Shipped a <strong>VR product for a government tourism board</strong>, led engineering at my own studio with a title on <strong>Steam</strong>, and delivered a <strong>PlayStation Talents</strong> finalist. I build the tools and systems that let teams iterate faster.</p>
-            </div>
-
-            <div class="content-section">
-                <div class="section-header">
-                    <h2>Professional Experience</h2>
-                    <div class="line"></div>
-                </div>
-
-                <div class="experience-entry">
-                    <div class="entry-header">
-                        <span class="role">Founder &amp; Lead Programmer</span>
-                        <span class="duration">2022 — Present</span>
-                    </div>
-                    <div class="company"><a href="https://theboltagestudio.com" target="_blank" class="company-link">The Boltage Studio</a> — Remote</div>
-                    <div class="entry-description">
-                        <ul>
-                            <li><strong>Amper (in production):</strong> Leading all gameplay programming for indie title featured in DeVuego; architecting core systems, content pipelines, and build automation.</li>
-                            <li><strong>Noah and the Cosmic Cleanup:</strong> Gameplay and tooling lead for character systems. Title listed on <a href="https://store.steampowered.com/app/3952590/Noah__The_Cosmic_Cleanup/" target="_blank" class="project-link">Steam</a>.</li>
-                            <li><strong>Team leadership:</strong> Established CI/CD via GitHub Actions, code review processes, and sprint-based delivery for a distributed team.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="experience-entry">
-                    <div class="entry-header">
-                        <span class="role">Unreal Engine Developer</span>
-                        <span class="duration">Mar 2025 — Dec 2025</span>
-                    </div>
-                    <div class="company"><a href="https://salascala.com" target="_blank" class="company-link">Salascala</a> / <a href="https://thewisedreams.com" target="_blank" class="company-link">TheWiseDreams</a> — Gran Canaria (Hybrid)</div>
-                    <div class="entry-description">
-                        <ul>
-                            <li><strong>GastroGranca (VR, shipped):</strong> Developed 4 VR cooking games for Meta Quest with full hand-tracking interaction. Project commissioned by Tourism of Gran Canaria and <a href="https://www.grancanaria.com/turismo/area-profesional/noticias/noticia/?tx_ttnews%5Btt_news%5D=5472" target="_blank" class="project-link">featured in official press</a>. Focused on modularity and performance for immersive VR.</li>
-                            <li><strong>Mocap pipeline (C++):</strong> Built end-to-end capture and retarget integration using Quest 3 and webcam inputs via Live Link. Integrated NNE with DirectML GPU backend for runtime AI pose inference.</li>
-                            <li><strong>Multiplayer:</strong> Implemented client-server replication flows for character interactions, synced physics, and networked animation state.</li>
-                            <li><strong>Editor tooling:</strong> Delivered Slate-based utilities that removed manual steps for animation and QA workflows.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="experience-entry">
-                    <div class="entry-header">
-                        <span class="role">Gameplay Programmer</span>
-                        <span class="duration">2024</span>
-                    </div>
-                    <div class="company"><a href="https://selenegames.com" target="_blank" class="company-link">Selene Games</a> — Madrid (Remote)</div>
-                    <div class="entry-description">
-                        <ul>
-                            <li><strong>Vehicle system:</strong> Developed spline-based driving with tunable acceleration, braking curves, and realistic drift physics.</li>
-                            <li><strong>Streaming &amp; stability:</strong> Improved level streaming performance and resolved build-stability issues.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="experience-entry">
-                    <div class="entry-header">
-                        <span class="role">Lead Programmer</span>
-                        <span class="duration">2021 — 2022</span>
-                    </div>
-                    <div class="company"><a href="https://teampanda.com" target="_blank" class="company-link">Team Panda</a> — Azra</div>
-                    <div class="entry-description">
-                        <ul>
-                            <li><strong>Azra:</strong> Architected controller input, combat, and character systems for the UE4 build; project nominated <strong>PlayStation Talents 2021 Best Narrative</strong>.</li>
-                            <li><strong>Console optimization:</strong> Profiling and performance passes targeting PS4, reducing draw calls and memory footprint.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="content-section">
-                <div class="section-header">
-                    <h2>Featured Projects &amp; Open Source</h2>
-                    <div class="line"></div>
-                </div>
-                <div class="project-grid">
-                    <div class="project-card">
-                        <h3>Kinemotion Mocap <span class="tech-badge">C++ / NNE / Live Link</span></h3>
-                        <p>Real-time monocular mocap plugin for UE5.3+. Runs AI pose inference via NNE (DirectML GPU), decodes 133 keypoints into a 19-bone skeleton, streams through a custom Live Link source with auto-calibration, anti-jitter filtering, and multiplayer support. <a href="https://github.com/vicvasper/Kinemotion_UE5.5-" target="_blank" class="project-link">GitHub</a></p>
-                    </div>
-                </div>
-            </div>
-        </main>
-    </div>
-
-    <!-- PAGE 2 -->
-    <div class="page">
-        <aside class="sidebar-page2">
-            <div class="side-section">
-                <span class="section-title">Languages</span>
-                <div class="contact-item">
-                    <span class="label">Spanish</span>
-                    Native
-                </div>
-                <div class="contact-item">
-                    <span class="label">Galician</span>
-                    CELGA IV (Fluent)
-                </div>
-                <div class="contact-item">
-                    <span class="label">English</span>
-                    B2 (Professional Working Proficiency)
-                </div>
-            </div>
-
-            <div class="side-section" style="margin-top:20px;">
-                <span class="section-title">Key Strengths</span>
-                <div class="tags" style="gap:5px;">
-                    <span class="tag">Engine Source Reading</span>
-                    <span class="tag">Console Shipping (PS4)</span>
-                    <span class="tag">VR Development</span>
-                    <span class="tag">iOS / Android Development</span>
-                    <span class="tag">Team Leadership</span>
-                    <span class="tag">Cross-Discipline</span>
-                    <span class="tag">Agile / Scrum</span>
-                </div>
-            </div>
-
-            <div class="highlight-box" style="margin-top:18px;">
-                <span class="label">Studio</span>
-                <span class="text">Founder, The Boltage Studio. Title on Steam (Noah and the Cosmic Cleanup). Amper in DeVuego.</span>
-            </div>
-
-            <div class="highlight-box" style="margin-top:10px;">
-                <span class="label">Current R&amp;D</span>
-                <span class="text">Building FinePOSE-based real-time 3D pose estimation pipeline (PyTorch + MediaPipe + RTMPose + CLIP) with UE5 socket integration for next-gen motion capture.</span>
-            </div>
-        </aside>
-
-        <main class="main">
-            <div class="content-section">
-                <div class="section-header">
-                    <h2>More Projects</h2>
-                    <div class="line"></div>
-                </div>
-                <div class="project-grid">
-                    <div class="project-card">
-                        <h3>Optilogger Plugin <span class="tech-badge">C++ / Slate / Profiling</span></h3>
-                        <p>Editor profiling plugin (1,100+ lines analysis, 865 lines Slate UI) scanning meshes, textures, materials, animations, audio, lighting, and post-process. Memory estimation, shader instruction counting, frustum culling, and JSON export. 6 stars. <a href="https://github.com/vicvasper/Optilogger_UE5.x" target="_blank" class="project-link">GitHub</a></p>
-                    </div>
-
-                    <div class="project-card">
-                        <h3>SmartFolders Plugin <span class="tech-badge">Python / C++ / Editor</span></h3>
-                        <p>Rule-driven asset organizer for Content Browser. Dual modes (type-based + intelligent name-grouping), Epic-recommended presets, full undo, batch operations. Reduces manual organization by ~70%. 4 stars. <a href="https://github.com/vicvasper/SmartFoldersPlugin_UE5.6" target="_blank" class="project-link">GitHub</a></p>
-                    </div>
-
-                    <div class="project-card">
-                        <h3>Paint System <span class="tech-badge">C++ / Render Target / Materials</span></h3>
-                        <p>Runtime vertex-color painting for Static and Skeletal Meshes. Per-channel RGBA, configurable fade, GPU-batched updates, and Blueprint API. 5 stars. <a href="https://github.com/vicvasper/Paint-System-5.4" target="_blank" class="project-link">GitHub</a></p>
-                    </div>
-
-                    <div class="project-card">
-                        <h3>Procedural Animated System <span class="tech-badge">C++ / Spline / PCG</span></h3>
-                        <p>Environment-aware procedural generator. Line-traces terrain to spawn spline bridges, zigzag wall ladders, or stepped ramps based on surface normals. Animation-ready with runtime spawning. <a href="https://github.com/vicvasper/Procedural-Animated-System_UE5.5" target="_blank" class="project-link">GitHub</a></p>
-                    </div>
-
-                    <div class="project-card">
-                        <h3>Time Control Mechanic <span class="tech-badge">C++ / Physics / Gameplay</span></h3>
-                        <p>Per-object time manipulation: fast-forward, rewind, and freeze. Captures and restores full physics state per actor for granular temporal control. <a href="https://github.com/vicvasper/TIme-Control-Mechanic_UE5.5" target="_blank" class="project-link">GitHub</a></p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="content-section">
-                <div class="section-header">
-                    <h2>Education &amp; Training</h2>
-                    <div class="line"></div>
-                </div>
-
-                <div class="education-entry">
-                    <div class="degree">Technical Artist Course — Real-Time VFX</div>
-                    <div class="institution">Voxel School — Madrid</div>
-                    <div class="year">Mar 2026 — Present</div>
-                </div>
-
-                <div class="education-entry">
-                    <div class="degree">Game Development Course, Unreal Engine 5 (C++ &amp; Blueprints)</div>
-                    <div class="institution">EOI — Escuela de Organización Industrial</div>
-                    <div class="year">Sep — Oct 2023</div>
-                </div>
-
-                <div class="education-entry">
-                    <div class="degree">Master in Digital Animation &amp; VFX</div>
-                    <div class="institution">Voxel School — Madrid</div>
-                    <div class="year">Oct 2021 — Jul 2022</div>
-                </div>
-
-                <div class="education-entry">
-                    <div class="degree">Advanced Vocational Degree: 3D Animation, Games &amp; Interactive Environments</div>
-                    <div class="institution">EISV — Escuela de Imagen y Sonido de Vigo</div>
-                    <div class="year">Sep 2019 — Jul 2021</div>
-                </div>
-            </div>
-        </main>
-    </div>
-
-    <script>
-        (function () {
-            var root = document.documentElement;
-            var btn = document.getElementById('themeToggle');
-            var icon = document.getElementById('themeIcon');
-            var label = document.getElementById('themeLabel');
-            function sync() {
-                var dark = root.getAttribute('data-theme') === 'dark';
-                icon.innerHTML = dark ? '&#9728;' : '&#9789;';
-                label.textContent = dark ? 'Modo claro' : 'Modo oscuro';
-            }
-            btn.addEventListener('click', function () {
-                var dark = root.getAttribute('data-theme') === 'dark';
-                var next = dark ? 'light' : 'dark';
-                root.setAttribute('data-theme', next);
-                try { localStorage.setItem('cv-theme', next); } catch (e) {}
-                sync();
-            });
-            sync();
-        })();
-    </script>
+<nav><div class="wrap">
+  <span class="nm">Victor Rivas</span>
+  <a href="index.html">Portfolio</a>
+  <a href="CV_ES.html">Español</a>
+  <button id="theme" type="button">Dark</button>
+</div></nav>
+<div class="wrap">
+<header>
+  <h1>Victor Rivas</h1>
+  <p class="role">Unreal Engine Developer — gameplay systems, editor tooling and C++</p>
+  <p class="meta">Las Palmas, Spain · Open to remote and relocation · +34 722 34 92 47</p>
+  <div class="links">
+    <a href="mailto:vic.rivasperez@gmail.com">vic.rivasperez@gmail.com</a>
+    <a href="https://github.com/vicvasper">GitHub</a>
+    <a href="https://linkedin.com/in/victorrivasperez">LinkedIn</a>
+    <a href="https://vicvasper.github.io/README/">Portfolio</a>
+  </div>
+  <p class="lead">Six years building games in Unreal, mostly on the systems side. I shipped four VR titles for Meta Quest commissioned by the Gran Canaria Tourism Board, took a PS4 build through platform certification as lead programmer on a PlayStation Talents finalist, and run my own studio with a title heading to Steam.</p>
+</header>
+<h2>Experience</h2>
+<div class="item">
+  <div class="ih"><h3>Founder and Lead Programmer</h3><span class="when">2022 — present</span></div>
+  <p class="org">The Boltage Studio · Remote</p>
+  <ul><li>Lead all gameplay programming on <em>Amper</em>, an indie title featured in DeVuego. Replaced manual level setup with a data-driven content pipeline so designers can build without waiting on code.</li><li>Gameplay and tooling lead on <em>Noah and the Cosmic Cleanup</em>, listed on Steam with a playable demo due in October 2026. Own the modular character framework the whole cast is built on.</li><li>Set up CI/CD on GitHub Actions, code review and two-week sprints for a distributed team, and scripted the build automation for PC and mobile.</li></ul>
+</div>
+<div class="item">
+  <div class="ih"><h3>Unreal Engine Developer</h3><span class="when">Mar — Dec 2025</span></div>
+  <p class="org">Salascala / TheWiseDreams · Gran Canaria, hybrid</p>
+  <ul><li>Shipped <em>GastroGranca</em>, four VR cooking games for Meta Quest commissioned by the Gran Canaria Tourism Board. All four delivered on schedule and covered in the regional press.</li><li>Held the target framerate on Quest standalone hardware by rebuilding the interaction systems around hand-tracking-native components and gating merges on frame-budget checks.</li><li>Built the markerless mocap pipeline in C++ end to end, taking Quest 3 and webcam input through a custom Live Link source with GPU inference.</li><li>Implemented client-server replication for character interaction, physics state and networked animation.</li><li>Delivered Slate editor utilities that cut manual steps out of the animation and QA cycle.</li></ul>
+</div>
+<div class="item">
+  <div class="ih"><h3>Gameplay Programmer</h3><span class="when">2024</span></div>
+  <p class="org">Selene Games · Remote, contract</p>
+  <ul><li>Built a spline-based vehicle system with tunable acceleration, braking curves and drift physics, exposing the parameters so designers could tune the handling themselves.</li><li>Fixed reproducible build-stability failures and removed level-streaming hitches through targeted profiling.</li></ul>
+</div>
+<div class="item">
+  <div class="ih"><h3>Lead Programmer</h3><span class="when">2021 — 2022</span></div>
+  <p class="org">Team Panda · <em>Azra</em></p>
+  <ul><li>Architected the controller input, combat and character systems in UE4. The game was nominated for Best Narrative at PlayStation Talents 2021.</li><li>Brought the PS4 build inside platform memory and performance certification budgets by cutting draw calls and memory footprint.</li></ul>
+</div>
+<h2>Plugins and systems</h2>
+<div class="item">
+  <div class="ih"><h3><a href="https://github.com/vicvasper/Kinemotion_UE5.5">Kinemotion</a></h3><span class="when">UE 5.5+</span></div>
+  <p>Markerless motion capture. GPU pose inference through NNE, 133 keypoints decoded into a 19-bone skeleton, streamed over a custom Live Link source with auto-calibration and anti-jitter filtering.</p>
+  <div class="tags"><span>C++</span><span>NNE / DirectML</span><span>Live Link</span></div>
+</div>
+<div class="item">
+  <div class="ih"><h3><a href="https://github.com/vicvasper/Optilogger_UE5.x">Optilogger</a></h3><span class="when">UE 5.3+</span></div>
+  <p>Editor plugin that audits a whole level in one pass. Memory estimation, shader instruction counts, frustum culling and JSON export.</p>
+  <div class="tags"><span>C++</span><span>Slate</span><span>Profiling</span></div>
+</div>
+<div class="item">
+  <div class="ih"><h3><a href="https://github.com/vicvasper/SmartFoldersPlugin_UE5.6">SmartFolders</a></h3><span class="when">UE 5.6</span></div>
+  <p>Rule-driven Content Browser organizer. Type-based and name-grouping modes, batch operations, full undo.</p>
+  <div class="tags"><span>C++</span><span>Python</span><span>Editor</span></div>
+</div>
+<div class="item">
+  <div class="ih"><h3><a href="https://github.com/vicvasper/Paint-System-5.4">Paint System</a></h3><span class="when">UE 5.4</span></div>
+  <p>Runtime vertex-colour painting for static and skeletal meshes, per-channel RGBA, GPU-batched updates, Blueprint API.</p>
+  <div class="tags"><span>C++</span><span>Render targets</span></div>
+</div>
+<div class="item">
+  <div class="ih"><h3><a href="https://github.com/vicvasper/Procedural-Animated-System_UE5.5">Procedural Animated System</a></h3><span class="when">UE 5.5</span></div>
+  <p>Terrain-aware generator that spawns spline bridges, wall ladders and stepped ramps from surface normals.</p>
+  <div class="tags"><span>C++</span><span>Splines</span><span>PCG</span></div>
+</div>
+<div class="item">
+  <div class="ih"><h3><a href="https://github.com/vicvasper/Grass-Generator-V2-UE5.3">Grass Generator</a></h3><span class="when">UE 5.3</span></div>
+  <p>Landscape tool for filling and painting grass layers across large terrains.</p>
+  <div class="tags"><span>C++</span><span>Landscape</span></div>
+</div>
+<h2>Skills</h2><dl><dt>Languages</dt><dd>C++, Blueprints, Python, C#</dd><dt>Engine</dt><dd>Unreal Engine 5.x and UE4, Gameplay Framework, replication, UMG, Slate, editor plugins, Live Link, NNE / DirectML</dd><dt>Areas</dt><dd>Gameplay and character systems, editor tooling, multiplayer, VR and hand tracking, motion capture, procedural generation, physics</dd><dt>Platforms</dt><dd>PC, PlayStation 4, Meta Quest, iOS and Android from UE5</dd><dt>Performance</dt><dd>RenderDoc, CPU / GPU / memory profiling, draw-call reduction, level streaming, frame budgets</dd><dt>Workflow</dt><dd>Git, GitHub Actions, Visual Studio, Blender, Maya, code review, Agile</dd><dt>Languages spoken</dt><dd>Spanish (native), Galician, English (professional working proficiency)</dd></dl>
+<h2>Education</h2>
+<div class="item">
+  <div class="ih"><h3>Technical Artist Programme, Real-Time VFX</h3><span class="when">2026 — present</span></div>
+  <p class="org">Voxel School, Madrid</p>
+</div>
+<div class="item">
+  <div class="ih"><h3>Master in Digital Animation and VFX</h3><span class="when">2021 — 2022</span></div>
+  <p class="org">Voxel School, Madrid</p>
+</div>
+<div class="item">
+  <div class="ih"><h3>Advanced Vocational Degree, 3D Animation, Games and Interactive Environments</h3><span class="when">2019 — 2021</span></div>
+  <p class="org">EISV, Vigo</p>
+</div>
+<div class="item">
+  <div class="ih"><h3>Game Development with Unreal Engine 5</h3><span class="when">2023</span></div>
+  <p class="org">EOI, Madrid</p>
+</div>
+<footer><span>Victor Rivas · Las Palmas, Spain</span><span>+34 722 34 92 47</span></footer>
+</div>
+<script>var DK="Dark",LT="Light";(function(){var r=document.documentElement,b=document.getElementById('theme');
+function s(t){r.setAttribute('data-theme',t);b.textContent=t==='dark'?LT:DK}
+s(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+b.addEventListener('click',function(){s(r.getAttribute('data-theme')==='dark'?'light':'dark')})})();</script>
 </body>
 </html>
