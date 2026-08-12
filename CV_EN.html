@@ -17,6 +17,11 @@
   body{margin:0;background:var(--desk);color:var(--ink);font:10.4pt/1.45 var(--sans);
     -webkit-font-smoothing:antialiased;-webkit-print-color-adjust:exact;print-color-adjust:exact}
   a{color:inherit;text-decoration:none}
+  .ih h3 a{text-decoration:underline;text-decoration-thickness:.4pt;
+    text-underline-offset:2.2px;text-decoration-color:#bcb4a6}
+  .contact a:hover,.ih h3 a:hover{text-decoration-color:var(--ink)}
+  .repo{font-family:var(--mono);font-size:7.8pt;color:var(--ink3);margin-left:2mm;
+    font-weight:400;letter-spacing:0}
 
   /* the sheet */
   .sheet{width:210mm;min-height:297mm;margin:14mm auto;padding:12mm 14mm 10mm;
@@ -104,12 +109,12 @@
       <h1>Victor Rivas</h1>
       <p class="role"><b>Unreal Engine developer</b> · gameplay systems, editor tooling and C++</p>
       <div class="contact">
-        <span>vic.rivasperez@gmail.com</span>
-        <span>+34 722 34 92 47</span>
+        <span><a href="mailto:vic.rivasperez@gmail.com">vic.rivasperez@gmail.com</a></span>
+        <span><a href="tel:+34722349247">+34 722 34 92 47</a></span>
         <span>Las Palmas, Spain · remote & relocation</span>
-        <span>github.com/vicvasper</span>
-        <span>linkedin.com/in/victorrivasperez</span>
-        <span>vicvasper.github.io/README</span>
+        <span><a href="https://github.com/vicvasper">github.com/vicvasper</a></span>
+        <span><a href="https://linkedin.com/in/victorrivasperez">linkedin.com/in/victorrivasperez</a></span>
+        <span><a href="https://vicvasper.github.io/README/">vicvasper.github.io/README</a></span>
       </div>
     </div>
   </div>
@@ -139,27 +144,27 @@
   </div>
   <h2>Plugins and systems</h2>
   <div class="item">
-    <div class="ih"><h3>Kinemotion</h3><span class="when">UE 5.5+</span></div>
+    <div class="ih"><h3><a href="https://github.com/vicvasper/Kinemotion_UE5.5">Kinemotion</a><span class="repo">github.com/vicvasper/Kinemotion_UE5.5</span></h3><span class="when">UE 5.5+</span></div>
     <p>Markerless motion capture. Runs pose inference on the GPU through NNE, decodes 133 keypoints into a 19-bone skeleton and streams it into Unreal over a custom Live Link source.</p>
     <div class="tech">C++  ·  NNE / DirectML  ·  Live Link</div>
   </div>
   <div class="item">
-    <div class="ih"><h3>Optilogger</h3><span class="when">UE 5.3+</span></div>
+    <div class="ih"><h3><a href="https://github.com/vicvasper/Optilogger_UE5.x">Optilogger</a><span class="repo">github.com/vicvasper/Optilogger_UE5.x</span></h3><span class="when">UE 5.3+</span></div>
     <p>Editor plugin that audits a whole level in one pass: meshes, textures, materials, animations, audio, lighting and post-process. Memory estimation, shader instruction counts, frustum culling and JSON export.</p>
     <div class="tech">C++  ·  Slate  ·  Profiling</div>
   </div>
   <div class="item">
-    <div class="ih"><h3>SmartFolders</h3><span class="when">UE 5.6</span></div>
+    <div class="ih"><h3><a href="https://github.com/vicvasper/SmartFoldersPlugin_UE5.6">SmartFolders</a><span class="repo">github.com/vicvasper/SmartFoldersPlugin_UE5.6</span></h3><span class="when">UE 5.6</span></div>
     <p>Rule-driven Content Browser organizer. Type-based and name-grouping modes, Epic-recommended presets, batch operations and full undo.</p>
     <div class="tech">C++  ·  Python  ·  Editor</div>
   </div>
   <div class="item">
-    <div class="ih"><h3>Paint System</h3><span class="when">UE 5.4</span></div>
+    <div class="ih"><h3><a href="https://github.com/vicvasper/Paint-System-5.4">Paint System</a><span class="repo">github.com/vicvasper/Paint-System-5.4</span></h3><span class="when">UE 5.4</span></div>
     <p>Runtime vertex-colour painting for static and skeletal meshes, per-channel RGBA, configurable fade, GPU-batched updates and a Blueprint API.</p>
     <div class="tech">C++  ·  Render targets  ·  Materials</div>
   </div>
   <div class="item">
-    <div class="ih"><h3>Procedural Animated System</h3><span class="when">UE 5.5</span></div>
+    <div class="ih"><h3><a href="https://github.com/vicvasper/Procedural-Animated-System_UE5.5">Procedural Animated System</a><span class="repo">github.com/vicvasper/Procedural-Animated-System_UE5.5</span></h3><span class="when">UE 5.5</span></div>
     <p>Terrain-aware generator that line-traces the ground and spawns spline bridges, wall ladders or stepped ramps from the surface normals. Animation-ready, spawns at runtime.</p>
     <div class="tech">C++  ·  Splines  ·  PCG</div>
   </div>
