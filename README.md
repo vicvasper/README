@@ -9,7 +9,7 @@ Las Palmas, Spain. EU citizen, available worldwide as a remote employee through 
 
 Six years building games in Unreal, mostly on the systems side. Gameplay and character code, multiplayer replication, and the editor tools that sit underneath a production.
 
-I shipped a hand-tracking VR game for Meta Quest 3 commissioned by the Gran Canaria Tourism Board, took a PS4 build through platform certification as lead programmer on a PlayStation Talents finalist, and run my own studio with a title heading to Steam.
+I shipped a hand-tracking VR game for Meta Quest 3 commissioned by the Gran Canaria Tourism Board, worked as lead programmer on the Unreal Engine 5 build of a PlayStation Talents finalist, and run my own studio with a title heading to Steam.
 
 Most of my tooling ends up here as a plugin. If a job has to be done twice by hand I usually end up writing the tool for it.
 
@@ -27,7 +27,7 @@ Most of my tooling ends up here as a plugin. If a job has to be done twice by ha
 ## Where I have worked
 
 **The Boltage Studio**, founder and lead programmer, 2022 to now.
-*Amper* (featured in DeVuego) and *Noah and the Cosmic Cleanup* (Steam, demo in October 2026).
+*Amper* (featured in DeVuego) and *Noah and the Cosmic Cleanup* (Steam, demo in October 2026), which I test on handheld Linux hardware through SteamOS.
 
 **Salascala / TheWiseDreams**, Unreal developer, 2025.
 *GastroGranca*, a hand-tracking VR cooking game for Meta Quest 3 commissioned by the Gran Canaria Tourism Board, plus three further VR client projects under NDA.
@@ -36,8 +36,8 @@ Most of my tooling ends up here as a plugin. If a job has to be done twice by ha
 Spline-based vehicle systems and level streaming work.
 
 **Team Panda**, lead programmer, 2021 to 2022.
-*Azra*, nominated for Best Narrative at PlayStation Talents 2021. Shipped on PS4.
+*Azra*, Unreal Engine 5. Reached the PlayStation Talents 2021 final, nominated for Best Narrative.
 
 ## Stack
 
-C++ · Blueprints · Unreal Engine 5.x and UE4 · Slate and UMG · Live Link · NNE / DirectML · multiplayer replication · VR on Meta Quest · iOS and Android from UE5 · RenderDoc · Git and GitHub Actions · Python
+C++ · Blueprints · Unreal Engine 5.x and UE4 · Slate and UMG · Live Link · NNE / DirectML · multiplayer replication · VR on Meta Quest · iOS and Android from UE5 · handheld Linux and SteamOS · RenderDoc · Git and GitHub Actions · Python
