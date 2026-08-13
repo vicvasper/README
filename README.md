@@ -1,7 +1,7 @@
 # Victor Rivas
 
 Unreal Engine developer. Gameplay systems, editor tooling and C++.
-Las Palmas, Spain. Open to remote and relocation.
+Las Palmas, Spain. EU citizen, available worldwide as a remote employee through an Employer of Record. No visa sponsorship needed.
 
 [Portfolio](https://vicvasper.github.io/README/) · [LinkedIn](https://linkedin.com/in/victorrivasperez) · vic.rivasperez@gmail.com
 
