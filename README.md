@@ -17,7 +17,6 @@ Most of my tooling ends up here as a plugin. If a job has to be done twice by ha
 
 | | | |
 |---|---|---|
-| [OmegaTeller](https://github.com/vicvasper/Omegateller_UE5.8) (experimental) | UE 5.8 | Narrative design tool. Parses a GDD into per-character branching story trees edited as a node graph, with a bundled local LLM keeping merges and splits narratively coherent. |
 | [Kinemotion](https://github.com/vicvasper/Kinemotion_UE5.5) | UE 5.5+ | Markerless motion capture. GPU pose inference through NNE, 133 keypoints decoded into a 19-bone skeleton, streamed over a custom Live Link source. |
 | [Optilogger](https://github.com/vicvasper/Optilogger_UE5.x) | UE 5.3+ | Level resource audit in a single pass. Memory estimation, shader instruction counts, frustum culling and JSON export, all in a Slate window. |
 | [SmartFolders](https://github.com/vicvasper/SmartFoldersPlugin_UE5.6) | UE 5.6 | Rule-driven Content Browser organizer. Type-based and name-grouping modes, batch operations, full undo. |
@@ -28,17 +27,17 @@ Most of my tooling ends up here as a plugin. If a job has to be done twice by ha
 ## Where I have worked
 
 **The Boltage Studio**, founder and lead programmer, 2022 to now.
-*Amper* (featured in DeVuego) and *Noah and the Cosmic Cleanup* (Steam, demo in October 2026), which I test on handheld Linux hardware through SteamOS.
+An indie studio of 8 to 10 people. *Noah and the Cosmic Cleanup* (Steam, demo in October 2026), which I test on handheld Linux hardware through SteamOS, and *Amper*, featured in DeVuego.
 
 **Salascala / TheWiseDreams**, Unreal developer, 2025.
 *GastroGranca*, a hand-tracking VR cooking game for Meta Quest 3 commissioned by the Gran Canaria Tourism Board, plus three further VR client projects under NDA.
 
 **Selene Games**, gameplay programmer, 2024.
-Spline-based vehicle systems and level streaming work.
+*Fatal: Unleashed Darkness*. Spline-based vehicle systems and level streaming work.
 
-**Team Panda**, lead programmer, 2021 to 2022.
+**Team Panda**, lead programmer, 2021.
 *Azra*, Unreal Engine 5. Reached the PlayStation Talents 2021 final, nominated for Best Narrative.
 
 ## Stack
 
-C++ · Blueprints · Unreal Engine 5.x and UE4 · Slate and UMG · Live Link · NNE / DirectML · multiplayer replication · VR on Meta Quest · iOS and Android from UE5 · handheld Linux and SteamOS · RenderDoc · Git and GitHub Actions · Python
+C++ · Blueprints · Unreal Engine 5.x and UE4 · Slate and UMG · Live Link · NNE / DirectML · multiplayer replication · VR on Meta Quest · iOS and Android from UE5 · handheld Linux and SteamOS · Unreal Insights · Git and GitHub Actions · Python
