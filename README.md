@@ -17,6 +17,7 @@ Most of my tooling ends up here as a plugin. If a job has to be done twice by ha
 
 | | | |
 |---|---|---|
+| [OmegaTeller](https://github.com/vicvasper/Omegateller_UE5.8) (experimental) | UE 5.8 | Narrative design tool. Parses a GDD into per-character branching story trees edited as a node graph, with a bundled local LLM keeping merges and splits narratively coherent. |
 | [Kinemotion](https://github.com/vicvasper/Kinemotion_UE5.5) | UE 5.5+ | Markerless motion capture. GPU pose inference through NNE, 133 keypoints decoded into a 19-bone skeleton, streamed over a custom Live Link source. |
 | [Optilogger](https://github.com/vicvasper/Optilogger_UE5.x) | UE 5.3+ | Level resource audit in a single pass. Memory estimation, shader instruction counts, frustum culling and JSON export, all in a Slate window. |
 | [SmartFolders](https://github.com/vicvasper/SmartFoldersPlugin_UE5.6) | UE 5.6 | Rule-driven Content Browser organizer. Type-based and name-grouping modes, batch operations, full undo. |
